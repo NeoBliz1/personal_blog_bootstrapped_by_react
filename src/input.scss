@@ -1,0 +1,34 @@
+$body-bg: whitesmoke;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+$font-stack: 14px "Century Gothic", Futura, sans-serif;
+
+body {
+  font: $font-stack;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.header {
+  height: 15vh;
+  overflow: hidden;  
+}
+.headerImg{
+  opacity: 0.65;
+  margin-top: -17vh;
+}
+.headerOverlay{
+  box-shadow: inset -20px -20px 40px 10px whitesmoke;
+}
+.cardContainer {
+  overflow: hidden; 
+}
+.cardImg {  
+  transition: transform .8s; /* Animation */    
+}
+.cardImg:hover {
+  transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
