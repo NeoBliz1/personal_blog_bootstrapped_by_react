@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './app/App';
+import store from './app/store'
+import { Provider } from 'react-redux'
 
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-/*setTimeout(() => */
-  // the show/hide functions are passed as props
-  ReactDOM.render(<React.StrictMode><App/></React.StrictMode>,
-    document.getElementById('root')
-  );
-/*, 100000);*/
 
 
 
