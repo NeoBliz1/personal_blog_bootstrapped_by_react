@@ -5,6 +5,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -11123,11 +11124,15 @@ textarea.form-control-lg {
   }
 }
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
+  font-family: 14px "Century Gothic", Futura, sans-serif;
 }
 
 ol, ul {
   padding-left: 30px;
+}
+
+.star-robot-font {
+  font-family: "Press Start 2P", cursive;
 }
 
 .header {
@@ -11144,6 +11149,10 @@ ol, ul {
   box-shadow: inset -20px -20px 40px 10px whitesmoke;
 }
 
+.cardPosts {
+  height: 50vh;
+}
+
 .cardContainer {
   overflow: hidden;
 }
@@ -11156,6 +11165,10 @@ ol, ul {
 .cardImg:hover {
   transform: scale(1.02);
   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.card-text {
+  color: #757575;
 }
 
 /*# sourceMappingURL=App.css.map */

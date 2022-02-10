@@ -17,7 +17,7 @@ export const slice = createSlice({
         getChildRoot.onanimationend = () => {
           removeSpinnerLoader();          
         };
-        console.log('if executed'); 
+        /*console.log('if executed');*/ 
       }
       /*console.log('function executed');*/
     },
