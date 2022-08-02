@@ -7464,6 +7464,14 @@ textarea.form-control-lg {
   font-size: 1rem !important;
 }
 
+.fs-7 {
+  font-size: 0.75rem !important;
+}
+
+.fs-8 {
+  font-size: 0.5rem !important;
+}
+
 .fst-italic {
   font-style: italic !important;
 }
@@ -11127,8 +11135,16 @@ body {
   font-family: 14px "Century Gothic", Futura, sans-serif;
 }
 
+p {
+  text-indent: 5%;
+}
+
 ol, ul {
   padding-left: 30px;
+}
+
+a {
+  color: #212529;
 }
 
 .star-robot-font {

@@ -1,31 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { removeSpinnerLoader } from '../app/fucnForApp.js'
 
+
+//use redux for track imgs rendered state
 export const slice = createSlice({
   name: 'imgsRenderedState',
   initialState: {
-    imgRenderedNum: 0,
+    imgsRendered: false,
+    spinnerIsShowing: true,
+    childRootIsShowing: false,
   },
   reducers: {
-    chckedImgRender: state => {
-      //get img collection from page
-      const imgArr = document.getElementsByTagName('img');
-      state.imgRenderedNum += 1;
-      if (imgArr.length == state.imgRenderedNum) {
-        const getChildRoot = document.querySelector('#childRoot');
-        getChildRoot.className += ' animate__animated animate__fadeIn fast';
-        getChildRoot.onanimationend = () => {
-          removeSpinnerLoader();          
-        };
-        /*console.log('if executed');*/ 
+    //togglers for states
+    imgsRenderedSetState: state => {
+      if (state.imgsRendered) {
+        state.imgsRendered = false;
       }
-      /*console.log('function executed');*/
+      else {
+        state.imgsRendered = true;
+      }
+    },
+    spinnerIsShowingSetState: state => {
+      if (state.spinnerIsShowing) {
+        state.spinnerIsShowing = false;
+      } 
+      else {
+        state.spinnerIsShowing = true;
+      }                 
+    },
+    childRootIsShowingSetState: state => {
+      if (state.childRootIsShowing) {
+        state.childRootIsShowing = false; 
+      } 
+      else {
+        state.childRootIsShowing = true; 
+      }           
     },
   }
 })
 
-export const selectImgState = state => state.imgsRenderedState.imgRenderedNum;
+export const selectImgsRendered = state => state.imgsRenderedState.imgsRendered;
+export const selectSpinnerIsShowing = state => state.imgsRenderedState.spinnerIsShowing;
+export const selectChildRootIsShowing = state => state.imgsRenderedState.childRootIsShowing;
 
-export const { chckedImgRender } = slice.actions;
+export const { imgsRenderedSetState,spinnerIsShowingSetState,childRootIsShowingSetState } = slice.actions;
 
 export default slice.reducer;
