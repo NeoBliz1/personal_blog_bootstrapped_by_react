@@ -1,5 +1,5 @@
 {
-  "name": "personal_blog_on_react",
+  "name": "personal-blog-on-react",
   "homepage": "http://neoBliz1.github.io/personal_blog_on_react",
   "version": "0.1.0",
   "private": true,
@@ -45,5 +45,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
