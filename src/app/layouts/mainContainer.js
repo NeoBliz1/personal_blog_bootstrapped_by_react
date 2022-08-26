@@ -45,7 +45,7 @@ const WCPost = () => {
 
   return (
     <Link to="/blogPostAboutWebchat" className="text-dark text-decoration-none">
-      <Card className="cardContainer h-100">
+      <Card className="cardContainer">
         <div className="overflow-hidden">
           <Card.Img
             variant="top"

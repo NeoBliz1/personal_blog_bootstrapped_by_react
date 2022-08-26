@@ -22,7 +22,7 @@ const BlogApp = () => {
         dispatch(childRootIsShowingSetState());
       }}
       style={{ opacity: 0 }}
-      className={imgsRendered && "animate__animated animate__fadeIn fast"}
+      className={imgsRendered ? "animate__animated animate__fadeIn fast" : null}
     >
       <Router />
       {
