@@ -73,7 +73,7 @@ const WCPostFullArticle = () => {
   }, [scriptsLoaded, flaskAppCode]);
   return (
     <Row className="justify-content-center">
-      <Col className="text-justify" xs={12} sm={11} md={11} xxl={6}>
+      <Col xs={12} sm={11} md={11} xxl={6}>
         <h4 className={outletContextProps.h4}>
           Website chat with messages via telegram, easy peasy. My minds before
           I've started dive into.
