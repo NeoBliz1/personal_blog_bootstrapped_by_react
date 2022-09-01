@@ -1,4 +1,4 @@
-import "../css/App.css";
+import "../styles/App.css";
 
 import Router from "./routes";
 import { useSelector, useDispatch } from "react-redux";

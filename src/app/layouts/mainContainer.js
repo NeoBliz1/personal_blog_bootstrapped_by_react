@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Row, Col, Image, Card } from "react-bootstrap";
+import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 
 import { checkImgsRender, wordSplit, useCurrentWidth } from "../fucnForApp.js";
 import {
@@ -130,7 +130,52 @@ export const AllPosts = () => {
     </Row>
   );
 };
+const ShareBar = () => {
+  const twitLink =
+    "https://twitter.com/intent/tweet?hashtags=quotes&related=freeCodeCamp&text=";
+  const tumblrLink =
+    "https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=";
+  const tumblrShareSourceLink = "&canonicalUrl=" + window.location.href;
 
+  const [twitterShareLink, setTwitterShareLink] = useState(
+    twitLink +
+      encodeURIComponent(
+        wordSplit(useLocation().pathname) +
+          " by @Bliz174" +
+          window.location.href +
+          " #freeCodeCamp"
+      )
+  );
+  // const [tumblrShareLink, setTumblrShareLink] = useState(
+  //   tumblrLink +
+  //     encodeURIComponent(author) +
+  //     "&content=" +
+  //     encodeURIComponent(quotation) +
+  //     tumblrShareSourceLink
+  // );
+  return (
+    <div>
+      <Button
+        className="mr-2"
+        onClick={(e) => {
+          e.preventDefault();
+          window.open("https://neobliz1.github.io/", "_blank");
+        }}
+      >
+        <i className="fa-regular fa-user"></i>
+      </Button>
+      <Button
+        className="mr-2"
+        onClick={(e) => {
+          e.preventDefault();
+          window.open(twitterShareLink, "_blank");
+        }}
+      >
+        <i className="fa-brands fa-twitter"></i>
+      </Button>
+    </div>
+  );
+};
 //main container component
 export const MainContainer = () => {
   //imgs rendered handler
@@ -231,6 +276,7 @@ export const MainContainer = () => {
             </Link>
           </Col>
           <hr />
+          <ShareBar />
         </Row>
         <Container
           fluid

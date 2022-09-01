@@ -113,13 +113,39 @@ const RandomQuoteMachineFullArticle = () => {
         <div className={outletContextProps.p}>
           <p>
             This is the first simple application from the Front End Development
-            Libraries training course from freeCodeCamp. The application was
-            created using React, I used the Bootstrap framework to make it
-            easier to work with CSS, with the usual styles.css and inline styles
-            managed by React as plugin technologies. The cloud-based codesandbox
-            IDE was chosen as the development environment. The full source code
-            can be viewed on my Github, the project was deployed using npm
-            gh-pages from a local machine.
+            Libraries
+            <a
+              className={"mx-1 " + outletContextProps.p}
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects"
+            >
+              training course
+            </a>
+            from freeCodeCamp. The application was created using React, I used
+            the Bootstrap framework to make it easier to work with CSS, with the
+            usual styles.css and inline styles managed by React as plugin
+            technologies. The cloud-based
+            <a
+              className={"mx-1 " + outletContextProps.p}
+              target="_blank"
+              rel="noreferrer"
+              href="https://codesandbox.io/u/NeoBliz1"
+            >
+              codesandbox IDE
+            </a>
+            was chosen as the development environment. The full source code can
+            be viewed on
+            <a
+              className={"mx-1 " + outletContextProps.p}
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/NeoBliz1"
+            >
+              codesandbox IDE
+            </a>
+            my Github , the project was deployed using npm gh-pages from a local
+            machine.
           </p>
           <a
             className={"mx-1 " + outletContextProps.p}

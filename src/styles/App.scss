@@ -1,10 +1,20 @@
+@import "~bootstrap/scss/functions";
+//overrides variables
 $body-bg: whitesmoke;
 $font-size-base:1rem;
 $h7-font-size: $font-size-base * 0.75;
 $h8-font-size: $font-size-base * 0.5;
 
-@import '../../node_modules/bootstrap/scss/functions';
-@import '../../node_modules/bootstrap/scss/variables';
+$theme-colors: (
+        "info": tomato,
+        "danger": teal
+);
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/hover";
+@import "~bootstrap/scss/mixins";
+
+@import "~bootstrap/scss/bootstrap";
+
 
 $font-small-sizes: (
   7: $h7-font-size,
@@ -13,17 +23,11 @@ $font-small-sizes: (
 
 $font-sizes: map-merge($font-sizes, $font-small-sizes);
 
-@import '../../node_modules/bootstrap/scss/bootstrap';
-
-
-
 @debug $font-sizes;
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 //add fint sizes to font-sizes map
-
-
 
 $font-stack: 14px 'Century Gothic', Futura, sans-serif;
 $font-star: 'Press Start 2P', cursive;
