@@ -29,6 +29,7 @@ const BlogApp = () => {
       {
         //if imgsIsRendered false then showSpinnerLoader,
         //shows spinner while imgs are rendering
+        //spinner loader animation includes in component <SpinnerLoader /> in mainContainer
         spinnerIsShowing && <SpinnerLoader />
       }
     </div>

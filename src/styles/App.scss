@@ -1,26 +1,60 @@
-@import "~bootstrap/scss/functions";
+// scss-docs-start import-stack
+// Configuration
+@import '../../node_modules/bootstrap/scss/functions';
 //overrides variables
 $body-bg: whitesmoke;
-$font-size-base:1rem;
+$font-size-base: 1rem;
 $h7-font-size: $font-size-base * 0.75;
 $h8-font-size: $font-size-base * 0.5;
 
-$theme-colors: (
-        "info": tomato,
-        "danger": teal
-);
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins/hover";
-@import "~bootstrap/scss/mixins";
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/maps';
+@import '../../node_modules/bootstrap/scss/utilities';
+@import '../../node_modules/bootstrap/scss/utilities/api';
+@import '../../node_modules/bootstrap/scss/maps';
 
-@import "~bootstrap/scss/bootstrap";
+// Layout & components
+@import '../../node_modules/bootstrap/scss/root';
+@import '../../node_modules/bootstrap/scss/reboot';
+@import '../../node_modules/bootstrap/scss/type';
+@import '../../node_modules/bootstrap/scss/images';
+@import '../../node_modules/bootstrap/scss/containers';
+@import '../../node_modules/bootstrap/scss/grid';
+// @import '../../node_modules/bootstrap/scss/tables';
+// @import '../../node_modules/bootstrap/scss/forms';
+@import '../../node_modules/bootstrap/scss/buttons';
+// @import '../../node_modules/bootstrap/scss/transitions';
+// @import '../../node_modules/bootstrap/scss/dropdown';
+// @import '../../node_modules/bootstrap/scss/button-group';
+// @import '../../node_modules/bootstrap/scss/nav';
+// @import '../../node_modules/bootstrap/scss/navbar';
+@import '../../node_modules/bootstrap/scss/card';
+// @import '../../node_modules/bootstrap/scss/accordion';
+// @import '../../node_modules/bootstrap/scss/breadcrumb';
+// @import '../../node_modules/bootstrap/scss/pagination';
+// @import '../../node_modules/bootstrap/scss/badge';
+// @import '../../node_modules/bootstrap/scss/alert';
+// @import '../../node_modules/bootstrap/scss/progress';
+// @import '../../node_modules/bootstrap/scss/list-group';
+// @import '../../node_modules/bootstrap/scss/close';
+// @import '../../node_modules/bootstrap/scss/toasts';
+// @import '../../node_modules/bootstrap/scss/modal';
+// @import '../../node_modules/bootstrap/scss/tooltip';
+// @import '../../node_modules/bootstrap/scss/popover';
+// @import '../../node_modules/bootstrap/scss/carousel';
+@import '../../node_modules/bootstrap/scss/spinners';
+// @import '../../node_modules/bootstrap/scss/offcanvas';
+// @import '../../node_modules/bootstrap/scss/placeholders';
 
+// Helpers
+// @import '../../node_modules/bootstrap/scss/helpers';
 
 $font-small-sizes: (
   7: $h7-font-size,
-  8: $h8-font-size
+  8: $h8-font-size,
 );
-
+// @import '../../node_modules/bootstrap/scss/bootstrap';
 $font-sizes: map-merge($font-sizes, $font-small-sizes);
 
 @debug $font-sizes;
@@ -32,7 +66,6 @@ $font-sizes: map-merge($font-sizes, $font-small-sizes);
 $font-stack: 14px 'Century Gothic', Futura, sans-serif;
 $font-star: 'Press Start 2P', cursive;
 
-
 body {
   font-family: $font-stack;
 }
@@ -41,38 +74,41 @@ p {
   text-indent: 5%;
 }
 
-ol, ul {
+ol,
+ul {
   padding-left: 30px;
 }
 
 a {
-  color: $dark
+  color: $dark;
 }
 .star-robot-font {
   font-family: $font-star;
 }
 .header {
   height: 15vh;
-  overflow: hidden;  
+  overflow: hidden;
 }
-.headerImg{
+.headerImg {
   opacity: 0.65;
   margin-top: -17vh;
 }
-.headerOverlay{
+.headerOverlay {
   box-shadow: inset -20px -20px 40px 10px whitesmoke;
 }
 .cardPosts {
   height: 50vh;
 }
 .cardContainer {
-  overflow: hidden; 
+  overflow: hidden;
 }
-.cardImg {  
-  transition: transform .8s; /* Animation */    
+.cardImg {
+  transition: transform 0.8s; /* Animation */
 }
 .cardImg:hover {
-  transform: scale(1.02); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(
+    1.02
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 .card-text {
   color: #757575;
