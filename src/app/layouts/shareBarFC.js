@@ -1,3 +1,4 @@
+import React from 'react';
 import { wordSplit } from '../fucnForApp.js';
 import { useLocation } from 'react-router-dom';
 import { CgProfile } from 'react-icons/cg';
@@ -16,7 +17,7 @@ export const ShareBar = (props) => {
 		encodeURIComponent(
 			wordSplit(useLocation().pathname) +
 				' by @neobliz1 ' +
-				window.location.href
+				window.location.href,
 		);
 	// const [tumblrShareLink, setTumblrShareLink] = useState(
 	//   tumblrLink +
