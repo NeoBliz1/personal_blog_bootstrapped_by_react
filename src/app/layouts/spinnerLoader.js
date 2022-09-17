@@ -1,7 +1,8 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	spinnerIsShowingSetState,
-	selectChildRootIsShowing
+	selectChildRootIsShowing,
 } from '../../features/imgStateSlice';
 
 //create spinner loader component
@@ -9,7 +10,7 @@ export const SpinnerLoader = () => {
 	const dispatch = useDispatch();
 	const spinnerLoaderStyle = {
 		width: '6vh',
-		height: '6vh'
+		height: '6vh',
 	};
 	const childRootIsShowing = useSelector(selectChildRootIsShowing);
 	const spinnerClass =
