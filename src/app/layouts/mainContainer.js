@@ -147,7 +147,7 @@ export const NotFound = () => {
 export const RecentPosts = () => {
 	return (
 		<div className="cardContainer px-3">
-			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-4">
+			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
 				<RandomQuoteMachine />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
