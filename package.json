@@ -8,6 +8,7 @@
     "animate.css": "4.1.1",
     "animate.css-react": "1.1.0",
     "gh-pages": "4.0.0",
+    "node-sass": "7.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "4.4.0",
