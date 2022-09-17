@@ -1,12 +1,13 @@
 import '../styles/App.scss';
 
+import React from 'react';
 import Router from './routes';
 import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerLoader } from './layouts/spinnerLoader';
 import {
 	childRootIsShowingSetState,
 	selectImgsRendered,
-	selectSpinnerIsShowing
+	selectSpinnerIsShowing,
 } from '../features/imgStateSlice';
 
 //app wrap
