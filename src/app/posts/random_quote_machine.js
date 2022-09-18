@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 //import { useOutletContext } from 'react-router-dom';
 import { useImportScript, useImportStylesheet } from '../fucnForApp.js';
+import { useDispatch } from 'react-redux';
+//import Redux action
+import { setPageTitle } from '../../features/imgStateSlice';
 
 //app wrap
 const RandomQuoteMachineFullArticle = () => {
 	//const outletContextProps = useOutletContext();
-
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
 
@@ -68,12 +70,18 @@ const RandomQuoteMachineFullArticle = () => {
 		//if prismjs core and plugin line numbers have executed then start code highlight
 	}, [scriptsLoaded, RQMcode]);
 
+	const dispatch = useDispatch();
+	const pageTitle =
+		'FreeCodeCamp training project "Building a random citation machine" using React.';
+	//dispatch page title
+	useEffect(() => {
+		dispatch(setPageTitle(pageTitle));
+	}, []);
+
 	return (
 		<div className="d-flex justify-content-center">
 			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
-				<h4 className="h4">
-					FreeCodeCamp Learning Project "Build a Random Quote Machine" on React.
-				</h4>
+				<h4 className="h4">{pageTitle}</h4>
 				<div
 					className="overflow-hidden position-relative postImgContainer"
 					style={{ height: '16rem' }}>

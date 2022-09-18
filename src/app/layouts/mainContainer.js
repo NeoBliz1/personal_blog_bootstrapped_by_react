@@ -1,12 +1,14 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkImgsRender, wordSplit } from '../fucnForApp.js';
+//import Redux actions and selectors
 import {
 	imgsRenderedSetState,
 	spinnerIsShowingSetState,
 	childRootIsShowingSetState,
 	selectImgsRendered,
+	setPageTitle,
 } from '../../features/imgStateSlice';
 
 import { ShareBar } from './shareBarFC';
@@ -99,6 +101,12 @@ export const MainContainer = () => {
 	);
 };
 export const NotFound = () => {
+	const dispatch = useDispatch();
+	const pageTitle = 'Code Adventures Reminder';
+	//dispatch page title
+	useEffect(() => {
+		dispatch(setPageTitle(pageTitle));
+	}, []);
 	return (
 		<div className="d-flex justify-content-center">
 			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
@@ -112,6 +120,12 @@ export const NotFound = () => {
 };
 //create recent posts component
 export const RecentPosts = () => {
+	const dispatch = useDispatch();
+	const pageTitle = 'Code Adventures Reminder';
+	//dispatch page title
+	useEffect(() => {
+		dispatch(setPageTitle(pageTitle));
+	}, []);
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
@@ -131,6 +145,12 @@ export const RecentPosts = () => {
 };
 //create recent posts component
 export const AllPosts = () => {
+	const dispatch = useDispatch();
+	const pageTitle = 'Code Adventures Reminder';
+	//dispatch page title
+	useEffect(() => {
+		dispatch(setPageTitle(pageTitle));
+	}, []);
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">

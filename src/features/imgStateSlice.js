@@ -2,11 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 //use redux for track imgs rendered state
 export const slice = createSlice({
-	name: 'imgsRenderedState',
+	name: 'appStates',
 	initialState: {
 		imgsRendered: false,
 		spinnerIsShowing: true,
-		childRootIsShowing: false
+		childRootIsShowing: false,
+		pageTitle: 'Code Adventures Reminder',
 	},
 	reducers: {
 		//togglers for states
@@ -30,21 +31,26 @@ export const slice = createSlice({
 			} else {
 				state.childRootIsShowing = true;
 			}
-		}
-	}
+		},
+		setPageTitle: (state, title) => {
+			state.pageTitle = title.payload;
+		},
+	},
 });
-
-export const selectImgsRendered = (state) =>
-	state.imgsRenderedState.imgsRendered;
+//export selectors
+export const selectImgsRendered = (state) => state.appStates.imgsRendered;
 export const selectSpinnerIsShowing = (state) =>
-	state.imgsRenderedState.spinnerIsShowing;
+	state.appStates.spinnerIsShowing;
 export const selectChildRootIsShowing = (state) =>
-	state.imgsRenderedState.childRootIsShowing;
+	state.appStates.childRootIsShowing;
+export const selectpageTitle = (state) => state.appStates.pageTitle;
 
+//export actions
 export const {
 	imgsRenderedSetState,
 	spinnerIsShowingSetState,
-	childRootIsShowingSetState
+	childRootIsShowingSetState,
+	setPageTitle,
 } = slice.actions;
 
 export default slice.reducer;

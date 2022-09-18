@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 //import { useOutletContext } from 'react-router-dom';
 import { useImportScript, useImportStylesheet } from '../fucnForApp.js';
+import { useDispatch } from 'react-redux';
+//import Redux action
+import { setPageTitle } from '../../features/imgStateSlice';
 
 //app wrap
 const WCPostFullArticle = () => {
@@ -70,6 +73,14 @@ const WCPostFullArticle = () => {
 		//console.log(window.Prism)
 		//if prismjs core and plugin line numbers have executed then start code highlight
 	}, [scriptsLoaded, flaskAppCode]);
+
+	const dispatch = useDispatch();
+	const pageTitle =
+		"Website chat with messages via telegram, easy peasy. My minds before I've started dive into.";
+	//dispatch page title
+	useEffect(() => {
+		dispatch(setPageTitle(pageTitle));
+	}, []);
 	return (
 		<div className="d-flex justify-content-center">
 			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">

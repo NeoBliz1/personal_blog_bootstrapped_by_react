@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import imgReducer from '../features/imgStateSlice.js';
+import appStatesReducer from '../features/imgStateSlice.js';
 
 export default configureStore({
 	reducer: {
-		imgsRenderedState: imgReducer
-	}
+		appStates: appStatesReducer,
+	},
 });

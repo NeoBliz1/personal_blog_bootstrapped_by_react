@@ -1,11 +1,13 @@
 import React from 'react';
-import { wordSplit } from '../fucnForApp.js';
-import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+//import Redux selector
+import { selectpageTitle } from '../../features/imgStateSlice';
 import { CgProfile } from 'react-icons/cg';
 import { ImTumblr } from 'react-icons/im';
 import { FaLink, FaTwitter } from 'react-icons/fa';
 
 export const ShareBar = (props) => {
+	const pageTitle = useSelector(selectpageTitle);
 	const twitLink =
 		'https://twitter.com/intent/tweet?&related=freeCodeCamp&text=';
 	// const tumblrLink =
@@ -14,11 +16,7 @@ export const ShareBar = (props) => {
 
 	const twitterShareLink =
 		twitLink +
-		encodeURIComponent(
-			wordSplit(useLocation().pathname) +
-				' by @neobliz1 ' +
-				window.location.href,
-		);
+		encodeURIComponent(pageTitle + ' by @neobliz1 ' + window.location.href);
 	// const [tumblrShareLink, setTumblrShareLink] = useState(
 	//   tumblrLink +
 	//     encodeURIComponent(author) +
