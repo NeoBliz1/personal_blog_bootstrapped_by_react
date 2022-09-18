@@ -1,5 +1,5 @@
-//@import 'CustomBootstrap';
-@import './styles_source/sassCustomBootstrap';
+@import 'CustomBootstrap';
+//@import './styles_source/sassCustomBootstrap';
 @import "~rfs/scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -122,8 +122,7 @@ a {
   .headerFontSize{
     font-size: rfs-fluid-value($h4-font-size);    
   }  
-  .navBar {
-    display: flex;
+  .navBar {    
     flex-direction: column;
   }
   .navLink, .linkLocation{
@@ -180,7 +179,10 @@ a {
   }
   .headerFontSize{
     font-size: rfs-fluid-value($h3-font-size);    
-  }  
+  }
+  .navBar {    
+    flex-direction: column;
+  }
   .navLink, .linkLocation{
     font-size: rfs-fluid-value($h5-font-size);    
   }
@@ -209,6 +211,9 @@ a {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+  .navBar {    
+    flex-direction: row;
+  }
   .smallCard{      
     align-self: center;
   }

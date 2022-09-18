@@ -152,7 +152,9 @@ const RandomQuoteMachine = () => {
 	const [cardImgSrc] = useState(require('../../imgs/today_was_a_good_day.jpg')); //setImg src
 
 	return (
-		<Link to="/random_quote_machine" className="text-dark text-decoration-none">
+		<Link
+			to="/personal_blog_on_react/random_quote_machine"
+			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
 					<img
@@ -176,7 +178,9 @@ const WCPost = () => {
 	const [cardImgSrc] = useState(require('../../imgs/simple.jpg')); //setImg src
 
 	return (
-		<Link to="/blogPostAboutWebchat" className="text-dark text-decoration-none">
+		<Link
+			to="/personal_blog_on_react/blogPostAboutWebchat"
+			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
 					<img

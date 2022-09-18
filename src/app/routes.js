@@ -5,12 +5,12 @@ import {
 	MainContainer,
 	RecentPosts,
 	AllPosts,
-	NotFound
+	NotFound,
 } from './layouts/mainContainer';
 
 const WCPostFullArticle = React.lazy(() => import('./posts/wcPost')); // Lazy-loaded
 const RQMostFullArticle = React.lazy(() =>
-	import('./posts/random_quote_machine')
+	import('./posts/random_quote_machine'),
 ); // Lazy-loaded
 
 export default function Router() {
@@ -22,24 +22,24 @@ export default function Router() {
 				{ path: 'personal_blog_on_react', element: <RecentPosts /> },
 				{ path: 'allPosts', element: <AllPosts /> },
 				{
-					path: 'blogPostAboutWebchat',
+					path: 'personal_blog_on_react/blogPostAboutWebchat',
 					element: (
 						<React.Suspense fallback={<SpinnerLoader />}>
 							<WCPostFullArticle />
 						</React.Suspense>
-					)
+					),
 				},
 				{
-					path: 'random_quote_machine',
+					path: 'personal_blog_on_react/random_quote_machine',
 					element: (
 						<React.Suspense fallback={<SpinnerLoader />}>
 							<RQMostFullArticle />
 						</React.Suspense>
-					)
+					),
 				},
-				{ path: '*', element: <NotFound /> }
-			]
-		}
+				{ path: '*', element: <NotFound /> },
+			],
+		},
 	]);
 	return element;
 }
