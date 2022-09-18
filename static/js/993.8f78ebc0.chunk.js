@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpersonal_blog_on_react=self.webpackChunkpersonal_blog_on_react||[]).push([[993],{993:function(e,n,t){t.r(n);var a=t(743),r=t(184);n.default=function(){return(0,r.jsx)(a.Z,{className:"justify-content-center",children:"Hello there it's a random quote machine drawing!!"})}}}]);
-//# sourceMappingURL=993.8f78ebc0.chunk.js.map
