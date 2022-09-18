@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkImgsRender, wordSplit, useCurrentWidth } from '../fucnForApp.js';
+import { checkImgsRender, wordSplit } from '../fucnForApp.js';
 import {
 	imgsRenderedSetState,
 	spinnerIsShowingSetState,
@@ -50,41 +50,6 @@ export const MainContainer = () => {
 		});
 	}, [location]);
 
-	//window width handler
-	let getWindowWidth = useCurrentWidth(); //set window width getter
-	const [fontSizes, setFontSizes] = useState({
-		p: 'fs-5', //set <p> tag font size
-		h2: 'h2', //set <h2> tag font size
-		h3: 'h3', //set <h3> tag font size
-		h4: 'h4', //set <h4> tag font size
-		h6: 'h6', //set <h6> tag font size
-		linkToAuthor: 'fs-7', //set font size for source link
-	});
-
-	//responsive fonts handler
-	useLayoutEffect(() => {
-		if (getWindowWidth > 768) {
-			setFontSizes({
-				p: 'fs-5', //set <p> tag font size
-				h2: 'h2', //set <h2> tag font size
-				h3: 'h3', //set <h3> tag font size
-				h4: 'h4', //set <h4> tag font size
-				h6: 'h6', //set <h6> tag font size
-				linkToAuthor: 'fs-7', //set font size for source link
-			});
-		} else {
-			setFontSizes({
-				p: 'fs-6', //set <p> tag font size
-				h2: 'h3', //set <h2> tag font size
-				h3: 'h4', //set <h3> tag font size
-				h4: 'h5', //set <h4> tag font size
-				h6: 'h7', //set <h6> tag font size
-				linkToAuthor: 'fs-8', //set font size for source link
-			});
-		}
-		//console.log(getWindowWidth);
-	}, [getWindowWidth]);
-
 	return (
 		<div id="container" className="mainContainer">
 			<div
@@ -127,7 +92,7 @@ export const MainContainer = () => {
 				<ShareBar />
 			</div>
 			<div className="m-0 p-0" id="postContainer">
-				<Outlet context={fontSizes} />
+				<Outlet />
 				{/*pass context props to outlet*/}
 			</div>
 		</div>
@@ -135,11 +100,13 @@ export const MainContainer = () => {
 };
 export const NotFound = () => {
 	return (
-		<div>
-			<h2>Nothing to see here!</h2>
-			<h2>
-				<Link to="/">Go to the home page</Link>
-			</h2>
+		<div className="d-flex justify-content-center">
+			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
+				<h2>Nothing to see here!</h2>
+				<h2>
+					<Link to="/">Go to the recent posts</Link>
+				</h2>
+			</div>
 		</div>
 	);
 };
@@ -197,8 +164,8 @@ const RandomQuoteMachine = () => {
 					/>
 				</div>
 				<div className="card-body">
-					<div className="card-title">Some quotes can save lives.</div>
-					<div className="card-text">FreeCodeCamp Project.</div>
+					<p className="card-title">Some quotes can save lives.</p>
+					<p className="card-text">FreeCodeCamp Project.</p>
 				</div>
 			</div>
 		</Link>
@@ -221,8 +188,8 @@ const WCPost = () => {
 					/>
 				</div>
 				<div className="card-body">
-					<div className="card-title">Website chat.</div>
-					<div className="card-text">Messages via telegram.</div>
+					<p className="card-title">Website chat.</p>
+					<p className="card-text">Messages via telegram.</p>
 				</div>
 			</div>
 		</Link>
@@ -233,20 +200,22 @@ const MerryChristmasPost = () => {
 	const [cardImgSrc] = useState(require('../../imgs/2554.jpg'));
 
 	return (
-		<div className="card">
-			<div className="overflow-hidden card-img-top imgContainer">
-				<img
-					alt="merry Christmas"
-					variant="top"
-					src={cardImgSrc}
-					className="cardImg img-fluid"
-					id="christmasImg"
-				/>
+		<Link to="/wrong_way" className="text-dark text-decoration-none">
+			<div className="card">
+				<div className="overflow-hidden card-img-top imgContainer">
+					<img
+						alt="merry Christmas"
+						variant="top"
+						src={cardImgSrc}
+						className="cardImg img-fluid"
+						id="christmasImg"
+					/>
+				</div>
+				<div className="card-body">
+					<p className="card-title">Merry Christmas</p>
+					<p className="card-text">and happy new</p>
+				</div>
 			</div>
-			<div className="card-body">
-				<div className="card-title">Merry Christmas</div>
-				<div className="card-text">and happy new</div>
-			</div>
-		</div>
+		</Link>
 	);
 };

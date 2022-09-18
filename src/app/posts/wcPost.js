@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import { useOutletContext } from 'react-router-dom';
+//import { useOutletContext } from 'react-router-dom';
 import { useImportScript, useImportStylesheet } from '../fucnForApp.js';
 
 //app wrap
 const WCPostFullArticle = () => {
-	const outletContextProps = useOutletContext();
+	//const outletContextProps = useOutletContext();
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock_1 = useRef();
 	const codeBlock_2 = useRef();
@@ -23,25 +22,25 @@ const WCPostFullArticle = () => {
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css',
 		'sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==',
 		'anonymous',
-		'no-referrer'
+		'no-referrer',
 	);
 	//import pirsm-lineNumber-jsPlugin CSS from CDN
 	useImportStylesheet(
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.css',
 		'sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==',
 		'anonymous',
-		'no-referrer'
+		'no-referrer',
 	);
 
 	const arrPrismJsSrc = [
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-core.min.js',
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/autoloader/prism-autoloader.min.js',
-		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js'
+		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js',
 	];
 	const arrSHA512Sums = [
 		'sha512-LCKPTo0gtJ74zCNMbWw04ltmujpzSR4oW+fgN+Y1YclhM5ZrHCZQAJE4quEodcI/G122sRhSGU2BsSRUZ2Gu3w==',
 		'sha512-GP4x8UWxWyh4BMbyJGOGneiTbkrWEF5izsVJByzVLodP8CuJH/n936+yQDMJJrOPUHLgyPbLiGw2rXmdvGdXHA==',
-		'sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ=='
+		'sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==',
 	];
 
 	//import pirsmJS from CDN
@@ -72,28 +71,23 @@ const WCPostFullArticle = () => {
 		//if prismjs core and plugin line numbers have executed then start code highlight
 	}, [scriptsLoaded, flaskAppCode]);
 	return (
-		<Row className="justify-content-center">
-			<Col xs={12} sm={11} md={11} xxl={6}>
-				<h4 className={outletContextProps.h4}>
+		<div className="d-flex justify-content-center">
+			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
+				<h4 className="h4">
 					Website chat with messages via telegram, easy peasy. My minds before
 					I've started dive into.
 				</h4>
-				<div
-					className="overflow-hidden position-relative"
-					style={{ height: '16rem' }}>
+				<div className="overflow-hidden position-relative postImgContainer">
 					{/************************************************************
             header image 
             ***************************************************************/}
 					<img
 						src="//live.staticflickr.com/6133/5940816324_14dc1e5197_b.jpg"
-						className="w-100 position-absolute top-50 start-50 translate-middle"
+						className="postImg position-absolute top-50 start-50 translate-middle"
 						alt="The easy way is hard enough"
 					/>
 				</div>
-				<div
-					className={
-						'd-flex justify-content-center ' + outletContextProps.linkToAuthor
-					}>
+				<div className="d-flex justify-content-center linkToAuthor">
 					<a
 						href="https://flic.kr/p/a3YeHE"
 						target="_blank"
@@ -109,14 +103,14 @@ const WCPostFullArticle = () => {
 						(CC BY 2.0)
 					</a>
 				</div>
-				<div className={outletContextProps.p} style={{ textAlign: 'justify' }}>
+				<div>
 					<p>
 						First of all I've researched some telegram chat apps which already
 						existed. Those either demanded payment either was not suitable
 						format for my website. So I've thought: "It will be easy to create
 						app like this, also it will be useful experience".
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://neobliz1.github.io/">
@@ -124,7 +118,7 @@ const WCPostFullArticle = () => {
 						</a>
 						part written on
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://jqueryui.com/dialog/">
@@ -132,7 +126,7 @@ const WCPostFullArticle = () => {
 						</a>
 						framework and
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://jquery.com/">
@@ -144,7 +138,7 @@ const WCPostFullArticle = () => {
 					<p>
 						Instruction about server side based on the
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://aliabdelaal.medium.com/telegram-bot-tutoria-using-python-and-flask-1fc634da9522">
@@ -152,7 +146,7 @@ const WCPostFullArticle = () => {
 						</a>{' '}
 						According to the article I implemented that logic to my
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://github.com/NeoBliz1/t-msg-bot/blob/master/app.py">
@@ -161,7 +155,7 @@ const WCPostFullArticle = () => {
 						Code written in python with Flask framework. Firstly I've started to
 						analyze how flask is working. I've read about
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://flask.palletsprojects.com/en/2.0.x/quickstart/#routing">
@@ -169,7 +163,7 @@ const WCPostFullArticle = () => {
 						</a>
 						routes and
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://docs.python-requests.org/en/latest/user/quickstart/#make-a-request">
@@ -187,7 +181,7 @@ const WCPostFullArticle = () => {
 						rejecting every request that I was trying to send from local server
 						to another port. So because of that I made a decision deploy app on
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://www.heroku.com/">
@@ -197,7 +191,7 @@ const WCPostFullArticle = () => {
 						quite convenient and simple for newbies, in additional it's free for
 						pet projects. So I've read the
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://devcenter.heroku.com/articles/getting-started-with-python">
@@ -210,7 +204,7 @@ const WCPostFullArticle = () => {
 						After deploying, it still was an error like 'Cross-Origin Request
 						Blocked'. I read around some articles about CORS errors and I found
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://flask-cors.readthedocs.io/en/latest/">
@@ -225,7 +219,7 @@ const WCPostFullArticle = () => {
 					<p>
 						Telegram
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							href="https://core.telegram.org/bots/webhooks#the-short-version"
 							target="_blank"
 							rel="noreferrer">
@@ -235,7 +229,7 @@ const WCPostFullArticle = () => {
 						telegram server in the same moment as it sends to telegram bot from
 						definite user. But it demands
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							href="https://core.telegram.org/bots/webhooks#ssl-needs-a-certificate"
 							target="_blank"
 							rel="noreferrer">
@@ -246,7 +240,7 @@ const WCPostFullArticle = () => {
 						the decision to rent a cheap Ubuntu server and set up my new
 						application there. For server tuning I used
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							href="https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-20-04"
 							target="_blank"
 							rel="noreferrer">
@@ -260,8 +254,8 @@ const WCPostFullArticle = () => {
 						</code>
 					</pre>
 				</div>
-			</Col>
-		</Row>
+			</div>
+		</div>
 	);
 };
 

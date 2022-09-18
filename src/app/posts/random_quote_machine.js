@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useOutletContext } from 'react-router-dom';
+//import { useOutletContext } from 'react-router-dom';
 import { useImportScript, useImportStylesheet } from '../fucnForApp.js';
 
 //app wrap
 const RandomQuoteMachineFullArticle = () => {
-	const outletContextProps = useOutletContext();
+	//const outletContextProps = useOutletContext();
 
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
@@ -23,25 +23,25 @@ const RandomQuoteMachineFullArticle = () => {
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css',
 		'sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==',
 		'anonymous',
-		'no-referrer'
+		'no-referrer',
 	);
 	//import pirsm-lineNumber-jsPlugin CSS from CDN
 	useImportStylesheet(
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.css',
 		'sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==',
 		'anonymous',
-		'no-referrer'
+		'no-referrer',
 	);
 
 	const arrPrismJsSrc = [
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-core.min.js',
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/autoloader/prism-autoloader.min.js',
-		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js'
+		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js',
 	];
 	const arrSHA512Sums = [
 		'sha512-LCKPTo0gtJ74zCNMbWw04ltmujpzSR4oW+fgN+Y1YclhM5ZrHCZQAJE4quEodcI/G122sRhSGU2BsSRUZ2Gu3w==',
 		'sha512-GP4x8UWxWyh4BMbyJGOGneiTbkrWEF5izsVJByzVLodP8CuJH/n936+yQDMJJrOPUHLgyPbLiGw2rXmdvGdXHA==',
-		'sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ=='
+		'sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==',
 	];
 
 	//import pirsmJS from CDN
@@ -49,7 +49,7 @@ const RandomQuoteMachineFullArticle = () => {
 
 	//fetch App.py code from git
 	fetch(
-		'https://raw.githubusercontent.com/NeoBliz1/rand0m_qu0te_machine/main/src/App.js'
+		'https://raw.githubusercontent.com/NeoBliz1/rand0m_qu0te_machine/main/src/App.js',
 	)
 		.then((response) => response.text())
 		.then((data) => setRQMcode(data));
@@ -69,27 +69,24 @@ const RandomQuoteMachineFullArticle = () => {
 	}, [scriptsLoaded, RQMcode]);
 
 	return (
-		<div className="justify-content-center">
-			<div xs={12} sm={11} md={11} xxl={6}>
-				<h4 className={outletContextProps.h4}>
+		<div className="d-flex justify-content-center">
+			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
+				<h4 className="h4">
 					FreeCodeCamp Learning Project "Build a Random Quote Machine" on React.
 				</h4>
 				<div
-					className="overflow-hidden position-relative"
+					className="overflow-hidden position-relative postImgContainer"
 					style={{ height: '16rem' }}>
 					{/************************************************************
           header image 
           ***************************************************************/}
 					<img
 						src={cardImgSrc}
-						className="w-100 position-absolute top-50 start-50 translate-middle"
+						className="RQMpostImg position-absolute start-50 translate-middle"
 						alt="Today was a good day"
 					/>
 				</div>
-				<div
-					className={
-						'd-flex justify-content-center ' + outletContextProps.linkToAuthor
-					}>
+				<div className="d-flex justify-content-center linkToAuthor">
 					<a
 						href="https://unsplash.com/photos/n-vxsHr9jZA"
 						target="_blank"
@@ -105,12 +102,12 @@ const RandomQuoteMachineFullArticle = () => {
 						(Unsplash License)
 					</a>
 				</div>
-				<div className={outletContextProps.p}>
+				<div>
 					<p>
 						This is the first simple application from the Front End Development
 						Libraries
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
@@ -121,7 +118,7 @@ const RandomQuoteMachineFullArticle = () => {
 						usual styles.css and inline styles managed by React as plugin
 						technologies. The cloud-based
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://codesandbox.io/u/NeoBliz1">
@@ -130,7 +127,7 @@ const RandomQuoteMachineFullArticle = () => {
 						was chosen as the development environment. The full source code can
 						be viewed on
 						<a
-							className={'mx-1 ' + outletContextProps.p}
+							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://github.com/NeoBliz1">
@@ -140,7 +137,7 @@ const RandomQuoteMachineFullArticle = () => {
 						machine.
 					</p>
 					<a
-						className={'mx-1 ' + outletContextProps.p}
+						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
 						href="https://neobliz1.github.io/rand0m_qu0te_machine/">
@@ -154,7 +151,7 @@ const RandomQuoteMachineFullArticle = () => {
 						title="random quote machine iframe"
 						style={{ width: '100%' }}></iframe>
 					<a
-						className={'mx-1 ' + outletContextProps.p}
+						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
 						href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
