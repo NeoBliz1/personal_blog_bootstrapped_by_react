@@ -155,6 +155,7 @@ const RandomQuoteMachineFullArticle = () => {
 						src="https://neobliz1.github.io/rand0m_qu0te_machine/"
 						height={500}
 						sandbox="allow-scripts"
+						rel="noreferrer"
 						loading="lazy"
 						title="random quote machine iframe"
 						style={{ width: '100%' }}></iframe>

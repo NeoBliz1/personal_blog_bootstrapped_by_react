@@ -10,20 +10,18 @@ export const ShareBar = (props) => {
 	const pageTitle = useSelector(selectpageTitle);
 	const twitLink =
 		'https://twitter.com/intent/tweet?&related=freeCodeCamp&text=';
-	// const tumblrLink =
-	//   "https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=";
-	// const tumblrShareSourceLink = "&canonicalUrl=" + window.location.href;
-
 	const twitterShareLink =
 		twitLink +
 		encodeURIComponent(pageTitle + ' by @neobliz1 ' + window.location.href);
-	// const [tumblrShareLink, setTumblrShareLink] = useState(
-	//   tumblrLink +
-	//     encodeURIComponent(author) +
-	//     "&content=" +
-	//     encodeURIComponent(quotation) +
-	//     tumblrShareSourceLink
-	// );
+
+	const tumblrLink =
+		'https://www.tumblr.com/widgets/share/tool?posttype=link&tags=profileBlog&caption=';
+	const tumblrShareSourceLink = '&canonicalUrl=' + window.location.href;
+	const tumblrShareLink =
+		tumblrLink +
+		encodeURIComponent(pageTitle + ' by @neobliz1 ') +
+		'&content=' +
+		tumblrShareSourceLink;
 
 	return (
 		<div className="d-grid gap-2 d-flex justify-content-end mb-2">
@@ -45,7 +43,7 @@ export const ShareBar = (props) => {
 				}
 				onClick={(e) => {
 					e.preventDefault();
-					window.open('https://neobliz1.github.io/', '_blank');
+					window.open(tumblrShareLink, '_blank');
 				}}>
 				<ImTumblr />
 			</button>

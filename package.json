@@ -1,6 +1,6 @@
 {
 	"name": "personal-blog-on-react",
-	"homepage": "http://neoBliz1.github.io/personal_blog_on_react",
+	"homepage": "http://neoBliz1.github.io/personal_blog_bootstrapped_by_react",
 	"version": "1.1.0",
 	"main": "src/index.js",
 	"private": true,

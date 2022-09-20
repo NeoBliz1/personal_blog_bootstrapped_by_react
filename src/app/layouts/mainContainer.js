@@ -30,10 +30,9 @@ export const MainContainer = () => {
 	//imgs rendered handler
 	const navigate = useNavigate();
 	const redirectLocation = useLocation().search;
-	const [location, setLocation] = useState(useLocation().pathname);
+	const location = useLocation().pathname;
 	const imgsRendered = useSelector(selectImgsRendered);
 	const dispatch = useDispatch();
-	console.log(location);
 	useEffect(() => {
 		if (redirectLocation === '?redirect=RQM') {
 			navigate('personal_blog_on_react/random_quote_machine');
@@ -83,13 +82,14 @@ export const MainContainer = () => {
 						className="d-flex align-items-end justify-content-end">
 						{
 							//conditional rendering
-							location !== '/' && location !== '/personal_blog_on_react' && (
-								<Link to="personal_blog_on_react">
-									<h6 className={'me-4 navLink'} style={{ color: '#0d6efd' }}>
-										{'<- Recent posts'}
-									</h6>
-								</Link>
-							)
+							location !== '/' &&
+								location !== '/personal_blog_bootstrapped_by_react' && (
+									<Link to="personal_blog_bootstrapped_by_react">
+										<h6 className={'me-4 navLink'} style={{ color: '#0d6efd' }}>
+											{'<- Recent posts'}
+										</h6>
+									</Link>
+								)
 						}
 						<Link to="allPosts">
 							<h6 className="navLink" style={{ color: '#0d6efd' }}>

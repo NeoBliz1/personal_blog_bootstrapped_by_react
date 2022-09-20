@@ -19,10 +19,13 @@ export default function Router() {
 			element: <MainContainer />,
 			children: [
 				{ path: '/', element: <RecentPosts /> },
-				{ path: 'personal_blog_on_react', element: <RecentPosts /> },
+				{
+					path: 'personal_blog_bootstrapped_by_react',
+					element: <RecentPosts />,
+				},
 				{ path: 'allPosts', element: <AllPosts /> },
 				{
-					path: 'personal_blog_on_react/blogPostAboutWebchat',
+					path: 'personal_blog_bootstrapped_by_react/blogPostAboutWebchat',
 					element: (
 						<React.Suspense fallback={<SpinnerLoader />}>
 							<WCPostFullArticle />
@@ -30,7 +33,7 @@ export default function Router() {
 					),
 				},
 				{
-					path: 'personal_blog_on_react/random_quote_machine',
+					path: 'personal_blog_bootstrapped_by_react/random_quote_machine',
 					element: (
 						<React.Suspense fallback={<SpinnerLoader />}>
 							<RQMostFullArticle />
