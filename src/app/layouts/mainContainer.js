@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkImgsRender, wordSplit } from '../fucnForApp.js';
 //import Redux actions and selectors
@@ -28,9 +28,17 @@ const HeaderComponent = () => {
 //main container component
 export const MainContainer = () => {
 	//imgs rendered handler
-	let location = useLocation().pathname;
+	const navigate = useNavigate();
+	const redirectLocation = useLocation().search;
+	const [location, setLocation] = useState(useLocation().pathname);
 	const imgsRendered = useSelector(selectImgsRendered);
 	const dispatch = useDispatch();
+	console.log(location);
+	useEffect(() => {
+		if (redirectLocation === '?redirect=RQM') {
+			navigate('personal_blog_on_react/random_quote_machine');
+		}
+	}, [redirectLocation]);
 
 	//img check handler
 	useLayoutEffect(() => {
