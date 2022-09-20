@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useref } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkImgsRender, wordSplit } from '../fucnForApp.js';
@@ -33,6 +33,7 @@ export const MainContainer = () => {
 	const location = useLocation().pathname;
 	const imgsRendered = useSelector(selectImgsRendered);
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		if (redirectLocation === '?redirect=RQM') {
 			navigate('personal_blog_on_react/random_quote_machine');

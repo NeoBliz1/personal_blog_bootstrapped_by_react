@@ -1,5 +1,5 @@
-//@import 'CustomBootstrap';
-@import './styles_source/sassCustomBootstrap';
+@import 'CustomBootstrap';
+//@import './styles_source/sassCustomBootstrap';
 @import "~rfs/scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -31,7 +31,11 @@ ol,
 ul {
   padding-left: 30px;
 }
-
+.bi {
+  width: 1em;
+    height: 1em;
+    fill: currentcolor;
+}
 a {
   color: $dark;
 }

@@ -1,4 +1,4 @@
-# Blog application on the react framework.
+# Blog application based on react.
 
 This project was bootstrapped with the Codesandbox.io online - IDE.
 

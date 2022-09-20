@@ -145,7 +145,7 @@ export const useImportScript = (urlArr, integrityArr, setScriptsLoaded) => {
 					(value) => {
 						//set scriptsLoaded prop to true
 						setScriptsLoaded(value);
-					}
+					},
 				);
 			});
 		});
@@ -164,7 +164,7 @@ export const useImportStylesheet = (
 	resourceUrl,
 	integrity,
 	crossorigin,
-	referrerpolicy
+	referrerpolicy,
 ) => {
 	useEffect(() => {
 		const link = document.createElement('link');
