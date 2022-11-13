@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useLayoutEffect, useref } from 'react';
+import React, {
+	Children,
+	useState,
+	useEffect,
+	useLayoutEffect,
+	useref,
+} from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkImgsRender, wordSplit } from '../fucnForApp.js';
@@ -26,7 +32,7 @@ const HeaderComponent = () => {
 	);
 };
 //main container component
-export const MainContainer = () => {
+export const MainContainer = (props) => {
 	//imgs rendered handler
 	const navigate = useNavigate();
 	const redirectLocation = useLocation().search;
@@ -34,11 +40,12 @@ export const MainContainer = () => {
 	const imgsRendered = useSelector(selectImgsRendered);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		if (redirectLocation === '?redirect=RQM') {
-			navigate('personal_blog_on_react/random_quote_machine');
-		}
-	}, [redirectLocation]);
+	// useEffect(() => {
+	// 	if (redirectLocation === '?redirect=RQM') {
+	// 		console.log('redirectLocation');
+	// 		navigate('personal_blog_bootstrapped_by_react/random_quote_machine');
+	// 	}
+	// }, [redirectLocation]);
 
 	//img check handler
 	useLayoutEffect(() => {
@@ -47,6 +54,7 @@ export const MainContainer = () => {
 		document.body.style.overflow = 'hidden';
 		//get img collection from current page
 		const imgArr = document.getElementsByTagName('img');
+		console.log(imgArr.length);
 		//if imgRender have already checked, and location changed
 		//then toggle img and loader states
 		if (imgsRendered) {
@@ -85,7 +93,7 @@ export const MainContainer = () => {
 							//conditional rendering
 							location !== '/' &&
 								location !== '/personal_blog_bootstrapped_by_react' && (
-									<Link to="personal_blog_bootstrapped_by_react">
+									<Link to="recentPosts">
 										<h6 className={'me-4 navLink'} style={{ color: '#0d6efd' }}>
 											{'<- Recent posts'}
 										</h6>
@@ -182,7 +190,7 @@ const RandomQuoteMachine = () => {
 
 	return (
 		<Link
-			to="/personal_blog_on_react/random_quote_machine"
+			to="/personal_blog_bootstrapped_by_react/random_quote_machine"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -208,7 +216,7 @@ const WCPost = () => {
 
 	return (
 		<Link
-			to="/personal_blog_on_react/blogPostAboutWebchat"
+			to="/personal_blog_bootstrapped_by_react/blogPostAboutWebchat"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
