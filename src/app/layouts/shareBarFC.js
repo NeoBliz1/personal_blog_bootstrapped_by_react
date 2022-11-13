@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 //import Redux selector
 import { selectpageTitle } from '../../features/imgStateSlice';
 import { CgProfile } from 'react-icons/cg';
 import { ImTumblr } from 'react-icons/im';
-import { FaCommentsDollar, FaLink, FaTwitter } from 'react-icons/fa';
+import { FaLink, FaTwitter } from 'react-icons/fa';
 
 export const ShareBar = (props) => {
 	const pageTitle = useSelector(selectpageTitle);
@@ -33,6 +33,7 @@ export const ShareBar = (props) => {
 	});
 
 	const blogPostLinkHandler = () => {
+		navigator.clipboard.writeText(window.location.href);
 		const alertWidth = refAlert.current.getBoundingClientRect().width;
 		setAlertStyle({
 			top: refBlogPostLink.current.getBoundingClientRect().y - 10 + 'px',
