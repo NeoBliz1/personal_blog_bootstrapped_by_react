@@ -31,9 +31,11 @@ export const ShareBar = (props) => {
 		left: 0,
 		visibilityStyle: 'invisible',
 	});
-
+	//fade in link copy successful
 	const blogPostLinkHandler = () => {
+		//copy link
 		navigator.clipboard.writeText(window.location.href);
+		//get link icon width
 		const alertWidth = refAlert.current.getBoundingClientRect().width;
 		setAlertStyle({
 			top: refBlogPostLink.current.getBoundingClientRect().y - 10 + 'px',
