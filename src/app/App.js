@@ -1,6 +1,8 @@
 import '../styles/App.scss';
 
-import React from 'react';
+// import { BrowserRouter } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+// import { useNavigate, useLocation } from 'react-router-dom';
 import Router from './routes';
 import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerLoader } from './layouts/spinnerLoader';
@@ -16,6 +18,17 @@ const BlogApp = () => {
 	const imgsRendered = useSelector(selectImgsRendered); //get imgsRendered state from redux
 	const spinnerIsShowing = useSelector(selectSpinnerIsShowing); //get spinnerIsShowing state from redux
 	const dispatch = useDispatch();
+	// let navigate = useNavigate();
+	// const redirectLocation = useLocation().search;
+
+	// redirectLocation handler
+	// useEffect(() => {
+	// 	if (redirectLocation === '?redirect=RQM') {
+	// 		console.log('redirectLocation');
+	// 		//navigate('/personal_blog_bootstrapped_by_react/random_quote_machine');
+	// 		navigate('../', { replace: true });
+	// 	}
+	// }, [redirectLocation]);
 
 	return (
 		<div
@@ -27,7 +40,9 @@ const BlogApp = () => {
 			className={
 				imgsRendered ? 'animate__animated animate__fadeIn fast' : null
 			}>
+			{/* <BrowserRouter> */}
 			<Router />
+			{/* </BrowserRouter> */}
 			{
 				//if imgsIsRendered false then showSpinnerLoader,
 				//shows spinner while imgs are rendering

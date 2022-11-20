@@ -7,11 +7,13 @@ import {
 	AllPosts,
 	NotFound,
 } from './layouts/mainContainer';
+import WCPostFullArticle from './posts/wcPost';
+import RQMostFullArticle from './posts/random_quote_machine';
 
-const WCPostFullArticle = React.lazy(() => import('./posts/wcPost')); // Lazy-loaded
-const RQMostFullArticle = React.lazy(() =>
-	import('./posts/random_quote_machine'),
-); // Lazy-loaded
+// const WCPostFullArticle = React.lazy(() => import('./posts/wcPost')); // Lazy-loaded
+// const RQMostFullArticle = React.lazy(() =>
+// 	import('./posts/random_quote_machine'),
+// ); // Lazy-loaded
 
 export default function Router() {
 	let element = useRoutes([

@@ -1,19 +1,20 @@
-import React, {
-	Children,
-	useState,
-	useEffect,
-	useLayoutEffect,
-	useref,
-} from 'react';
-import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import {
+	Outlet,
+	Link,
+	Navigate,
+	useLocation,
+	useNavigate,
+} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkImgsRender, wordSplit } from '../fucnForApp.js';
+import { checkImgsRender } from '../fucnForApp.js';
 //import Redux actions and selectors
 import {
 	imgsRenderedSetState,
 	spinnerIsShowingSetState,
 	childRootIsShowingSetState,
 	selectImgsRendered,
+	selectpageTitle,
 	setPageTitle,
 } from '../../features/imgStateSlice';
 
@@ -33,19 +34,16 @@ const HeaderComponent = () => {
 };
 //main container component
 export const MainContainer = (props) => {
-	//imgs rendered handler
-	const navigate = useNavigate();
-	const redirectLocation = useLocation().search;
 	const location = useLocation().pathname;
+	const pageTopRef = useRef(null);
+	//imgs rendered handler
 	const imgsRendered = useSelector(selectImgsRendered);
 	const dispatch = useDispatch();
 
-	// useEffect(() => {
-	// 	if (redirectLocation === '?redirect=RQM') {
-	// 		console.log('redirectLocation');
-	// 		navigate('personal_blog_bootstrapped_by_react/random_quote_machine');
-	// 	}
-	// }, [redirectLocation]);
+	//scroll top scroll to the top of the page
+	useEffect(() => {
+		pageTopRef.current.scrollIntoView(true);
+	}, [location]);
 
 	//img check handler
 	useLayoutEffect(() => {
@@ -69,7 +67,7 @@ export const MainContainer = (props) => {
 	}, [location]);
 
 	return (
-		<div id="container" className="mainContainer">
+		<div ref={pageTopRef} id="container" className="mainContainer">
 			<div
 				id="header"
 				className="justify-content-center header"
@@ -84,7 +82,9 @@ export const MainContainer = (props) => {
 			<div id="navigationPanel" className="justify-content-between mx-1 px-3">
 				<div id="navBar" className="navBar mt-2">
 					<div id="linkLocation" className="d-flex mb-1 linkLocation">
-						<h3 className={'mb-0 linkLocation'}>{wordSplit(location)}</h3>
+						<h3 className={'mb-0 linkLocation'}>
+							{useSelector(selectpageTitle)}
+						</h3>
 					</div>
 					<div
 						id="groupPostsNavigation"
@@ -137,8 +137,20 @@ export const NotFound = () => {
 };
 //create recent posts component
 export const RecentPosts = () => {
+	let navigate = useNavigate();
+	const redirectLocation = useLocation().search;
 	const dispatch = useDispatch();
-	const pageTitle = 'Code Adventures Reminder';
+	const pageTitle = 'Recent posts';
+
+	// redirectLocation handler
+	useEffect(() => {
+		if (redirectLocation === '?redirect=RQM') {
+			console.log('redirectLocation');
+			navigate('/personal_blog_bootstrapped_by_react/random_quote_machine');
+			//navigate('../', { replace: true });
+		}
+	}, [redirectLocation]);
+
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
