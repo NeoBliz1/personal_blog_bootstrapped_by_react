@@ -1,6 +1,7 @@
 import { useRoutes } from 'react-router-dom';
 import React from 'react';
-import { SpinnerLoader } from './layouts/spinnerLoader';
+import { useLocation } from 'react-router-dom';
+// import { SpinnerLoader } from './layouts/spinnerLoader';
 import {
 	MainContainer,
 	RecentPosts,
@@ -16,6 +17,14 @@ import RQMostFullArticle from './posts/random_quote_machine';
 // ); // Lazy-loaded
 
 export default function Router() {
+	const redirectLocation = useLocation().search;
+	//console.log(redirectLocation);
+
+	// if (redirectLocation === '?redirect=RQM') {
+	// 	console.log('redirectLocation');
+	// 	navigate('/personal_blog_bootstrapped_by_react/random_quote_machine');
+	// 	//navigate('../', { replace: true });
+	// }
 	let element = useRoutes([
 		{
 			element: <MainContainer />,
@@ -23,7 +32,12 @@ export default function Router() {
 				{ path: '/', element: <RecentPosts /> },
 				{
 					path: '/personal_blog_bootstrapped_by_react',
-					element: <RecentPosts />,
+					element:
+						redirectLocation === '?redirect=RQM' ? (
+							<RQMostFullArticle />
+						) : (
+							<RecentPosts />
+						),
 				},
 				{
 					path: '/recentPosts',
@@ -33,17 +47,17 @@ export default function Router() {
 				{
 					path: '/personal_blog_bootstrapped_by_react/blogPostAboutWebchat',
 					element: (
-						<React.Suspense fallback={<SpinnerLoader />}>
-							<WCPostFullArticle />
-						</React.Suspense>
+						// <React.Suspense fallback={<SpinnerLoader />}>
+						<WCPostFullArticle />
+						// </React.Suspense>
 					),
 				},
 				{
 					path: '/personal_blog_bootstrapped_by_react/random_quote_machine',
 					element: (
-						<React.Suspense fallback={<SpinnerLoader />}>
-							<RQMostFullArticle />
-						</React.Suspense>
+						// <React.Suspense fallback={<SpinnerLoader />}>
+						<RQMostFullArticle />
+						// </React.Suspense>
 					),
 				},
 				{ path: '*', element: <NotFound /> },
