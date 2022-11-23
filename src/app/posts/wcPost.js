@@ -75,8 +75,7 @@ const WCPostFullArticle = () => {
 	}, [scriptsLoaded, flaskAppCode]);
 
 	const dispatch = useDispatch();
-	const pageTitle =
-		"Website chat with messages via telegram, easy peasy. My minds before I've started dive into.";
+	const pageTitle = 'Website chat with messages via telegram.';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));

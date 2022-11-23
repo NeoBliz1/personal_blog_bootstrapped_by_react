@@ -99,6 +99,7 @@ export const MainContainer = (props) => {
 						{
 							//conditional rendering
 							location !== '/' &&
+								location !== '/recentPosts' &&
 								location !== '/personal_blog_bootstrapped_by_react' && (
 									<Link to="recentPosts">
 										<h6 className={'me-4 navLink'} style={{ color: '#0d6efd' }}>
