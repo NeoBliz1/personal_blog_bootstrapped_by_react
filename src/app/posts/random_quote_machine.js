@@ -75,6 +75,7 @@ const RandomQuoteMachineFullArticle = () => {
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

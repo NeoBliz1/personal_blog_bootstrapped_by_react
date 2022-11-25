@@ -156,6 +156,7 @@ export const useImportScript = (urlArr, integrityArr, setScriptsLoaded) => {
 			document.body.removeChild(prismAutoloader);
 			document.body.removeChild(prismLineNumber);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 };
 
@@ -178,5 +179,6 @@ export const useImportStylesheet = (
 		return () => {
 			document.head.removeChild(link);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [resourceUrl]);
 };

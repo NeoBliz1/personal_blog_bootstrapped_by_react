@@ -79,6 +79,7 @@ const WCPostFullArticle = () => {
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="d-flex justify-content-center">

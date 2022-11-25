@@ -71,6 +71,7 @@ export const MainContainer = (props) => {
 		checkImgsRender(imgArr).then((value) => {
 			value && dispatch(imgsRenderedSetState());
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [location]);
 
 	return (
@@ -131,6 +132,7 @@ export const NotFound = () => {
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="d-flex justify-content-center">
@@ -151,6 +153,7 @@ export const RecentPosts = () => {
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="cardContainer px-3">
@@ -176,6 +179,7 @@ export const AllPosts = () => {
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="cardContainer px-3">
