@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-//import { useOutletContext } from 'react-router-dom';
+//import { useOutletContext } from 'react-router-dom'
 import { useImportScript, useImportStylesheet } from '../fucnForApp.js';
 import { useDispatch } from 'react-redux';
 //import Redux action
@@ -71,8 +71,7 @@ const RandomQuoteMachineFullArticle = () => {
 	}, [scriptsLoaded, RQMcode]);
 
 	const dispatch = useDispatch();
-	const pageTitle =
-		'FreeCodeCamp training project "Building a random citation machine" using React.';
+	const pageTitle = 'Random citation machine project.';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));

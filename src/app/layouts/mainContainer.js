@@ -1,11 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
-import {
-	Outlet,
-	Link,
-	Navigate,
-	useLocation,
-	useNavigate,
-} from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkImgsRender } from '../fucnForApp.js';
 //import Redux actions and selectors
@@ -44,6 +38,19 @@ export const MainContainer = (props) => {
 	useEffect(() => {
 		pageTopRef.current.scrollIntoView(true);
 	}, [location]);
+
+	// let navigate = useNavigate();
+	// const redirectLocation = useLocation().search;
+	// redirectLocation handler
+	// useEffect(() => {
+	// 	console.log('useLayoutEffect');
+
+	// 	if (redirectLocation === '?redirect=RQM') {
+	// 		console.log(redirectLocation);
+	// 		navigate('/personal_blog_bootstrapped_by_react/random_quote_machine');
+	// 		//navigate('../', { replace: true });
+	// 	}
+	// }, [redirectLocation]);
 
 	//img check handler
 	useLayoutEffect(() => {
@@ -92,6 +99,7 @@ export const MainContainer = (props) => {
 						{
 							//conditional rendering
 							location !== '/' &&
+								location !== '/recentPosts' &&
 								location !== '/personal_blog_bootstrapped_by_react' && (
 									<Link to="recentPosts">
 										<h6 className={'me-4 navLink'} style={{ color: '#0d6efd' }}>
@@ -137,19 +145,8 @@ export const NotFound = () => {
 };
 //create recent posts component
 export const RecentPosts = () => {
-	let navigate = useNavigate();
-	const redirectLocation = useLocation().search;
 	const dispatch = useDispatch();
 	const pageTitle = 'Recent posts';
-
-	// redirectLocation handler
-	useEffect(() => {
-		if (redirectLocation === '?redirect=RQM') {
-			console.log('redirectLocation');
-			navigate('/personal_blog_bootstrapped_by_react/random_quote_machine');
-			//navigate('../', { replace: true });
-		}
-	}, [redirectLocation]);
 
 	//dispatch page title
 	useEffect(() => {
