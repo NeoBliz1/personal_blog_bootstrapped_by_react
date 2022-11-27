@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
+//import bootstrap JS
+import 'bootstrap/js/dist/modal';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkImgsRender } from '../fucnForApp.js';
@@ -38,19 +40,6 @@ export const MainContainer = (props) => {
 	useEffect(() => {
 		pageTopRef.current.scrollIntoView(true);
 	}, [location]);
-
-	// let navigate = useNavigate();
-	// const redirectLocation = useLocation().search;
-	// redirectLocation handler
-	// useEffect(() => {
-	// 	console.log('useLayoutEffect');
-
-	// 	if (redirectLocation === '?redirect=RQM') {
-	// 		console.log(redirectLocation);
-	// 		navigate('/personal_blog_bootstrapped_by_react/random_quote_machine');
-	// 		//navigate('../', { replace: true });
-	// 	}
-	// }, [redirectLocation]);
 
 	//img check handler
 	useLayoutEffect(() => {

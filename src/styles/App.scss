@@ -1,5 +1,5 @@
-@import 'CustomBootstrap';
-//@import './styles_source/sassCustomBootstrap';
+//@import 'CustomBootstrap';
+@import './styles_source/sassCustomBootstrap';
 @import "~rfs/scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -100,6 +100,38 @@ a {
   align-items: center;
 }
 
+
+.codeModalHeader {
+  background-color: transparent;
+  position: absolute;
+  right: 3%;
+  top: 1%;
+  border: 0;
+  z-index: 2;
+}
+.codeZoomHeader {
+  background-color: transparent;
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  border: 0;
+  z-index: 2;
+}
+.codeModalFooter {
+  background-color: transparent;
+  position: absolute;
+  right: 1%;
+  bottom: 1%;
+  border: 0;
+}
+
+.modalCntrlBtn {
+  background-color: transparent;
+  border: 0;
+}
+.modalFullScreenBtn:hover {
+  background-color: white;  
+}
 
 /* Extra small devices (phones, 576px and down) */
 @media only screen and (max-width: 575px) {

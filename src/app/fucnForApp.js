@@ -89,7 +89,7 @@ export const useImportScript = (urlArr, integrityArr, setScriptsLoaded) => {
 	let fName;
 	//check prism scripts on the page have fully loaded or not
 	const checkPrismScriptLoad = (arrString) => {
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			//console.log('promise started');
 			//console.log(arrString.length);
 			const checkFunc = () => {
@@ -135,7 +135,7 @@ export const useImportScript = (urlArr, integrityArr, setScriptsLoaded) => {
 
 		//add prism core script on webpage
 		addScriptOnPage(urlArr[0], integrityArr[0], prismCore, true);
-		checkPrismScriptLoad(['Prism']).then((value) => {
+		checkPrismScriptLoad(['Prism']).then(() => {
 			//add prism autoloader script on webpage
 			addScriptOnPage(urlArr[1], integrityArr[1], prismAutoloader);
 			checkPrismScriptLoad(['Prism', 'plugins', 'autoloader']).then((value) => {

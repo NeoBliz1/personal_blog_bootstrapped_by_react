@@ -1,15 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { CustomModal } from '../layouts/modal';
 //import { useOutletContext } from 'react-router-dom'
 import { useImportScript, useImportStylesheet } from '../fucnForApp.js';
 import { useDispatch } from 'react-redux';
 //import Redux action
 import { setPageTitle } from '../../features/imgStateSlice';
+import { BsFullscreen } from 'react-icons/bs';
+import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
 
 //app wrap
 const RandomQuoteMachineFullArticle = () => {
 	//const outletContextProps = useOutletContext();
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
+	const codeBlockModal = useRef();
 
 	const initialCode = `
     const foo = 'foo'; 
@@ -65,6 +69,7 @@ const RandomQuoteMachineFullArticle = () => {
 			//console.log(typeof window.Prism.plugins.lineNumbers !== 'undefined')
 			//console.log('highlight')
 			window.Prism.highlightElement(codeBlock.current);
+			window.Prism.highlightElement(codeBlockModal.current);
 		}
 		//console.log(window.Prism)
 		//if prismjs core and plugin line numbers have executed then start code highlight
@@ -166,11 +171,33 @@ const RandomQuoteMachineFullArticle = () => {
 						href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
 						Link to the project repository on the Github
 					</a>
-					<pre className="line-numbers" style={{ maxHeight: '800px' }}>
-						<code ref={codeBlock} className="language-jsx">
-							{RQMcode}
-						</code>
-					</pre>
+					<div className="modal-content">
+						<div className="modal-header codeModalHeader">
+							{/* Button trigger modal */}
+							<button
+								type="button"
+								className="btn btn-dark modalCntrlBtn"
+								data-bs-toggle="modal"
+								data-bs-target="#codeModal">
+								<BsFullscreen />
+							</button>
+						</div>
+						<div className="modal-header codeZoomHeader">
+							{/* Button trigger modal */}
+							<button type="button" className="btn btn-dark modalCntrlBtn">
+								<HiZoomIn />
+							</button>
+							<button type="button" className="btn btn-dark modalCntrlBtn">
+								<HiZoomOut />
+							</button>
+						</div>
+						<pre className="line-numbers" style={{ maxHeight: '800px' }}>
+							<code ref={codeBlock} className="language-jsx">
+								{RQMcode}
+							</code>
+						</pre>
+					</div>
+					<CustomModal codeBlock={RQMcode} refCodeBlockModal={codeBlockModal} />
 				</div>
 			</div>
 		</div>
