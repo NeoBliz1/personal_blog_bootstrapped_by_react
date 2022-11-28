@@ -14,6 +14,8 @@ const RandomQuoteMachineFullArticle = () => {
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
 	const codeBlockModal = useRef();
+	const preCodeBlock = useRef();
+	const preCodeBlockModal = useRef();
 
 	const initialCode = `
     const foo = 'foo'; 
@@ -184,20 +186,51 @@ const RandomQuoteMachineFullArticle = () => {
 						</div>
 						<div className="modal-header codeZoomHeader">
 							{/* Button trigger modal */}
-							<button type="button" className="btn btn-dark modalCntrlBtn">
+							<button
+								id="zoomInCodeBlock"
+								type="button"
+								className="btn btn-dark modalCntrlBtn"
+								onClick={() => {
+									const currFontSize = window
+										.getComputedStyle(preCodeBlock.current, null)
+										.getPropertyValue('font-size')
+										.slice(0, -2);
+									const newFontSize = parseInt(currFontSize) + 5;
+									preCodeBlock.current.style.fontSize = newFontSize + 'px';
+									console.log();
+								}}>
 								<HiZoomIn />
 							</button>
-							<button type="button" className="btn btn-dark modalCntrlBtn">
+							<button
+								id="zoomOutCodeBlock"
+								type="button"
+								className="btn btn-dark modalCntrlBtn"
+								onClick={() => {
+									const currFontSize = window
+										.getComputedStyle(preCodeBlock.current, null)
+										.getPropertyValue('font-size')
+										.slice(0, -2);
+									const newFontSize = parseInt(currFontSize) - 5;
+									preCodeBlock.current.style.fontSize = newFontSize + 'px';
+									console.log();
+								}}>
 								<HiZoomOut />
 							</button>
 						</div>
-						<pre className="line-numbers" style={{ maxHeight: '800px' }}>
+						<pre
+							className="line-numbers"
+							ref={preCodeBlock}
+							style={{ maxHeight: '800px' }}>
 							<code ref={codeBlock} className="language-jsx">
 								{RQMcode}
 							</code>
 						</pre>
 					</div>
-					<CustomModal codeBlock={RQMcode} refCodeBlockModal={codeBlockModal} />
+					<CustomModal
+						codeBlock={RQMcode}
+						refCodeBlockModal={codeBlockModal}
+						refPreCodeBlockModal={preCodeBlockModal}
+					/>
 				</div>
 			</div>
 		</div>

@@ -100,11 +100,10 @@ a {
   align-items: center;
 }
 
-
 .codeModalHeader {
   background-color: transparent;
   position: absolute;
-  right: 3%;
+  right: 4%;
   top: 1%;
   border: 0;
   z-index: 2;
@@ -126,8 +125,9 @@ a {
 }
 
 .modalCntrlBtn {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.35);
   border: 0;
+  font-size: rfs-fluid-value($h3-font-size);
 }
 .modalFullScreenBtn:hover {
   background-color: white;  
