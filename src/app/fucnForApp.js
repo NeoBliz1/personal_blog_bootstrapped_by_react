@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 //check Img rendering state
 const checkImgHeight = (img) => {
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve) => {
 		let imgHeigt = 0;
 		const checkFunc = () => {
 			if (imgHeigt === img.naturalHeight) {
@@ -181,4 +181,14 @@ export const useImportStylesheet = (
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [resourceUrl]);
+};
+
+//font zoomIn zoomOut, pass -1 for subtracting ot 1 for adding
+export const zoomHandler = (ref, operator) => {
+	const currFontSize = window
+		.getComputedStyle(ref.current, null)
+		.getPropertyValue('font-size')
+		.slice(0, -2);
+	const newFontSize = parseInt(currFontSize) + 2 * operator;
+	ref.current.style.fontSize = newFontSize + 'px';
 };

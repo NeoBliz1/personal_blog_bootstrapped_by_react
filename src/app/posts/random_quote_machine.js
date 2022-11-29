@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CustomModal } from '../layouts/modal';
 //import { useOutletContext } from 'react-router-dom'
-import { useImportScript, useImportStylesheet } from '../fucnForApp.js';
+import {
+	useImportScript,
+	useImportStylesheet,
+	zoomHandler,
+} from '../fucnForApp.js';
 import { useDispatch } from 'react-redux';
 //import Redux action
 import { setPageTitle } from '../../features/imgStateSlice';
@@ -191,13 +195,7 @@ const RandomQuoteMachineFullArticle = () => {
 								type="button"
 								className="btn btn-dark modalCntrlBtn"
 								onClick={() => {
-									const currFontSize = window
-										.getComputedStyle(preCodeBlock.current, null)
-										.getPropertyValue('font-size')
-										.slice(0, -2);
-									const newFontSize = parseInt(currFontSize) + 5;
-									preCodeBlock.current.style.fontSize = newFontSize + 'px';
-									console.log();
+									zoomHandler(preCodeBlock, 1);
 								}}>
 								<HiZoomIn />
 							</button>
@@ -206,13 +204,7 @@ const RandomQuoteMachineFullArticle = () => {
 								type="button"
 								className="btn btn-dark modalCntrlBtn"
 								onClick={() => {
-									const currFontSize = window
-										.getComputedStyle(preCodeBlock.current, null)
-										.getPropertyValue('font-size')
-										.slice(0, -2);
-									const newFontSize = parseInt(currFontSize) - 5;
-									preCodeBlock.current.style.fontSize = newFontSize + 'px';
-									console.log();
+									zoomHandler(preCodeBlock, -1);
 								}}>
 								<HiZoomOut />
 							</button>

@@ -1,4 +1,5 @@
 import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
+import { zoomHandler } from '../fucnForApp.js';
 
 export const CustomModal = (props) => {
 	const { codeBlock, refCodeBlockModal, refPreCodeBlockModal } = props;
@@ -19,14 +20,7 @@ export const CustomModal = (props) => {
 							type="button"
 							className="btn btn-dark modalCntrlBtn"
 							onClick={() => {
-								const currFontSize = window
-									.getComputedStyle(refPreCodeBlockModal.current, null)
-									.getPropertyValue('font-size')
-									.slice(0, -2);
-								const newFontSize = parseInt(currFontSize) + 5;
-								refPreCodeBlockModal.current.style.fontSize =
-									newFontSize + 'px';
-								console.log();
+								zoomHandler(refPreCodeBlockModal, 1);
 							}}>
 							<HiZoomIn />
 						</button>
@@ -35,14 +29,7 @@ export const CustomModal = (props) => {
 							type="button"
 							className="btn btn-dark modalCntrlBtn"
 							onClick={() => {
-								const currFontSize = window
-									.getComputedStyle(refPreCodeBlockModal.current, null)
-									.getPropertyValue('font-size')
-									.slice(0, -2);
-								const newFontSize = parseInt(currFontSize) - 5;
-								refPreCodeBlockModal.current.style.fontSize =
-									newFontSize + 'px';
-								console.log();
+								zoomHandler(refPreCodeBlockModal, -1);
 							}}>
 							<HiZoomOut />
 						</button>
