@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 //check Img rendering state
 const checkImgHeight = (img) => {
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve) => {
 		let imgHeigt = 0;
 		const checkFunc = () => {
 			if (imgHeigt === img.naturalHeight) {
@@ -89,7 +89,7 @@ export const useImportScript = (urlArr, integrityArr, setScriptsLoaded) => {
 	let fName;
 	//check prism scripts on the page have fully loaded or not
 	const checkPrismScriptLoad = (arrString) => {
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			//console.log('promise started');
 			//console.log(arrString.length);
 			const checkFunc = () => {
@@ -135,7 +135,7 @@ export const useImportScript = (urlArr, integrityArr, setScriptsLoaded) => {
 
 		//add prism core script on webpage
 		addScriptOnPage(urlArr[0], integrityArr[0], prismCore, true);
-		checkPrismScriptLoad(['Prism']).then((value) => {
+		checkPrismScriptLoad(['Prism']).then(() => {
 			//add prism autoloader script on webpage
 			addScriptOnPage(urlArr[1], integrityArr[1], prismAutoloader);
 			checkPrismScriptLoad(['Prism', 'plugins', 'autoloader']).then((value) => {
@@ -156,6 +156,7 @@ export const useImportScript = (urlArr, integrityArr, setScriptsLoaded) => {
 			document.body.removeChild(prismAutoloader);
 			document.body.removeChild(prismLineNumber);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 };
 
@@ -178,5 +179,23 @@ export const useImportStylesheet = (
 		return () => {
 			document.head.removeChild(link);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [resourceUrl]);
+};
+
+//font zoomIn zoomOut, pass -1 for subtracting ot 1 for adding
+export const zoomHandler = (ref, operator) => {
+	const currFontSize = window
+		.getComputedStyle(ref.current, null)
+		.getPropertyValue('font-size')
+		.slice(0, -2);
+	console.log(currFontSize);
+	let newFontSize = currFontSize;
+	if (newFontSize <= 2 && operator === -1) {
+		console.log('fontsize zero');
+	} else {
+		newFontSize = parseInt(currFontSize) + 2 * operator;
+	}
+
+	ref.current.style.fontSize = newFontSize + 'px';
 };

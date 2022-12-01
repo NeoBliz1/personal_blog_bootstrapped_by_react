@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
+//import bootstrap JS
+import 'bootstrap/js/dist/modal';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkImgsRender } from '../fucnForApp.js';
@@ -39,19 +41,6 @@ export const MainContainer = (props) => {
 		pageTopRef.current.scrollIntoView(true);
 	}, [location]);
 
-	// let navigate = useNavigate();
-	// const redirectLocation = useLocation().search;
-	// redirectLocation handler
-	// useEffect(() => {
-	// 	console.log('useLayoutEffect');
-
-	// 	if (redirectLocation === '?redirect=RQM') {
-	// 		console.log(redirectLocation);
-	// 		navigate('/personal_blog_bootstrapped_by_react/random_quote_machine');
-	// 		//navigate('../', { replace: true });
-	// 	}
-	// }, [redirectLocation]);
-
 	//img check handler
 	useLayoutEffect(() => {
 		console.log('img checked');
@@ -71,6 +60,7 @@ export const MainContainer = (props) => {
 		checkImgsRender(imgArr).then((value) => {
 			value && dispatch(imgsRenderedSetState());
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [location]);
 
 	return (
@@ -131,6 +121,7 @@ export const NotFound = () => {
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="d-flex justify-content-center">
@@ -151,10 +142,14 @@ export const RecentPosts = () => {
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
+				<MarkdownPreviewerPost />
+			</div>
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<RandomQuoteMachine />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
@@ -176,6 +171,7 @@ export const AllPosts = () => {
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="cardContainer px-3">
@@ -192,6 +188,33 @@ export const AllPosts = () => {
 				<MerryChristmasPost />
 			</div>
 		</div>
+	);
+};
+//Photo by <a href="https://unsplash.com/@lhgerona?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lyman Hansel Gerona</a> on <a href="https://unsplash.com/s/photos/robot-translator?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+const MarkdownPreviewerPost = () => {
+	const [cardImgSrc] = useState(require('../../imgs/today_was_a_good_day.jpg')); //setImg src
+
+	return (
+		<Link
+			to="/personal_blog_bootstrapped_by_react/random_quote_machine"
+			className="text-dark text-decoration-none">
+			<div className="card">
+				<div className="overflow-hidden card-img-top imgContainer">
+					<img
+						alt="today was a good day"
+						variant="top"
+						className="cardImg img-fluid"
+						id="simpleImg1"
+						src={cardImgSrc}
+					/>
+				</div>
+				<div className="card-body">
+					<p className="card-title">Some quotes can save lives.</p>
+					<p className="card-text">FreeCodeCamp Project.</p>
+				</div>
+			</div>
+		</Link>
 	);
 };
 const RandomQuoteMachine = () => {

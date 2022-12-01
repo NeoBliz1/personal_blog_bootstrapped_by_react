@@ -18,13 +18,7 @@ import RQMostFullArticle from './posts/random_quote_machine';
 
 export default function Router() {
 	const redirectLocation = useLocation().search;
-	//console.log(redirectLocation);
-
-	// if (redirectLocation === '?redirect=RQM') {
-	// 	console.log('redirectLocation');
-	// 	navigate('/personal_blog_bootstrapped_by_react/random_quote_machine');
-	// 	//navigate('../', { replace: true });
-	// }
+	
 	let element = useRoutes([
 		{
 			element: <MainContainer />,
