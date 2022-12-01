@@ -13,8 +13,17 @@ export const CustomModal = (props) => {
 			aria-hidden="true">
 			<div className="modal-dialog modal-fullscreen">
 				<div className="modal-content">
-					<div className="modal-header codeZoomHeader">
-						{/* Button trigger modal */}
+					{/* <div className="modal-header codeZoomHeaderModal">
+						
+					</div> */}
+					<div className="modal-body">
+						<pre ref={refPreCodeBlockModal} className="line-numbers">
+							<code ref={refCodeBlockModal} className="language-jsx">
+								{codeBlock}
+							</code>
+						</pre>
+					</div>
+					<div className="modal-footer codeModalFooter">
 						<button
 							id="zoomInCodeBlock"
 							type="button"
@@ -33,15 +42,6 @@ export const CustomModal = (props) => {
 							}}>
 							<HiZoomOut />
 						</button>
-					</div>
-					<div className="modal-body">
-						<pre ref={refPreCodeBlockModal} className="line-numbers">
-							<code ref={refCodeBlockModal} className="language-jsx">
-								{codeBlock}
-							</code>
-						</pre>
-					</div>
-					<div className="modal-footer codeModalFooter">
 						<button
 							type="button"
 							className="btn btn-secondary"

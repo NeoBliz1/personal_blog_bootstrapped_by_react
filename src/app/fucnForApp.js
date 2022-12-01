@@ -189,6 +189,13 @@ export const zoomHandler = (ref, operator) => {
 		.getComputedStyle(ref.current, null)
 		.getPropertyValue('font-size')
 		.slice(0, -2);
-	const newFontSize = parseInt(currFontSize) + 2 * operator;
+	console.log(currFontSize);
+	let newFontSize = currFontSize;
+	if (newFontSize <= 2 && operator === -1) {
+		console.log('fontsize zero');
+	} else {
+		newFontSize = parseInt(currFontSize) + 2 * operator;
+	}
+
 	ref.current.style.fontSize = newFontSize + 'px';
 };
