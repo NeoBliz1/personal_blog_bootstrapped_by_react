@@ -98,11 +98,13 @@ export const MainContainer = (props) => {
 									</Link>
 								)
 						}
-						<Link to="allPosts">
-							<h6 className="navLink" style={{ color: '#0d6efd' }}>
-								View all posts -{'>'}
-							</h6>
-						</Link>
+						{location !== '/allPosts' && (
+							<Link to="allPosts">
+								<h6 className="navLink" style={{ color: '#0d6efd' }}>
+									View all posts -{'>'}
+								</h6>
+							</Link>
+						)}
 					</div>
 				</div>
 				<hr />
@@ -135,6 +137,7 @@ export const NotFound = () => {
 	);
 };
 //create recent posts component
+//shows only 4 last posts
 export const RecentPosts = () => {
 	const dispatch = useDispatch();
 	const pageTitle = 'Recent posts';
@@ -149,14 +152,11 @@ export const RecentPosts = () => {
 			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
 				<MarkdownPreviewerPost />
 			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<RandomQuoteMachine />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<WCPost />
-			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
-				<MerryChristmasPost />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<MerryChristmasPost />
@@ -167,7 +167,7 @@ export const RecentPosts = () => {
 //create recent posts component
 export const AllPosts = () => {
 	const dispatch = useDispatch();
-	const pageTitle = 'Code Adventures Reminder';
+	const pageTitle = 'All posts';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
@@ -175,6 +175,9 @@ export const AllPosts = () => {
 	}, []);
 	return (
 		<div className="cardContainer px-3">
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
+				<MarkdownPreviewerPost />
+			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<RandomQuoteMachine />
 			</div>
@@ -193,11 +196,13 @@ export const AllPosts = () => {
 //Photo by <a href="https://unsplash.com/@lhgerona?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lyman Hansel Gerona</a> on <a href="https://unsplash.com/s/photos/robot-translator?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 const MarkdownPreviewerPost = () => {
-	const [cardImgSrc] = useState(require('../../imgs/today_was_a_good_day.jpg')); //setImg src
+	const [cardImgSrc] = useState(
+		require('../../imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg'),
+	); //setImg src
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/random_quote_machine"
+			to="/personal_blog_bootstrapped_by_react/markdown_previewer"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -210,7 +215,7 @@ const MarkdownPreviewerPost = () => {
 					/>
 				</div>
 				<div className="card-body">
-					<p className="card-title">Some quotes can save lives.</p>
+					<p className="card-title">Parsing & Interpreting making it easy.</p>
 					<p className="card-text">FreeCodeCamp Project.</p>
 				</div>
 			</div>

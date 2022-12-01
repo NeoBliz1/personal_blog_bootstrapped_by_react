@@ -123,8 +123,8 @@ const RandomQuoteMachineFullArticle = () => {
 				</div>
 				<div>
 					<p>
-						This is the first simple application from the Front End Development
-						Libraries
+						This is the first simple app in the "Front End Development
+						Libraries"
 						<a
 							className="mx-1"
 							target="_blank"
@@ -132,10 +132,10 @@ const RandomQuoteMachineFullArticle = () => {
 							href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
 							training course
 						</a>
-						from freeCodeCamp. The application was created using React, I used
-						the Bootstrap framework to make it easier to work with CSS, with the
-						usual styles.css and inline styles managed by React as plugin
-						technologies. The cloud-based
+						from freeCodeCamp. The app created using React. I used the Bootstrap
+						framework to make it easy to work with CSS. Regular styles.css and
+						inline styles managed by React as plugin technologies. As
+						development environment chosen the cloud-based
 						<a
 							className="mx-1"
 							target="_blank"
@@ -149,11 +149,10 @@ const RandomQuoteMachineFullArticle = () => {
 							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
-							href="https://github.com/NeoBliz1">
-							codesandbox IDE
+							href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
+							my Github.
 						</a>
-						my Github , the project was deployed using npm gh-pages from a local
-						machine.
+						The project was deployed using npm gh-pages from a local machine.
 					</p>
 					<a
 						className="mx-1"

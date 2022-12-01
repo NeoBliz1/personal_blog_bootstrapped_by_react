@@ -26,9 +26,11 @@ const RandomQuoteMachineFullArticle = () => {
     const bar = 'bar';
     console.log(foo + bar);
   `.trim();
-	const [RQMcode, setRQMcode] = useState(initialCode);
+	const [projectCode, setProjectCode] = useState(initialCode);
 	const [scriptsLoaded, setScriptsLoaded] = useState(false);
-	const [cardImgSrc] = useState(require('../../imgs/today_was_a_good_day.jpg')); //setImg src
+	const [cardImgSrc] = useState(
+		require('../../imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg'),
+	); //setImg src
 
 	//import pirsm CSS from CDN
 	useImportStylesheet(
@@ -61,10 +63,10 @@ const RandomQuoteMachineFullArticle = () => {
 
 	//fetch App.py code from git
 	fetch(
-		'https://raw.githubusercontent.com/NeoBliz1/rand0m_qu0te_machine/main/src/App.js',
+		'https://raw.githubusercontent.com/NeoBliz1/Markdown_Previewer/main/src/App.js',
 	)
 		.then((response) => response.text())
-		.then((data) => setRQMcode(data));
+		.then((data) => setProjectCode(data));
 
 	//if scriptsLoaded or flaskAppCode have changed useEffect executed
 	useEffect(() => {
@@ -79,10 +81,10 @@ const RandomQuoteMachineFullArticle = () => {
 		}
 		//console.log(window.Prism)
 		//if prismjs core and plugin line numbers have executed then start code highlight
-	}, [scriptsLoaded, RQMcode]);
+	}, [scriptsLoaded, projectCode]);
 
 	const dispatch = useDispatch();
-	const pageTitle = 'Random citation machine project.';
+	const pageTitle = 'Markdown Previewer project.';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
@@ -93,9 +95,7 @@ const RandomQuoteMachineFullArticle = () => {
 		<div className="d-flex justify-content-center">
 			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
 				<h4 className="h4">{pageTitle}</h4>
-				<div
-					className="overflow-hidden position-relative postImgContainer"
-					style={{ height: '16rem' }}>
+				<div className="overflow-hidden position-relative MPPostImgContainer">
 					{/************************************************************
           header image 
           ***************************************************************/}
@@ -107,11 +107,11 @@ const RandomQuoteMachineFullArticle = () => {
 				</div>
 				<div className="d-flex justify-content-center linkToAuthor">
 					<a
-						href="https://unsplash.com/photos/n-vxsHr9jZA"
+						href="https://unsplash.com/@lhgerona?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 						target="_blank"
 						rel="noreferrer"
 						className="me-1 text-secondary">
-						Photo: Patrick Tomasso
+						Photo: Lyman Hansel Gerona
 					</a>
 					<a
 						href="https://unsplash.com/license"
@@ -123,8 +123,7 @@ const RandomQuoteMachineFullArticle = () => {
 				</div>
 				<div>
 					<p>
-						This is the first simple application from the Front End Development
-						Libraries
+						This is the second app in the "Front End Development Libraries"
 						<a
 							className="mx-1"
 							target="_blank"
@@ -132,39 +131,33 @@ const RandomQuoteMachineFullArticle = () => {
 							href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
 							training course
 						</a>
-						from freeCodeCamp. The application was created using React, I used
-						the Bootstrap framework to make it easier to work with CSS, with the
-						usual styles.css and inline styles managed by React as plugin
-						technologies. The cloud-based
+						from freeCodeCamp. The app created with React, I used the Bootstrap
+						framework to make it easy to work with CSS. Regular styles.css and
+						inline styles managed by React as plugin technologies. As
+						development environment was chosen cloud service the
 						<a
 							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://codesandbox.io/u/NeoBliz1">
-							codesandbox IDE
+							Codesandbox.
 						</a>
-						was chosen as the development environment. The full source code can
-						be viewed on
-						<a
-							className="mx-1"
-							target="_blank"
-							rel="noreferrer"
-							href="https://github.com/NeoBliz1">
-							codesandbox IDE
-						</a>
-						my Github , the project was deployed using npm gh-pages from a local
-						machine.
+						This mini-application is based on two components. The difference
+						between this project and the previous one is the transfer of states
+						via component props in both directions, parent-child and
+						child-parent. The project deployed with npm gh-pages from the
+						codesandbox.
 					</p>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://neobliz1.github.io/rand0m_qu0te_machine/">
+						href="https://neobliz1.github.io/Markdown_Previewer/">
 						Link to the project on the Github pages
 					</a>
 					<iframe
-						src="https://neobliz1.github.io/rand0m_qu0te_machine/"
-						height={500}
+						src="https://neobliz1.github.io/Markdown_Previewer/"
+						height={1430}
 						sandbox="allow-scripts"
 						rel="noreferrer"
 						loading="lazy"
@@ -174,7 +167,7 @@ const RandomQuoteMachineFullArticle = () => {
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
+						href="https://github.com/NeoBliz1/Markdown_Previewer">
 						Link to the project repository on the Github
 					</a>
 					<div className="modal-content">
@@ -214,12 +207,12 @@ const RandomQuoteMachineFullArticle = () => {
 							ref={preCodeBlock}
 							style={{ maxHeight: '800px' }}>
 							<code ref={codeBlock} className="language-jsx">
-								{RQMcode}
+								{projectCode}
 							</code>
 						</pre>
 					</div>
 					<CustomModal
-						codeBlock={RQMcode}
+						codeBlock={projectCode}
 						refCodeBlockModal={codeBlockModal}
 						refPreCodeBlockModal={preCodeBlockModal}
 					/>

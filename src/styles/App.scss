@@ -100,6 +100,10 @@ a {
   align-items: center;
 }
 
+.MPPostImgContainer{
+    height: 22rem;
+}
+
 .codeModalHeader {
   background-color: transparent;
   position: absolute;
@@ -171,7 +175,7 @@ a {
   }
   .postImgContainer{
     height: 12rem;
-  }
+  }  
   .postImg{
     width: 30rem;
   }
@@ -275,4 +279,11 @@ a {
   .smallCard{      
     align-self: flex-start;
   }  
+}
+/* Super extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1900px) {
+  .MPPostImgContainer{
+    height: 45rem;
+  }
+
 }
