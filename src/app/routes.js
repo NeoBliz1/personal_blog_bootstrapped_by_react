@@ -19,10 +19,26 @@ const MPPostFullArticle = React.lazy(() => import('./posts/mpPost'));
 export default function Router() {
 	const redirectLocation = useLocation().search;
 	const redirectFunction = () => {
-		if (redirectLocation === '?redirect=RQM') {
-			return <RQMostFullArticle />;
-		} else if (redirectLocation === '?redirect=MP') {
-			return <MPPostFullArticle />;
+		if (redirectLocation === '?redirect=random_quote_machine') {
+			return (
+				<React.Suspense fallback={<SpinnerLoader />}>
+					<RQMostFullArticle />
+				</React.Suspense>
+			);
+		} else if (redirectLocation === '?redirect=markdown_previewer') {
+			return (
+				<React.Suspense fallback={<SpinnerLoader />}>
+					<MPPostFullArticle />
+				</React.Suspense>
+			);
+		} else if (redirectLocation === '?redirect=blogPostAboutWebchat') {
+			return (
+				<React.Suspense fallback={<SpinnerLoader />}>
+					<WCPostFullArticle />
+				</React.Suspense>
+			);
+		} else if (redirectLocation === '?redirect=AllPosts') {
+			return <AllPosts />;
 		} else {
 			return <RecentPosts />;
 		}
@@ -37,35 +53,35 @@ export default function Router() {
 					path: '/personal_blog_bootstrapped_by_react',
 					element: redirectFunction(),
 				},
-				{
-					path: '/recentPosts',
-					element: <RecentPosts />,
-				},
-				{ path: '/allPosts', element: <AllPosts /> },
-				{
-					path: '/personal_blog_bootstrapped_by_react/blogPostAboutWebchat',
-					element: (
-						<React.Suspense fallback={<SpinnerLoader />}>
-							<WCPostFullArticle />
-						</React.Suspense>
-					),
-				},
-				{
-					path: '/personal_blog_bootstrapped_by_react/random_quote_machine',
-					element: (
-						<React.Suspense fallback={<SpinnerLoader />}>
-							<RQMostFullArticle />
-						</React.Suspense>
-					),
-				},
-				{
-					path: '/personal_blog_bootstrapped_by_react/markdown_previewer',
-					element: (
-						<React.Suspense fallback={<SpinnerLoader />}>
-							<MPPostFullArticle />
-						</React.Suspense>
-					),
-				},
+				// {
+				// 	path: '/recentPosts',
+				// 	element: <RecentPosts />,
+				// },
+				// { path: '/allPosts', element: <AllPosts /> },
+				// {
+				// 	path: '/personal_blog_bootstrapped_by_react/blogPostAboutWebchat',
+				// 	element: (
+				// 		<React.Suspense fallback={<SpinnerLoader />}>
+				// 			<WCPostFullArticle />
+				// 		</React.Suspense>
+				// 	),
+				// },
+				// {
+				// 	path: '/personal_blog_bootstrapped_by_react/?redirect=RQM',
+				// 	element: (
+				// 		<React.Suspense fallback={<SpinnerLoader />}>
+				// 			<RQMostFullArticle />
+				// 		</React.Suspense>
+				// 	),
+				// },
+				// {
+				// 	path: '/personal_blog_bootstrapped_by_react/markdown_previewer',
+				// 	element: (
+				// 		<React.Suspense fallback={<SpinnerLoader />}>
+				// 			<MPPostFullArticle />
+				// 		</React.Suspense>
+				// 	),
+				// },
 				{ path: '*', element: <NotFound /> },
 			],
 		},

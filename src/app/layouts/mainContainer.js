@@ -31,6 +31,7 @@ const HeaderComponent = () => {
 //main container component
 export const MainContainer = (props) => {
 	const location = useLocation().pathname;
+	const redirectLocation = useLocation().search;
 	const pageTopRef = useRef(null);
 	//imgs rendered handler
 	const imgsRendered = useSelector(selectImgsRendered);
@@ -88,18 +89,16 @@ export const MainContainer = (props) => {
 						className="d-flex align-items-end justify-content-end">
 						{
 							//conditional rendering
-							location !== '/' &&
-								location !== '/recentPosts' &&
-								location !== '/personal_blog_bootstrapped_by_react' && (
-									<Link to="recentPosts">
-										<h6 className={'me-4 navLink'} style={{ color: '#0d6efd' }}>
-											{'<- Recent posts'}
-										</h6>
-									</Link>
-								)
+							redirectLocation !== '' && (
+								<Link to="/personal_blog_bootstrapped_by_react">
+									<h6 className={'me-4 navLink'} style={{ color: '#0d6efd' }}>
+										{'<- Recent posts'}
+									</h6>
+								</Link>
+							)
 						}
-						{location !== '/allPosts' && (
-							<Link to="allPosts">
+						{redirectLocation !== '?redirect=AllPosts' && (
+							<Link to="/personal_blog_bootstrapped_by_react/?redirect=AllPosts">
 								<h6 className="navLink" style={{ color: '#0d6efd' }}>
 									View all posts -{'>'}
 								</h6>
@@ -202,7 +201,7 @@ const MarkdownPreviewerPost = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/markdown_previewer"
+			to="/personal_blog_bootstrapped_by_react/?redirect=markdown_previewer"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -227,7 +226,7 @@ const RandomQuoteMachine = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/random_quote_machine"
+			to="/personal_blog_bootstrapped_by_react/?redirect=random_quote_machine"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -253,7 +252,7 @@ const WCPost = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/blogPostAboutWebchat"
+			to="/personal_blog_bootstrapped_by_react/?redirect=blogPostAboutWebchat"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
