@@ -15,6 +15,7 @@ import {
 const WCPostFullArticle = React.lazy(() => import('./posts/wcPost')); // Lazy-loaded
 const RQMostFullArticle = React.lazy(() => import('./posts/rqmPost'));
 const MPPostFullArticle = React.lazy(() => import('./posts/mpPost'));
+const DMPostFullArticle = React.lazy(() => import('./posts/dmPost'));
 
 export default function Router() {
 	const redirectLocation = useLocation().search;
@@ -23,6 +24,12 @@ export default function Router() {
 			return (
 				<React.Suspense fallback={<SpinnerLoader />}>
 					<RQMostFullArticle />
+				</React.Suspense>
+			);
+		} else if (redirectLocation === '?redirect=drum_machine') {
+			return (
+				<React.Suspense fallback={<SpinnerLoader />}>
+					<DMPostFullArticle />
 				</React.Suspense>
 			);
 		} else if (redirectLocation === '?redirect=markdown_previewer') {

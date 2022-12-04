@@ -241,7 +241,10 @@ a {
   }
   .smallCard{      
     align-self: flex-start;
-  } 
+  }
+  .MPPostImgContainer{
+    height: 18rem;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -281,7 +284,14 @@ a {
   }  
 }
 /* Super extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 2000px) {
+  .MPPostImgContainer{
+    height: 30rem;
+  }
+
+}
+/* Super extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 2800px) {
   .MPPostImgContainer{
     height: 45rem;
   }

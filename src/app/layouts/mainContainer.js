@@ -149,6 +149,9 @@ export const RecentPosts = () => {
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
+				<DrumMachinePost />
+			</div>
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<MarkdownPreviewerPost />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
@@ -156,9 +159,6 @@ export const RecentPosts = () => {
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<WCPost />
-			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
-				<MerryChristmasPost />
 			</div>
 		</div>
 	);
@@ -175,6 +175,9 @@ export const AllPosts = () => {
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
+				<DrumMachinePost />
+			</div>
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<MarkdownPreviewerPost />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
@@ -186,14 +189,37 @@ export const AllPosts = () => {
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<MerryChristmasPost />
 			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
-				<MerryChristmasPost />
-			</div>
 		</div>
 	);
 };
-//Photo by <a href="https://unsplash.com/@lhgerona?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lyman Hansel Gerona</a> on <a href="https://unsplash.com/s/photos/robot-translator?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
+const DrumMachinePost = () => {
+	const [cardImgSrc] = useState(
+		require('../../imgs/yianni-mathioudakis-drum_pad-unsplash_tiny.jpg'),
+	); //setImg src
+
+	return (
+		<Link
+			to="/personal_blog_bootstrapped_by_react/?redirect=drum_machine"
+			className="text-dark text-decoration-none">
+			<div className="card">
+				<div className="overflow-hidden card-img-top imgContainer">
+					<img
+						alt="today was a good day"
+						variant="top"
+						className="cardImg img-fluid"
+						id="simpleImg1"
+						src={cardImgSrc}
+					/>
+				</div>
+				<div className="card-body">
+					<p className="card-title">Set drum make fun.</p>
+					<p className="card-text">FreeCodeCamp Project.</p>
+				</div>
+			</div>
+		</Link>
+	);
+};
 const MarkdownPreviewerPost = () => {
 	const [cardImgSrc] = useState(
 		require('../../imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg'),

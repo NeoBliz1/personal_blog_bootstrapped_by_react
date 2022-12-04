@@ -13,7 +13,7 @@ import { BsFullscreen } from 'react-icons/bs';
 import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
 
 //app wrap
-const MarkdownPreviewerFullArticle = () => {
+const DrumMachineFullArticle = () => {
 	//const outletContextProps = useOutletContext();
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
@@ -29,7 +29,7 @@ const MarkdownPreviewerFullArticle = () => {
 	const [projectCode, setProjectCode] = useState(initialCode);
 	const [scriptsLoaded, setScriptsLoaded] = useState(false);
 	const [cardImgSrc] = useState(
-		require('../../imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg'),
+		require('../../imgs/yianni-mathioudakis-drum_pad-unsplash_tiny.jpg'),
 	); //setImg src
 
 	//import pirsm CSS from CDN
@@ -61,9 +61,9 @@ const MarkdownPreviewerFullArticle = () => {
 	//import pirsmJS from CDN
 	useImportScript(arrPrismJsSrc, arrSHA512Sums, setScriptsLoaded);
 
-	//fetch App.py code from git
+	//fetch App code from git
 	fetch(
-		'https://raw.githubusercontent.com/NeoBliz1/Markdown_Previewer/main/src/App.js',
+		'https://raw.githubusercontent.com/NeoBliz1/drum_machine/main/src/App.js',
 	)
 		.then((response) => response.text())
 		.then((data) => setProjectCode(data));
@@ -77,7 +77,7 @@ const MarkdownPreviewerFullArticle = () => {
 	}, [scriptsLoaded, projectCode]);
 
 	const dispatch = useDispatch();
-	const pageTitle = 'Markdown Previewer project.';
+	const pageTitle = 'Drum Machine project.';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
@@ -100,11 +100,11 @@ const MarkdownPreviewerFullArticle = () => {
 				</div>
 				<div className="d-flex justify-content-center linkToAuthor">
 					<a
-						href="https://unsplash.com/@lhgerona?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+						href="https://unsplash.com/@yiannifive?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 						target="_blank"
 						rel="noreferrer"
 						className="me-1 text-secondary">
-						Photo: Lyman Hansel Gerona
+						Photo: Yianni Mathioudakis
 					</a>
 					<a
 						href="https://unsplash.com/license"
@@ -116,7 +116,7 @@ const MarkdownPreviewerFullArticle = () => {
 				</div>
 				<div>
 					<p>
-						This is the second app in the "Front End Development Libraries"
+						That's the third app in the "Front End Development Libraries"
 						<a
 							className="mx-1"
 							target="_blank"
@@ -135,32 +135,45 @@ const MarkdownPreviewerFullArticle = () => {
 							href="https://codesandbox.io/u/NeoBliz1">
 							Codesandbox.
 						</a>
-						This mini-application is based on two components. The difference
-						between this project and the previous one is the transfer of states
-						via component props in both directions, parent-child and
-						child-parent. The project deployed with npm gh-pages from the
-						codesandbox.
+					</p>
+					<p>
+						Like the previous application, this also contain two components and
+						uses the same principles of prop transfer. I dug deeper into how
+						React render works and realized that re-render is called from top to
+						bottom, from the parent component containing the modified child
+						component down to the child component. New features of the project
+						are deploying pad components from an object and adding listeners
+						inside the 'useEffect' hook. My main stumbling block in this project
+						was using two different objects with two elements that had the same
+						identifiers. Every time the sound bank was changed, the keyboard
+						pads were re-rendered, inside the useEffect hook the 'keypress'
+						event listeners were removed and added back in. But because the
+						identifiers of the two elements in each object were the same, only 7
+						listeners were updated, and because of that the 'S' key was
+						re-rendered when the 'D' key was pressed. It finally has worked
+						correctly after I added unique identifiers for each object. The
+						project deployed with npm gh-pages from the codesandbox.
 					</p>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://neobliz1.github.io/Markdown_Previewer/">
+						href="https://neobliz1.github.io/drum_machine/">
 						Link to the project on the Github pages
 					</a>
 					<iframe
-						src="https://neobliz1.github.io/Markdown_Previewer/"
-						height={1430}
+						src="https://neobliz1.github.io/drum_machine/"
+						height={430}
 						sandbox="allow-scripts"
 						rel="noreferrer"
 						loading="lazy"
-						title="random quote machine iframe"
+						title="drum machine iframe"
 						style={{ width: '100%' }}></iframe>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://github.com/NeoBliz1/Markdown_Previewer">
+						href="https://github.com/NeoBliz1/drum_machine/">
 						Link to the project repository on the Github
 					</a>
 					<div className="modal-content">
@@ -215,4 +228,4 @@ const MarkdownPreviewerFullArticle = () => {
 	);
 };
 
-export default MarkdownPreviewerFullArticle;
+export default DrumMachineFullArticle;
