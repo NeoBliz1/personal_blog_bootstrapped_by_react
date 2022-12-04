@@ -13,7 +13,7 @@ import { BsFullscreen } from 'react-icons/bs';
 import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
 
 //app wrap
-const MarkdownPreviewerFullArticle = () => {
+const RandomQuoteMachineFullArticle = () => {
 	//const outletContextProps = useOutletContext();
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
@@ -26,11 +26,9 @@ const MarkdownPreviewerFullArticle = () => {
     const bar = 'bar';
     console.log(foo + bar);
   `.trim();
-	const [projectCode, setProjectCode] = useState(initialCode);
+	const [RQMcode, setRQMcode] = useState(initialCode);
 	const [scriptsLoaded, setScriptsLoaded] = useState(false);
-	const [cardImgSrc] = useState(
-		require('../../imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg'),
-	); //setImg src
+	const [cardImgSrc] = useState(require('../../imgs/today_was_a_good_day.jpg')); //setImg src
 
 	//import pirsm CSS from CDN
 	useImportStylesheet(
@@ -63,21 +61,28 @@ const MarkdownPreviewerFullArticle = () => {
 
 	//fetch App.py code from git
 	fetch(
-		'https://raw.githubusercontent.com/NeoBliz1/Markdown_Previewer/main/src/App.js',
+		'https://raw.githubusercontent.com/NeoBliz1/rand0m_qu0te_machine/main/src/App.js',
 	)
 		.then((response) => response.text())
-		.then((data) => setProjectCode(data));
+		.then((data) => setRQMcode(data));
 
 	//if scriptsLoaded or flaskAppCode have changed useEffect executed
 	useEffect(() => {
+		//console.log(`scriptsLoaded is ${scriptsLoaded}`)
 		if (scriptsLoaded) {
+			//console.log(typeof window.Prism !== 'undefined')
+			//console.log(typeof window.Prism.plugins.autoloader !== 'undefined')
+			//console.log(typeof window.Prism.plugins.lineNumbers !== 'undefined')
+			//console.log('highlight')
 			window.Prism.highlightElement(codeBlock.current);
 			window.Prism.highlightElement(codeBlockModal.current);
 		}
-	}, [scriptsLoaded, projectCode]);
+		//console.log(window.Prism)
+		//if prismjs core and plugin line numbers have executed then start code highlight
+	}, [scriptsLoaded, RQMcode]);
 
 	const dispatch = useDispatch();
-	const pageTitle = 'Markdown Previewer project.';
+	const pageTitle = 'Random citation machine project.';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
@@ -88,7 +93,9 @@ const MarkdownPreviewerFullArticle = () => {
 		<div className="d-flex justify-content-center">
 			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
 				<h4 className="h4">{pageTitle}</h4>
-				<div className="overflow-hidden position-relative MPPostImgContainer">
+				<div
+					className="overflow-hidden position-relative postImgContainer"
+					style={{ height: '16rem' }}>
 					{/************************************************************
           header image 
           ***************************************************************/}
@@ -100,11 +107,11 @@ const MarkdownPreviewerFullArticle = () => {
 				</div>
 				<div className="d-flex justify-content-center linkToAuthor">
 					<a
-						href="https://unsplash.com/@lhgerona?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+						href="https://unsplash.com/photos/n-vxsHr9jZA"
 						target="_blank"
 						rel="noreferrer"
 						className="me-1 text-secondary">
-						Photo: Lyman Hansel Gerona
+						Photo: Patrick Tomasso
 					</a>
 					<a
 						href="https://unsplash.com/license"
@@ -116,7 +123,8 @@ const MarkdownPreviewerFullArticle = () => {
 				</div>
 				<div>
 					<p>
-						This is the second app in the "Front End Development Libraries"
+						This is the first simple app in the "Front End Development
+						Libraries"
 						<a
 							className="mx-1"
 							target="_blank"
@@ -124,33 +132,38 @@ const MarkdownPreviewerFullArticle = () => {
 							href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
 							training course
 						</a>
-						from freeCodeCamp. The app created with React, I used the Bootstrap
+						from freeCodeCamp. The app created using React. I used the Bootstrap
 						framework to make it easy to work with CSS. Regular styles.css and
 						inline styles managed by React as plugin technologies. As
-						development environment was chosen cloud service the
+						development environment chosen the cloud-based
 						<a
 							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://codesandbox.io/u/NeoBliz1">
-							Codesandbox.
+							codesandbox IDE
 						</a>
-						This mini-application is based on two components. The difference
-						between this project and the previous one is the transfer of states
-						via component props in both directions, parent-child and
-						child-parent. The project deployed with npm gh-pages from the
-						codesandbox.
+						was chosen as the development environment. The full source code can
+						be viewed on
+						<a
+							className="mx-1"
+							target="_blank"
+							rel="noreferrer"
+							href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
+							my Github.
+						</a>
+						The project was deployed using npm gh-pages from a local machine.
 					</p>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://neobliz1.github.io/Markdown_Previewer/">
+						href="https://neobliz1.github.io/rand0m_qu0te_machine/">
 						Link to the project on the Github pages
 					</a>
 					<iframe
-						src="https://neobliz1.github.io/Markdown_Previewer/"
-						height={1430}
+						src="https://neobliz1.github.io/rand0m_qu0te_machine/"
+						height={500}
 						sandbox="allow-scripts"
 						rel="noreferrer"
 						loading="lazy"
@@ -160,7 +173,7 @@ const MarkdownPreviewerFullArticle = () => {
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://github.com/NeoBliz1/Markdown_Previewer">
+						href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
 						Link to the project repository on the Github
 					</a>
 					<div className="modal-content">
@@ -200,12 +213,12 @@ const MarkdownPreviewerFullArticle = () => {
 							ref={preCodeBlock}
 							style={{ maxHeight: '800px' }}>
 							<code ref={codeBlock} className="language-jsx">
-								{projectCode}
+								{RQMcode}
 							</code>
 						</pre>
 					</div>
 					<CustomModal
-						codeBlock={projectCode}
+						codeBlock={RQMcode}
 						refCodeBlockModal={codeBlockModal}
 						refPreCodeBlockModal={preCodeBlockModal}
 					/>
@@ -215,4 +228,4 @@ const MarkdownPreviewerFullArticle = () => {
 	);
 };
 
-export default MarkdownPreviewerFullArticle;
+export default RandomQuoteMachineFullArticle;

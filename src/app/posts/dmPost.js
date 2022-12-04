@@ -13,7 +13,7 @@ import { BsFullscreen } from 'react-icons/bs';
 import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
 
 //app wrap
-const RandomQuoteMachineFullArticle = () => {
+const DrumMachineFullArticle = () => {
 	//const outletContextProps = useOutletContext();
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
@@ -26,9 +26,11 @@ const RandomQuoteMachineFullArticle = () => {
     const bar = 'bar';
     console.log(foo + bar);
   `.trim();
-	const [RQMcode, setRQMcode] = useState(initialCode);
+	const [projectCode, setProjectCode] = useState(initialCode);
 	const [scriptsLoaded, setScriptsLoaded] = useState(false);
-	const [cardImgSrc] = useState(require('../../imgs/today_was_a_good_day.jpg')); //setImg src
+	const [cardImgSrc] = useState(
+		require('../../imgs/yianni-mathioudakis-drum_pad-unsplash_tiny.jpg'),
+	); //setImg src
 
 	//import pirsm CSS from CDN
 	useImportStylesheet(
@@ -59,30 +61,23 @@ const RandomQuoteMachineFullArticle = () => {
 	//import pirsmJS from CDN
 	useImportScript(arrPrismJsSrc, arrSHA512Sums, setScriptsLoaded);
 
-	//fetch App.py code from git
+	//fetch App code from git
 	fetch(
-		'https://raw.githubusercontent.com/NeoBliz1/rand0m_qu0te_machine/main/src/App.js',
+		'https://raw.githubusercontent.com/NeoBliz1/drum_machine/main/src/App.js',
 	)
 		.then((response) => response.text())
-		.then((data) => setRQMcode(data));
+		.then((data) => setProjectCode(data));
 
 	//if scriptsLoaded or flaskAppCode have changed useEffect executed
 	useEffect(() => {
-		//console.log(`scriptsLoaded is ${scriptsLoaded}`)
 		if (scriptsLoaded) {
-			//console.log(typeof window.Prism !== 'undefined')
-			//console.log(typeof window.Prism.plugins.autoloader !== 'undefined')
-			//console.log(typeof window.Prism.plugins.lineNumbers !== 'undefined')
-			//console.log('highlight')
 			window.Prism.highlightElement(codeBlock.current);
 			window.Prism.highlightElement(codeBlockModal.current);
 		}
-		//console.log(window.Prism)
-		//if prismjs core and plugin line numbers have executed then start code highlight
-	}, [scriptsLoaded, RQMcode]);
+	}, [scriptsLoaded, projectCode]);
 
 	const dispatch = useDispatch();
-	const pageTitle = 'Random citation machine project.';
+	const pageTitle = 'Drum Machine project.';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
@@ -93,9 +88,7 @@ const RandomQuoteMachineFullArticle = () => {
 		<div className="d-flex justify-content-center">
 			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
 				<h4 className="h4">{pageTitle}</h4>
-				<div
-					className="overflow-hidden position-relative postImgContainer"
-					style={{ height: '16rem' }}>
+				<div className="overflow-hidden position-relative MPPostImgContainer">
 					{/************************************************************
           header image 
           ***************************************************************/}
@@ -107,11 +100,11 @@ const RandomQuoteMachineFullArticle = () => {
 				</div>
 				<div className="d-flex justify-content-center linkToAuthor">
 					<a
-						href="https://unsplash.com/photos/n-vxsHr9jZA"
+						href="https://unsplash.com/@yiannifive?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 						target="_blank"
 						rel="noreferrer"
 						className="me-1 text-secondary">
-						Photo: Patrick Tomasso
+						Photo: Yianni Mathioudakis
 					</a>
 					<a
 						href="https://unsplash.com/license"
@@ -123,8 +116,7 @@ const RandomQuoteMachineFullArticle = () => {
 				</div>
 				<div>
 					<p>
-						This is the first simple application from the Front End Development
-						Libraries
+						That's the third app in the "Front End Development Libraries"
 						<a
 							className="mx-1"
 							target="_blank"
@@ -132,49 +124,56 @@ const RandomQuoteMachineFullArticle = () => {
 							href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
 							training course
 						</a>
-						from freeCodeCamp. The application was created using React, I used
-						the Bootstrap framework to make it easier to work with CSS, with the
-						usual styles.css and inline styles managed by React as plugin
-						technologies. The cloud-based
+						from freeCodeCamp. The app created with React, I used the Bootstrap
+						framework to make it easy to work with CSS. Regular styles.css and
+						inline styles managed by React as plugin technologies. As
+						development environment was chosen cloud service the
 						<a
 							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://codesandbox.io/u/NeoBliz1">
-							codesandbox IDE
+							Codesandbox.
 						</a>
-						was chosen as the development environment. The full source code can
-						be viewed on
-						<a
-							className="mx-1"
-							target="_blank"
-							rel="noreferrer"
-							href="https://github.com/NeoBliz1">
-							codesandbox IDE
-						</a>
-						my Github , the project was deployed using npm gh-pages from a local
-						machine.
+					</p>
+					<p>
+						Like the previous application, this also contain two components and
+						uses the same principles of prop transfer. I dug deeper into how
+						React render works and realized that re-render is called from top to
+						bottom, from the parent component containing the modified child
+						component down to the child component. New features of the project
+						are deploying pad components from an object and adding listeners
+						inside the 'useEffect' hook. My main stumbling block in this project
+						was using two different objects with two elements that had the same
+						identifiers. Every time the sound bank was changed, the keyboard
+						pads were re-rendered, inside the useEffect hook the 'keypress'
+						event listeners were removed and added back in. But because the
+						identifiers of the two elements in each object were the same, only 7
+						listeners were updated, and because of that the 'S' key was
+						re-rendered when the 'D' key was pressed. It finally has worked
+						correctly after I added unique identifiers for each object. The
+						project deployed with npm gh-pages from the codesandbox.
 					</p>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://neobliz1.github.io/rand0m_qu0te_machine/">
+						href="https://neobliz1.github.io/drum_machine/">
 						Link to the project on the Github pages
 					</a>
 					<iframe
-						src="https://neobliz1.github.io/rand0m_qu0te_machine/"
-						height={500}
+						src="https://neobliz1.github.io/drum_machine/"
+						height={430}
 						sandbox="allow-scripts"
 						rel="noreferrer"
 						loading="lazy"
-						title="random quote machine iframe"
+						title="drum machine iframe"
 						style={{ width: '100%' }}></iframe>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
+						href="https://github.com/NeoBliz1/drum_machine/">
 						Link to the project repository on the Github
 					</a>
 					<div className="modal-content">
@@ -214,12 +213,12 @@ const RandomQuoteMachineFullArticle = () => {
 							ref={preCodeBlock}
 							style={{ maxHeight: '800px' }}>
 							<code ref={codeBlock} className="language-jsx">
-								{RQMcode}
+								{projectCode}
 							</code>
 						</pre>
 					</div>
 					<CustomModal
-						codeBlock={RQMcode}
+						codeBlock={projectCode}
 						refCodeBlockModal={codeBlockModal}
 						refPreCodeBlockModal={preCodeBlockModal}
 					/>
@@ -229,4 +228,4 @@ const RandomQuoteMachineFullArticle = () => {
 	);
 };
 
-export default RandomQuoteMachineFullArticle;
+export default DrumMachineFullArticle;
