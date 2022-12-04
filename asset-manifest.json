@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.css": "/personal_blog_bootstrapped_by_react/static/css/main.5464b137.css",
-    "main.js": "/personal_blog_bootstrapped_by_react/static/js/main.b70d2539.js",
+    "main.css": "/personal_blog_bootstrapped_by_react/static/css/main.252652cf.css",
+    "main.js": "/personal_blog_bootstrapped_by_react/static/js/main.30db8d27.js",
     "static/js/980.a26c941b.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/980.a26c941b.chunk.js",
     "static/js/285.365cce96.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/285.365cce96.chunk.js",
     "static/js/751.2620360a.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/751.2620360a.chunk.js",
+    "static/js/412.564a1b2a.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/412.564a1b2a.chunk.js",
     "static/js/532.7836b72f.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/532.7836b72f.chunk.js",
+    "static/media/yianni-mathioudakis-drum_pad-unsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/yianni-mathioudakis-drum_pad-unsplash_tiny.05050ff635342e7f0582.jpg",
     "static/media/header_img.png": "/personal_blog_bootstrapped_by_react/static/media/header_img.d46692170a5babe62c53.png",
     "static/media/lyman-hansel-gerona-C3POunsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/lyman-hansel-gerona-C3POunsplash_tiny.c05b53de98e9fd6452a4.jpg",
     "static/media/today_was_a_good_day.jpg": "/personal_blog_bootstrapped_by_react/static/media/today_was_a_good_day.702c250cf2141506713c.jpg",
     "static/media/2554.jpg": "/personal_blog_bootstrapped_by_react/static/media/2554.4855036a4145ba36fe4f.jpg",
     "static/media/simple.jpg": "/personal_blog_bootstrapped_by_react/static/media/simple.65208bf64794bfe54f99.jpg",
     "index.html": "/personal_blog_bootstrapped_by_react/index.html",
-    "main.5464b137.css.map": "/personal_blog_bootstrapped_by_react/static/css/main.5464b137.css.map",
-    "main.b70d2539.js.map": "/personal_blog_bootstrapped_by_react/static/js/main.b70d2539.js.map",
+    "main.252652cf.css.map": "/personal_blog_bootstrapped_by_react/static/css/main.252652cf.css.map",
+    "main.30db8d27.js.map": "/personal_blog_bootstrapped_by_react/static/js/main.30db8d27.js.map",
     "980.a26c941b.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/980.a26c941b.chunk.js.map",
     "285.365cce96.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/285.365cce96.chunk.js.map",
     "751.2620360a.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/751.2620360a.chunk.js.map",
+    "412.564a1b2a.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/412.564a1b2a.chunk.js.map",
     "532.7836b72f.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/532.7836b72f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5464b137.css",
-    "static/js/main.b70d2539.js"
+    "static/css/main.252652cf.css",
+    "static/js/main.30db8d27.js"
   ]
 }
