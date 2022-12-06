@@ -192,7 +192,33 @@ export const AllPosts = () => {
 		</div>
 	);
 };
+const JavaScriptCalculator = () => {
+	const [cardImgSrc] = useState(
+		require('../../imgs/recha-oktaviani-calculator-unsplash_tiny.jpg'),
+	); //setImg src
 
+	return (
+		<Link
+			to="/personal_blog_bootstrapped_by_react/?redirect=drum_machine"
+			className="text-dark text-decoration-none">
+			<div className="card">
+				<div className="overflow-hidden card-img-top imgContainer">
+					<img
+						alt="today was a good day"
+						variant="top"
+						className="cardImg img-fluid"
+						id="simpleImg1"
+						src={cardImgSrc}
+					/>
+				</div>
+				<div className="card-body">
+					<p className="card-title">Set drum make fun.</p>
+					<p className="card-text">FreeCodeCamp Project.</p>
+				</div>
+			</div>
+		</Link>
+	);
+};
 const DrumMachinePost = () => {
 	const [cardImgSrc] = useState(
 		require('../../imgs/yianni-mathioudakis-drum_pad-unsplash_tiny.jpg'),
