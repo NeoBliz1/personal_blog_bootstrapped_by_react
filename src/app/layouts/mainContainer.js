@@ -149,6 +149,9 @@ export const RecentPosts = () => {
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
+				<JavaScriptCalculator />
+			</div>
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<DrumMachinePost />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
@@ -156,9 +159,6 @@ export const RecentPosts = () => {
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<RandomQuoteMachine />
-			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
-				<WCPost />
 			</div>
 		</div>
 	);
@@ -175,6 +175,9 @@ export const AllPosts = () => {
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
+				<JavaScriptCalculator />
+			</div>
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<DrumMachinePost />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
@@ -186,9 +189,6 @@ export const AllPosts = () => {
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<WCPost />
 			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
-				<MerryChristmasPost />
-			</div>
 		</div>
 	);
 };
@@ -199,7 +199,7 @@ const JavaScriptCalculator = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=drum_machine"
+			to="/personal_blog_bootstrapped_by_react/?redirect=javsScript_calculator"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -212,7 +212,7 @@ const JavaScriptCalculator = () => {
 					/>
 				</div>
 				<div className="card-body">
-					<p className="card-title">Set drum make fun.</p>
+					<p className="card-title">Calculations - it's simple.</p>
 					<p className="card-text">FreeCodeCamp Project.</p>
 				</div>
 			</div>
@@ -319,30 +319,6 @@ const WCPost = () => {
 				<div className="card-body">
 					<p className="card-title">Website chat.</p>
 					<p className="card-text">Messages via telegram.</p>
-				</div>
-			</div>
-		</Link>
-	);
-};
-//create merry crhrystmass post component
-const MerryChristmasPost = () => {
-	const [cardImgSrc] = useState(require('../../imgs/2554.jpg'));
-
-	return (
-		<Link to="/wrong_way" className="text-dark text-decoration-none">
-			<div className="card">
-				<div className="overflow-hidden card-img-top imgContainer">
-					<img
-						alt="merry Christmas"
-						variant="top"
-						src={cardImgSrc}
-						className="cardImg img-fluid"
-						id="christmasImg"
-					/>
-				</div>
-				<div className="card-body">
-					<p className="card-title">Merry Christmas</p>
-					<p className="card-text">and happy new</p>
 				</div>
 			</div>
 		</Link>

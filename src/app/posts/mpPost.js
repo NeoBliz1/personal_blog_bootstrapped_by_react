@@ -126,7 +126,7 @@ const MarkdownPreviewerFullArticle = () => {
 						</a>
 						from freeCodeCamp. The app created with React, I used the Bootstrap
 						framework to make it easy to work with CSS. Regular styles.css and
-						inline styles managed by React as plugin technologies. As
+						inline styles managed by React as plugin technologies. As a
 						development environment was chosen cloud service the
 						<a
 							className="mx-1"

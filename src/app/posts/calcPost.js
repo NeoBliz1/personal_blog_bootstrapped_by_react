@@ -13,7 +13,7 @@ import { BsFullscreen } from 'react-icons/bs';
 import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
 
 //app wrap
-const JavaScriptCalculatorFullArticle = () => {
+const JavaScriptCalculator = () => {
 	//const outletContextProps = useOutletContext();
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
@@ -29,7 +29,7 @@ const JavaScriptCalculatorFullArticle = () => {
 	const [projectCode, setProjectCode] = useState(initialCode);
 	const [scriptsLoaded, setScriptsLoaded] = useState(false);
 	const [cardImgSrc] = useState(
-		require('../../imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg'),
+		require('../../imgs/recha-oktaviani-calculator-unsplash_tiny.jpg'),
 	); //setImg src
 
 	//import pirsm CSS from CDN
@@ -61,9 +61,9 @@ const JavaScriptCalculatorFullArticle = () => {
 	//import pirsmJS from CDN
 	useImportScript(arrPrismJsSrc, arrSHA512Sums, setScriptsLoaded);
 
-	//fetch App.py code from git
+	//fetch App code from git
 	fetch(
-		'https://raw.githubusercontent.com/NeoBliz1/Markdown_Previewer/main/src/App.js',
+		'https://raw.githubusercontent.com/NeoBliz1/javaScript_calculator/main/src/App.js',
 	)
 		.then((response) => response.text())
 		.then((data) => setProjectCode(data));
@@ -77,7 +77,7 @@ const JavaScriptCalculatorFullArticle = () => {
 	}, [scriptsLoaded, projectCode]);
 
 	const dispatch = useDispatch();
-	const pageTitle = 'Markdown Previewer project.';
+	const pageTitle = 'JavsScript Calculator project.';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
@@ -90,8 +90,8 @@ const JavaScriptCalculatorFullArticle = () => {
 				<h4 className="h4">{pageTitle}</h4>
 				<div className="overflow-hidden position-relative MPPostImgContainer">
 					{/************************************************************
-          header image 
-          ***************************************************************/}
+          									header image 
+          			***************************************************************/}
 					<img
 						src={cardImgSrc}
 						className="RQMpostImg position-absolute start-50 translate-middle"
@@ -116,7 +116,7 @@ const JavaScriptCalculatorFullArticle = () => {
 				</div>
 				<div>
 					<p>
-						This is the second app in the "Front End Development Libraries"
+						That's the fourth app in the "Front End Development Libraries"
 						<a
 							className="mx-1"
 							target="_blank"
@@ -125,9 +125,9 @@ const JavaScriptCalculatorFullArticle = () => {
 							training course
 						</a>
 						from freeCodeCamp. The app created with React, I used the Bootstrap
-						framework to make it easy to work with CSS. Regular styles.css and
-						inline styles managed by React as plugin technologies. As
-						development environment was chosen cloud service the
+						framework to make it easy styling. Regular styles.css and inline
+						styles managed by React as plugin technologies. Development
+						environment - cloud service the
 						<a
 							className="mx-1"
 							target="_blank"
@@ -135,32 +135,48 @@ const JavaScriptCalculatorFullArticle = () => {
 							href="https://codesandbox.io/u/NeoBliz1">
 							Codesandbox.
 						</a>
-						This mini-application is based on two components. The difference
-						between this project and the previous one is the transfer of states
-						via component props in both directions, parent-child and
-						child-parent. The project deployed with npm gh-pages from the
-						codesandbox.
+					</p>
+					<p>
+						To make it easy, in this project I used my experience from previous
+						projects. There are no new framework features here. It was just
+						interesting to create calculation algorithms, sometimes the
+						algorithms were a bit confusing. I realized that I needed to rename
+						all functions and variables more explicitly and leave more comments
+						to the code. The important things I need to pay attention to are:
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item" style={{ textIndent: '0' }}>
+								access to the current state is only possible before rendering,
+								after rendering it is possible by assigning states <br />
+								<span class="text-primary ps-5">setState</span>
+								((prevState)=>(prevState+1))
+							</li>
+
+							<li class="list-group-item" style={{ textIndent: '0' }}>
+								The application is re-rendered every time the state is set.
+							</li>
+						</ul>
+						The project deployed with npm gh-pages from the codesandbox.
 					</p>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://neobliz1.github.io/Markdown_Previewer/">
+						href="https://neobliz1.github.io/javaScript_calculator/">
 						Link to the project on the Github pages
 					</a>
 					<iframe
-						src="https://neobliz1.github.io/Markdown_Previewer/"
-						height={1430}
+						src="https://neobliz1.github.io/javaScript_calculator/"
+						height={500}
 						sandbox="allow-scripts"
 						rel="noreferrer"
 						loading="lazy"
-						title="random quote machine iframe"
+						title="drum machine iframe"
 						style={{ width: '100%' }}></iframe>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://github.com/NeoBliz1/Markdown_Previewer">
+						href="https://github.com/NeoBliz1/javaScript_calculator/">
 						Link to the project repository on the Github
 					</a>
 					<div className="modal-content">
@@ -215,4 +231,4 @@ const JavaScriptCalculatorFullArticle = () => {
 	);
 };
 
-export default MarkdownPreviewerFullArticle;
+export default JavaScriptCalculator;
