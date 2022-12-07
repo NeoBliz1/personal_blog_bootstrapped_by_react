@@ -16,11 +16,18 @@ const WCPostFullArticle = React.lazy(() => import('./posts/wcPost')); // Lazy-lo
 const RQMostFullArticle = React.lazy(() => import('./posts/rqmPost'));
 const MPPostFullArticle = React.lazy(() => import('./posts/mpPost'));
 const DMPostFullArticle = React.lazy(() => import('./posts/dmPost'));
+const JSCPostFullArticle = React.lazy(() => import('./posts/calcPost'));
 
 export default function Router() {
 	const redirectLocation = useLocation().search;
 	const redirectFunction = () => {
-		if (redirectLocation === '?redirect=random_quote_machine') {
+		if (redirectLocation === '?redirect=javsScript_calculator') {
+			return (
+				<React.Suspense fallback={<SpinnerLoader />}>
+					<JSCPostFullArticle />
+				</React.Suspense>
+			);
+		} else if (redirectLocation === '?redirect=random_quote_machine') {
 			return (
 				<React.Suspense fallback={<SpinnerLoader />}>
 					<RQMostFullArticle />

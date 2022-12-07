@@ -137,7 +137,7 @@ const DrumMachineFullArticle = () => {
 						</a>
 					</p>
 					<p>
-						Like the previous application, this also contain two components and
+						Like the previous application, this also contains two components and
 						uses the same principles of prop transfer. I dug deeper into how
 						React render works and realized that re-render is called from top to
 						bottom, from the parent component containing the modified child
