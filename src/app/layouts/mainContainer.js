@@ -199,7 +199,7 @@ const JavaScriptCalculator = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=javsScript_calculator"
+			to="/personal_blog_bootstrapped_by_react/?redirect=javaScript_calculator"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">

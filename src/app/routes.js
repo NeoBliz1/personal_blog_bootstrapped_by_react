@@ -21,7 +21,7 @@ const JSCPostFullArticle = React.lazy(() => import('./posts/calcPost'));
 export default function Router() {
 	const redirectLocation = useLocation().search;
 	const redirectFunction = () => {
-		if (redirectLocation === '?redirect=javsScript_calculator') {
+		if (redirectLocation === '?redirect=javaScript_calculator') {
 			return (
 				<React.Suspense fallback={<SpinnerLoader />}>
 					<JSCPostFullArticle />
