@@ -17,11 +17,20 @@ const RQMostFullArticle = React.lazy(() => import('./posts/rqmPost'));
 const MPPostFullArticle = React.lazy(() => import('./posts/mpPost'));
 const DMPostFullArticle = React.lazy(() => import('./posts/dmPost'));
 const JSCPostFullArticle = React.lazy(() => import('./posts/calcPost'));
+const TFPFCPostFullArticle = React.lazy(() =>
+	import('./posts/25plus5clockPost'),
+);
 
 export default function Router() {
 	const redirectLocation = useLocation().search;
 	const redirectFunction = () => {
-		if (redirectLocation === '?redirect=javaScript_calculator') {
+		if (redirectLocation === '?redirect=twenty_five_plus_five_clock') {
+			return (
+				<React.Suspense fallback={<SpinnerLoader />}>
+					<TFPFCPostFullArticle />
+				</React.Suspense>
+			);
+		} else if (redirectLocation === '?redirect=javaScript_calculator') {
 			return (
 				<React.Suspense fallback={<SpinnerLoader />}>
 					<JSCPostFullArticle />
