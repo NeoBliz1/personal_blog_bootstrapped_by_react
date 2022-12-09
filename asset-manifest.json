@@ -1,31 +1,34 @@
 {
   "files": {
     "main.css": "/personal_blog_bootstrapped_by_react/static/css/main.252652cf.css",
-    "main.js": "/personal_blog_bootstrapped_by_react/static/js/main.17b6a0cd.js",
+    "main.js": "/personal_blog_bootstrapped_by_react/static/js/main.394d1f67.js",
     "static/js/980.a26c941b.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/980.a26c941b.chunk.js",
     "static/js/285.365cce96.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/285.365cce96.chunk.js",
     "static/js/751.45669df3.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/751.45669df3.chunk.js",
     "static/js/412.42c50dd6.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/412.42c50dd6.chunk.js",
     "static/js/833.c2a81f90.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/833.c2a81f90.chunk.js",
+    "static/js/615.ee2bda4b.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/615.ee2bda4b.chunk.js",
     "static/js/532.7836b72f.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/532.7836b72f.chunk.js",
     "static/media/yianni-mathioudakis-drum_pad-unsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/yianni-mathioudakis-drum_pad-unsplash_tiny.05050ff635342e7f0582.jpg",
     "static/media/header_img.png": "/personal_blog_bootstrapped_by_react/static/media/header_img.d46692170a5babe62c53.png",
     "static/media/lyman-hansel-gerona-C3POunsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/lyman-hansel-gerona-C3POunsplash_tiny.c05b53de98e9fd6452a4.jpg",
     "static/media/today_was_a_good_day.jpg": "/personal_blog_bootstrapped_by_react/static/media/today_was_a_good_day.702c250cf2141506713c.jpg",
     "static/media/simple.jpg": "/personal_blog_bootstrapped_by_react/static/media/simple.65208bf64794bfe54f99.jpg",
+    "static/media/jessica-delp-_25+5clock-unsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/jessica-delp-_25+5clock-unsplash_tiny.72ef504b6f25d102cdde.jpg",
     "static/media/recha-oktaviani-calculator-unsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/recha-oktaviani-calculator-unsplash_tiny.00437933af7d17d0a343.jpg",
     "index.html": "/personal_blog_bootstrapped_by_react/index.html",
     "main.252652cf.css.map": "/personal_blog_bootstrapped_by_react/static/css/main.252652cf.css.map",
-    "main.17b6a0cd.js.map": "/personal_blog_bootstrapped_by_react/static/js/main.17b6a0cd.js.map",
+    "main.394d1f67.js.map": "/personal_blog_bootstrapped_by_react/static/js/main.394d1f67.js.map",
     "980.a26c941b.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/980.a26c941b.chunk.js.map",
     "285.365cce96.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/285.365cce96.chunk.js.map",
     "751.45669df3.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/751.45669df3.chunk.js.map",
     "412.42c50dd6.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/412.42c50dd6.chunk.js.map",
     "833.c2a81f90.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/833.c2a81f90.chunk.js.map",
+    "615.ee2bda4b.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/615.ee2bda4b.chunk.js.map",
     "532.7836b72f.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/532.7836b72f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.252652cf.css",
-    "static/js/main.17b6a0cd.js"
+    "static/js/main.394d1f67.js"
   ]
 }
