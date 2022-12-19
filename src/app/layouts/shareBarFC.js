@@ -91,6 +91,7 @@ export const ShareBar = (props) => {
 			</div>
 			<button
 				id="blogPostLink"
+				aria-label="Copy current link"
 				ref={refBlogPostLink}
 				className={
 					'mr-2 btn btn-outline-dark border-0 rounded-circle shareBarIcon'
@@ -100,6 +101,7 @@ export const ShareBar = (props) => {
 			</button>
 			<button
 				id="tumblrLink"
+				aria-label="Tumblr profile"
 				className={
 					'mr-2 btn btn-outline-dark border-0 rounded-circle shareBarIcon'
 				}
@@ -111,6 +113,7 @@ export const ShareBar = (props) => {
 			</button>
 			<button
 				id="twitterLink"
+				aria-label="Twitter profile"
 				className={
 					'mr-2 btn btn-outline-dark border-0 rounded-circle shareBarIcon'
 				}
@@ -124,6 +127,7 @@ export const ShareBar = (props) => {
 			</button>
 			<button
 				id="linkToProfile"
+				aria-label="Profile page"
 				className={
 					'mr-2 btn btn-outline-dark rounded-circle shareBarProfileIcon'
 				}
