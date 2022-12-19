@@ -85,7 +85,7 @@ const DrumMachineFullArticle = () => {
 	}, []);
 
 	return (
-		<div className="d-flex justify-content-center">
+		<article className="d-flex justify-content-center">
 			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
 				<h4 className="h4">{pageTitle}</h4>
 				<div className="overflow-hidden position-relative MPPostImgContainer">
@@ -224,7 +224,7 @@ const DrumMachineFullArticle = () => {
 					/>
 				</div>
 			</div>
-		</div>
+		</article>
 	);
 };
 

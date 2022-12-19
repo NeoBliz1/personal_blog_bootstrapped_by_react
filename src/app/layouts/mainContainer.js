@@ -66,7 +66,7 @@ export const MainContainer = (props) => {
 
 	return (
 		<div ref={pageTopRef} id="container" className="mainContainer">
-			<div
+			<header
 				id="header"
 				className="justify-content-center header"
 				style={{ minHeight: '100px' }}>
@@ -76,8 +76,8 @@ export const MainContainer = (props) => {
 						Code Adventures Reminder
 					</h2>
 				</div>
-			</div>
-			<div id="navigationPanel" className="justify-content-between mx-1 px-3">
+			</header>
+			<nav id="navigationPanel" className="justify-content-between mx-1 px-3">
 				<div id="navBar" className="navBar mt-2">
 					<div id="linkLocation" className="d-flex mb-1 linkLocation">
 						<h3 className={'mb-0 linkLocation'}>
@@ -108,11 +108,11 @@ export const MainContainer = (props) => {
 				</div>
 				<hr />
 				<ShareBar />
-			</div>
-			<div className="m-0 p-0" id="postContainer">
+			</nav>
+			<section className="m-0 p-0" id="postContainer">
 				<Outlet />
 				{/*pass context props to outlet*/}
-			</div>
+			</section>
 		</div>
 	);
 };

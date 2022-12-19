@@ -94,7 +94,7 @@ const WCPostFullArticle = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
-		<div className="d-flex justify-content-center">
+		<article className="d-flex justify-content-center">
 			<div className="m-2 col-10 col-sm-9 col-lg-8 col-xxl-6">
 				<h4 className="h4">
 					Website chat with messages via telegram, easy peasy. My minds before
@@ -319,7 +319,7 @@ const WCPostFullArticle = () => {
 					</pre>
 				</div>
 			</div>
-		</div>
+		</article>
 	);
 };
 
