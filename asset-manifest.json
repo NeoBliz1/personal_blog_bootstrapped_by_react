@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/personal_blog_bootstrapped_by_react/static/css/main.252652cf.css",
-    "main.js": "/personal_blog_bootstrapped_by_react/static/js/main.a5a2c61c.js",
+    "main.js": "/personal_blog_bootstrapped_by_react/static/js/main.b690da5e.js",
     "static/js/980.14b5803b.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/980.14b5803b.chunk.js",
     "static/js/285.32d9e8a3.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/285.32d9e8a3.chunk.js",
     "static/js/751.a7e27115.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/751.a7e27115.chunk.js",
@@ -18,7 +18,7 @@
     "static/media/recha-oktaviani-calculator-unsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/recha-oktaviani-calculator-unsplash_tiny.00437933af7d17d0a343.jpg",
     "index.html": "/personal_blog_bootstrapped_by_react/index.html",
     "main.252652cf.css.map": "/personal_blog_bootstrapped_by_react/static/css/main.252652cf.css.map",
-    "main.a5a2c61c.js.map": "/personal_blog_bootstrapped_by_react/static/js/main.a5a2c61c.js.map",
+    "main.b690da5e.js.map": "/personal_blog_bootstrapped_by_react/static/js/main.b690da5e.js.map",
     "980.14b5803b.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/980.14b5803b.chunk.js.map",
     "285.32d9e8a3.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/285.32d9e8a3.chunk.js.map",
     "751.a7e27115.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/751.a7e27115.chunk.js.map",
@@ -29,6 +29,6 @@
   },
   "entrypoints": [
     "static/css/main.252652cf.css",
-    "static/js/main.a5a2c61c.js"
+    "static/js/main.b690da5e.js"
   ]
 }
