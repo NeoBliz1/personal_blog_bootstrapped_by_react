@@ -66,7 +66,7 @@ export const MainContainer = (props) => {
 
 	return (
 		<div ref={pageTopRef} id="container" className="mainContainer">
-			<div
+			<header
 				id="header"
 				className="justify-content-center header"
 				style={{ minHeight: '100px' }}>
@@ -76,8 +76,8 @@ export const MainContainer = (props) => {
 						Code Adventures Reminder
 					</h2>
 				</div>
-			</div>
-			<div id="navigationPanel" className="justify-content-between mx-1 px-3">
+			</header>
+			<nav id="navigationPanel" className="justify-content-between mx-1 px-3">
 				<div id="navBar" className="navBar mt-2">
 					<div id="linkLocation" className="d-flex mb-1 linkLocation">
 						<h3 className={'mb-0 linkLocation'}>
@@ -108,11 +108,11 @@ export const MainContainer = (props) => {
 				</div>
 				<hr />
 				<ShareBar />
-			</div>
-			<div className="m-0 p-0" id="postContainer">
+			</nav>
+			<section className="m-0 p-0" id="postContainer">
 				<Outlet />
 				{/*pass context props to outlet*/}
-			</div>
+			</section>
 		</div>
 	);
 };
@@ -149,6 +149,9 @@ export const RecentPosts = () => {
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
+				<TwentyFivePlusFiveClock />
+			</div>
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<JavaScriptCalculator />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
@@ -156,9 +159,6 @@ export const RecentPosts = () => {
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<MarkdownPreviewerPost />
-			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
-				<RandomQuoteMachine />
 			</div>
 		</div>
 	);
@@ -174,6 +174,9 @@ export const AllPosts = () => {
 	}, []);
 	return (
 		<div className="cardContainer px-3">
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
+				<TwentyFivePlusFiveClock />
+			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<JavaScriptCalculator />
 			</div>
@@ -192,6 +195,33 @@ export const AllPosts = () => {
 		</div>
 	);
 };
+const TwentyFivePlusFiveClock = () => {
+	const [cardImgSrc] = useState(
+		require('../../imgs/jessica-delp-_25+5clock-unsplash_tiny.jpg'),
+	); //setImg src
+
+	return (
+		<Link
+			to="/personal_blog_bootstrapped_by_react/?redirect=twenty_five_plus_five_clock"
+			className="text-dark text-decoration-none">
+			<div className="card">
+				<div className="overflow-hidden card-img-top imgContainer">
+					<img
+						alt="today was a good day"
+						variant="top"
+						className="cardImg img-fluid"
+						id="simpleImg1"
+						src={cardImgSrc}
+					/>
+				</div>
+				<div className="card-body">
+					<p>Time and Tide waits for none.</p>
+					<p className="card-text">FreeCodeCamp Project.</p>
+				</div>
+			</div>
+		</Link>
+	);
+};
 const JavaScriptCalculator = () => {
 	const [cardImgSrc] = useState(
 		require('../../imgs/recha-oktaviani-calculator-unsplash_tiny.jpg'),
@@ -199,7 +229,7 @@ const JavaScriptCalculator = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=javsScript_calculator"
+			to="/personal_blog_bootstrapped_by_react/?redirect=javaScript_calculator"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
