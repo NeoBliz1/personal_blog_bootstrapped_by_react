@@ -116,6 +116,7 @@ export const MainContainer = (props) => {
 		</div>
 	);
 };
+
 export const NotFound = () => {
 	const dispatch = useDispatch();
 	const pageTitle = 'Code Adventures Reminder';
@@ -135,6 +136,7 @@ export const NotFound = () => {
 		</div>
 	);
 };
+
 //create recent posts component
 //shows only 4 last posts
 export const RecentPosts = () => {
@@ -193,6 +195,33 @@ export const AllPosts = () => {
 				<WCPost />
 			</div>
 		</div>
+	);
+};
+const FirstGradeArithmeticTrainer = () => {
+	const [cardImgSrc] = useState(
+		require('../../imgs/jessica-delp-_25+5clock-unsplash_tiny.jpg'),
+	); //setImg src
+
+	return (
+		<Link
+			to="/personal_blog_bootstrapped_by_react/?redirect=twenty_five_plus_five_clock"
+			className="text-dark text-decoration-none">
+			<div className="card">
+				<div className="overflow-hidden card-img-top imgContainer">
+					<img
+						alt="today was a good day"
+						variant="top"
+						className="cardImg img-fluid"
+						id="simpleImg1"
+						src={cardImgSrc}
+					/>
+				</div>
+				<div className="card-body">
+					<p>Time and Tide waits for none.</p>
+					<p className="card-text">FreeCodeCamp Project.</p>
+				</div>
+			</div>
+		</Link>
 	);
 };
 const TwentyFivePlusFiveClock = () => {
