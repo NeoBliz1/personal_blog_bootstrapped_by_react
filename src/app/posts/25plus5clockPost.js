@@ -229,7 +229,7 @@ const TwentyFivePlusFiveClock = () => {
 							className="line-numbers"
 							ref={preCodeBlock}
 							style={{ maxHeight: '800px' }}>
-							<code ref={codeBlock} className="language-jsx">
+							<code ref={codeBlock} className="language-tsx">
 								{projectCode}
 							</code>
 						</pre>
@@ -238,6 +238,7 @@ const TwentyFivePlusFiveClock = () => {
 						codeBlock={projectCode}
 						refCodeBlockModal={codeBlockModal}
 						refPreCodeBlockModal={preCodeBlockModal}
+						lang={'tsx'}
 					/>
 				</div>
 			</div>

@@ -151,6 +151,9 @@ export const RecentPosts = () => {
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
+				<FirstGradeArithmeticTrainer />
+			</div>
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<TwentyFivePlusFiveClock />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
@@ -158,9 +161,6 @@ export const RecentPosts = () => {
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<DrumMachinePost />
-			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
-				<MarkdownPreviewerPost />
 			</div>
 		</div>
 	);
@@ -176,6 +176,9 @@ export const AllPosts = () => {
 	}, []);
 	return (
 		<div className="cardContainer px-3">
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
+				<FirstGradeArithmeticTrainer />
+			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<TwentyFivePlusFiveClock />
 			</div>
@@ -199,12 +202,12 @@ export const AllPosts = () => {
 };
 const FirstGradeArithmeticTrainer = () => {
 	const [cardImgSrc] = useState(
-		require('../../imgs/jessica-delp-_25+5clock-unsplash_tiny.jpg'),
+		require('../../imgs/DALL·E_2023_01_13_06_30_13_Arithmetic_simulator_for_first_grade_tiny.png'),
 	); //setImg src
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=twenty_five_plus_five_clock"
+			to="/personal_blog_bootstrapped_by_react/?redirect=first_grade_arithmetic_trainer"
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -217,8 +220,8 @@ const FirstGradeArithmeticTrainer = () => {
 					/>
 				</div>
 				<div className="card-body">
-					<p>Time and Tide waits for none.</p>
-					<p className="card-text">FreeCodeCamp Project.</p>
+					<p>Money likes counting.</p>
+					<p className="card-text">Pet Project.</p>
 				</div>
 			</div>
 		</Link>

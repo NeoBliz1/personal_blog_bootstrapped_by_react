@@ -29,9 +29,8 @@ const TwentyFivePlusFiveClock = () => {
 	const [projectCode, setProjectCode] = useState(initialCode);
 	const [scriptsLoaded, setScriptsLoaded] = useState(false);
 	const [cardImgSrc] = useState(
-		require('../../imgs/jessica-delp-_25+5clock-unsplash_tiny.jpg'),
+		require('../../imgs/DALL·E_2023_01_13_06_30_13_Arithmetic_simulator_for_first_grade_tiny.png'),
 	); //setImg src
-
 	//import pirsm CSS from CDN
 	useImportStylesheet(
 		'https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css',
@@ -63,7 +62,7 @@ const TwentyFivePlusFiveClock = () => {
 
 	//fetch App code from git
 	fetch(
-		'https://raw.githubusercontent.com/NeoBliz1/twenty_five_plus_five_clock/main/src/App.tsx',
+		'https://raw.githubusercontent.com/NeoBliz1/arithmetic_first_grade_trainer/main/src/App.tsx',
 	)
 		.then((response) => response.text())
 		.then((data) => setProjectCode(data));
@@ -77,7 +76,7 @@ const TwentyFivePlusFiveClock = () => {
 	}, [scriptsLoaded, projectCode]);
 
 	const dispatch = useDispatch();
-	const pageTitle = 'Twenty five plus five clock project.';
+	const pageTitle = 'First grade arithmetic trainer';
 	//dispatch page title
 	useEffect(() => {
 		dispatch(setPageTitle(pageTitle));
@@ -100,18 +99,11 @@ const TwentyFivePlusFiveClock = () => {
 				</div>
 				<div className="d-flex justify-content-center linkToAuthor">
 					<a
-						href="https://unsplash.com/@jfdelp?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+						href="https://openai.com/dall-e-2/"
 						target="_blank"
 						rel="noreferrer"
 						className="me-1 text-secondary">
-						Photo: Jessica Delp
-					</a>
-					<a
-						href="https://unsplash.com/license"
-						target="_blank"
-						rel="noreferrer"
-						className="text-secondary">
-						(Unsplash License)
+						Image created by: DALL·E 2 AI
 					</a>
 				</div>
 				<div>
@@ -137,11 +129,10 @@ const TwentyFivePlusFiveClock = () => {
 						</a>
 					</p>
 					<p>
-						This project is more complicated than the previous ones. First of
-						all, because I used TypeScript. I suppose that all the benefits of
-						TypeScript are revealed in large applications such as Slack, Medium,
-						etc. In my small application, it doesn't bring many positive
-						features, but it was a positive experience. <br />
+						Since my son is going to school in the fall, he needs arithmetic
+						practice. After googling for a while, I found some useful online
+						arithmetic simulators. But they weren't free. So I created my own
+						app called Arithmetic Simulator for First Graders. <br />
 						<span class="ps-5">
 							Important things from this project about TypeScrit:
 						</span>
@@ -175,22 +166,22 @@ const TwentyFivePlusFiveClock = () => {
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://neobliz1.github.io/twenty_five_plus_five_clock/">
+						href="https://neobliz1.github.io/arithmetic_first_grade_trainer/">
 						Link to the project on the Github pages
 					</a>
 					<iframe
-						src="https://neobliz1.github.io/twenty_five_plus_five_clock/"
+						src="https://neobliz1.github.io/arithmetic_first_grade_trainer/"
 						height={500}
 						sandbox="allow-scripts"
 						rel="noreferrer"
 						loading="lazy"
-						title="drum machine iframe"
+						title="arithmetic trainer"
 						style={{ width: '100%' }}></iframe>
 					<a
 						className="mx-1"
 						target="_blank"
 						rel="noreferrer"
-						href="https://github.com/NeoBliz1/twenty_five_plus_five_clock/">
+						href="https://github.com/NeoBliz1/arithmetic_first_grade_trainer">
 						Link to the project repository on the Github
 					</a>
 					<div className="modal-content">
@@ -229,7 +220,7 @@ const TwentyFivePlusFiveClock = () => {
 							className="line-numbers"
 							ref={preCodeBlock}
 							style={{ maxHeight: '800px' }}>
-							<code ref={codeBlock} className="language-jsx">
+							<code ref={codeBlock} className="language-tsx">
 								{projectCode}
 							</code>
 						</pre>
@@ -238,6 +229,7 @@ const TwentyFivePlusFiveClock = () => {
 						codeBlock={projectCode}
 						refCodeBlockModal={codeBlockModal}
 						refPreCodeBlockModal={preCodeBlockModal}
+						lang={'tsx'}
 					/>
 				</div>
 			</div>
