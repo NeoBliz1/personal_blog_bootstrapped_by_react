@@ -20,11 +20,20 @@ const JSCPostFullArticle = React.lazy(() => import('./posts/calcPost'));
 const TFPFCPostFullArticle = React.lazy(() =>
 	import('./posts/25plus5clockPost'),
 );
+const FGATPostFullArticle = React.lazy(() =>
+	import('./posts/1gradeArithmeticTrainer'),
+);
 
 export default function Router() {
 	const redirectLocation = useLocation().search;
 	const redirectFunction = () => {
-		if (redirectLocation === '?redirect=twenty_five_plus_five_clock') {
+		if (redirectLocation === '?redirect=first_grade_arithmetic_trainer') {
+			return (
+				<React.Suspense fallback={<SpinnerLoader />}>
+					<FGATPostFullArticle />
+				</React.Suspense>
+			);
+		} else if (redirectLocation === '?redirect=twenty_five_plus_five_clock') {
 			return (
 				<React.Suspense fallback={<SpinnerLoader />}>
 					<TFPFCPostFullArticle />

@@ -116,6 +116,7 @@ export const MainContainer = (props) => {
 		</div>
 	);
 };
+
 export const NotFound = () => {
 	const dispatch = useDispatch();
 	const pageTitle = 'Code Adventures Reminder';
@@ -135,6 +136,7 @@ export const NotFound = () => {
 		</div>
 	);
 };
+
 //create recent posts component
 //shows only 4 last posts
 export const RecentPosts = () => {
@@ -149,6 +151,9 @@ export const RecentPosts = () => {
 	return (
 		<div className="cardContainer px-3">
 			<div className="m-2 col-11 col-sm-11 col-lg-6 col-xxl-5">
+				<FirstGradeArithmeticTrainer />
+			</div>
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<TwentyFivePlusFiveClock />
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
@@ -156,9 +161,6 @@ export const RecentPosts = () => {
 			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
 				<DrumMachinePost />
-			</div>
-			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3 smallCard">
-				<MarkdownPreviewerPost />
 			</div>
 		</div>
 	);
@@ -174,6 +176,9 @@ export const AllPosts = () => {
 	}, []);
 	return (
 		<div className="cardContainer px-3">
+			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
+				<FirstGradeArithmeticTrainer />
+			</div>
 			<div className="m-2 col-11 col-sm-5 col-lg-4 col-xxl-3">
 				<TwentyFivePlusFiveClock />
 			</div>
@@ -193,6 +198,33 @@ export const AllPosts = () => {
 				<WCPost />
 			</div>
 		</div>
+	);
+};
+const FirstGradeArithmeticTrainer = () => {
+	const [cardImgSrc] = useState(
+		require('../../imgs/DALL·E_2023_01_13_06_30_13_Arithmetic_simulator_for_first_grade_tiny.png'),
+	); //setImg src
+
+	return (
+		<Link
+			to="/personal_blog_bootstrapped_by_react/?redirect=first_grade_arithmetic_trainer"
+			className="text-dark text-decoration-none">
+			<div className="card">
+				<div className="overflow-hidden card-img-top imgContainer">
+					<img
+						alt="today was a good day"
+						variant="top"
+						className="cardImg img-fluid"
+						id="simpleImg1"
+						src={cardImgSrc}
+					/>
+				</div>
+				<div className="card-body">
+					<p>Money likes counting.</p>
+					<p className="card-text">Pet Project.</p>
+				</div>
+			</div>
+		</Link>
 	);
 };
 const TwentyFivePlusFiveClock = () => {

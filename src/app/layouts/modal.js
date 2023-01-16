@@ -2,7 +2,7 @@ import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
 import { zoomHandler } from '../fucnForApp.js';
 
 export const CustomModal = (props) => {
-	const { codeBlock, refCodeBlockModal, refPreCodeBlockModal } = props;
+	const { codeBlock, refCodeBlockModal, refPreCodeBlockModal, lang } = props;
 	return (
 		<div
 			className="modal fade"
@@ -18,7 +18,7 @@ export const CustomModal = (props) => {
 					</div> */}
 					<div className="modal-body">
 						<pre ref={refPreCodeBlockModal} className="line-numbers">
-							<code ref={refCodeBlockModal} className="language-jsx">
+							<code ref={refCodeBlockModal} className={'language-' + lang}>
 								{codeBlock}
 							</code>
 						</pre>
