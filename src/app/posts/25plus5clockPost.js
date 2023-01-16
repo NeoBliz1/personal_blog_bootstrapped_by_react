@@ -143,7 +143,7 @@ const TwentyFivePlusFiveClock = () => {
 						etc. In my small application, it doesn't bring many positive
 						features, but it was a positive experience. <br />
 						<span class="ps-5">
-							Important things from this project about TypeScrit:
+							Important things from this project about TypeScript:
 						</span>
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item" style={{ textIndent: '0' }}>

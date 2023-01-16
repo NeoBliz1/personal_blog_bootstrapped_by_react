@@ -17,6 +17,7 @@ const TwentyFivePlusFiveClock = () => {
 	//const outletContextProps = useOutletContext();
 	//create ref for get codeBlock fo higlight by prism
 	const codeBlock = useRef();
+	const example1CodeBlock = useRef();
 	const codeBlockModal = useRef();
 	const preCodeBlock = useRef();
 	const preCodeBlockModal = useRef();
@@ -71,6 +72,7 @@ const TwentyFivePlusFiveClock = () => {
 	useEffect(() => {
 		if (scriptsLoaded) {
 			window.Prism.highlightElement(codeBlock.current);
+			window.Prism.highlightElement(example1CodeBlock.current);
 			window.Prism.highlightElement(codeBlockModal.current);
 		}
 	}, [scriptsLoaded, projectCode]);
@@ -108,18 +110,9 @@ const TwentyFivePlusFiveClock = () => {
 				</div>
 				<div>
 					<p>
-						That's the finall app in the "Front End Development Libraries"
-						<a
-							className="mx-1"
-							target="_blank"
-							rel="noreferrer"
-							href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
-							training course
-						</a>
-						from freeCodeCamp. The app created with React, I used the Bootstrap
-						framework to make it easy styling. Regular styles.css and inline
-						styles managed by React as plugin technologies. Development
-						environment - cloud service the
+						This is the second application built on the
+						TypeScript+React+Bottstrap stack. Development environment - cloud
+						service the
 						<a
 							className="mx-1"
 							target="_blank"
@@ -131,33 +124,48 @@ const TwentyFivePlusFiveClock = () => {
 					<p>
 						Since my son is going to school in the fall, he needs arithmetic
 						practice. After googling for a while, I found some useful online
-						arithmetic simulators. But they weren't free. So I created my own
-						app called Arithmetic Simulator for First Graders. <br />
+						arithmetic simulators. But they were not free. So I created my own
+						app called Arithmetic Simulator for First Grade. <br />
 						<span class="ps-5">
-							Important things from this project about TypeScrit:
+							Important things from this project about TypeScript:
 						</span>
 						<ul class="list-group list-group-flush">
 							<li class="list-group-item" style={{ textIndent: '0' }}>
-								all variables and function states must have a type.
+								If possible, let the TypeScript compiler automatically set the
+								type for the variables.
 							</li>
 
 							<li class="list-group-item" style={{ textIndent: '0' }}>
-								interfaces are useful for objects, interfaces can be assimilated
-								into types and other interfaces.
+								The type can be extended with other types using the Omit or &
+								symbol, for example:
+								<br />
+								<pre className="line-numbers">
+									<code ref={example1CodeBlock} className="language-tsx">
+										{`type buttonPropType = {
+  id: string;
+  num: string | number;
+  keyPressedValue: keyPressedValueType;
+  keystrokesNumber: keystrokesNumberType;
+  startStopState: startStopStateType;
+  setPadPanelProps: setPadPanelPropsType;
+};
+type buttonsPanelPropType = Omit<buttonPropType, "id" | "num"> & {
+  padPanelPropsObj: PadPanelPropsInterface;
+  setPadPanelProps: setPadPanelPropsType;
+};`}
+									</code>
+								</pre>
 							</li>
 							<li class="list-group-item" style={{ textIndent: '0' }}>
-								Sign "!" can disable null or undefined compiler warning: <br />
-								<span class="text-primary ps-5">name!</span>:string;
+								When working with a React synthetic event, it has no "value"
+								attribute. Because of this we have to define the event type as
+								follows:
 								<br />
-								String is the only valid type for name, "null" and "undefined"
-								are not allowed. But this will keep the compiler silent about
-								the assignment error.
-							</li>
-							<li class="list-group-item" style={{ textIndent: '0' }}>
-								Sign "?" allow "undefined" types: <br />
-								<span class="text-primary ps-5">id?</span>:string;
+								<span className="ps-5">event.target</span>
+								<span class="text-primary px-2">as</span>
+								HTMLInputElement;
 								<br />
-								The id property can be "undefined".
+								Which has value attribute.
 							</li>
 						</ul>
 						The project deployed with npm gh-pages from the codesandbox.
