@@ -1,187 +1,100 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 //check Img rendering state
-const checkImgHeight = (img) => {
+const checkImgLoaded = (img) => {
 	return new Promise((resolve) => {
-		let imgHeigt = 0;
-		const checkFunc = () => {
-			if (imgHeigt === img.naturalHeight) {
-				clearInterval(fName);
-				resolve(true);
-			} else {
-				imgHeigt = img.naturalHeight;
-			}
-			/*console.log(imgHeigt);*/
+		if (img.complete) {
+			return resolve(true);
+		}
+		const onLoad = () => {
+			img.removeEventListener('load', onLoad);
+			img.removeEventListener('error', onError);
+			resolve(true);
 		};
-		let fName = setInterval(() => {
-			checkFunc(img);
-		}, 100);
+		const onError = () => {
+			img.removeEventListener('load', onLoad);
+			img.removeEventListener('error', onError);
+			resolve(true); // Resolve true even on error to not block the UI
+		};
+		img.addEventListener('load', onLoad);
+		img.addEventListener('error', onError);
 	});
 };
 
 //check all images on the page have fully rendered or not
 export const checkImgsRender = (imgArr) => {
 	return new Promise((resolve, reject) => {
-		let arrOfPromises = [];
-		Object.entries(imgArr).forEach(([key, img]) => {
-			arrOfPromises.push(checkImgHeight(img));
-		});
+		const arrOfPromises = Array.from(imgArr).map((img) =>
+			checkImgLoaded(img),
+		);
 		Promise.all(arrOfPromises).then((value) => resolve(true));
 	});
 };
 
-//word split function
-export const wordSplit = (phrase) => {
-	//return modifying string like: 'toUpperCase' => 'To upper case'
-	const modifyCase = (wordArr) => {
-		const string = wordArr.join(' ');
-		const lowerCaseString = string.replace(/(?:^|\s)\S/g, function (a) {
-			return a.toLowerCase();
-		});
-		return lowerCaseString.charAt(0).toUpperCase() + lowerCaseString.slice(1);
-	};
-	const locationWithoutSlash = phrase.slice(1);
-	if (locationWithoutSlash.length === 0) {
-		//conditional meaning root location
-		return 'Recent posts';
-	} else if (/[^a-zA-Z]/.test(locationWithoutSlash)) {
-		const stringSplitBySymbol = locationWithoutSlash.split(/[^a-zA-Z]/);
-		return modifyCase(stringSplitBySymbol);
-	} else {
-		const stringSplitByUpperCase = locationWithoutSlash.split(/(?=[A-Z])/);
-		return modifyCase(stringSplitByUpperCase);
-	}
-};
+//custom hook for adding prism JS from node_modules
+export const useImportPrism = (setPrismLoaded) => {
+	// Use a ref to avoid recreating the load function if the setter changes
+	const setLoadedRef = useRef(setPrismLoaded);
 
-//custom hook for get window width
-const getWidth = () => window.innerWidth;
-
-export const useCurrentWidth = () => {
-	// save current window width in the state object
-	let [width, setWidth] = useState(getWidth());
-
-	// in this case useEffect will execute only once because
-	// it does not have any dependencies.
 	useEffect(() => {
-		// timeoutId for debounce mechanism
-		let timeoutId = null;
-		const resizeListener = () => {
-			// prevent execution of previous setTimeout
-			clearTimeout(timeoutId);
-			// change width from the state object after 150 milliseconds
-			timeoutId = setTimeout(() => setWidth(getWidth()), 150);
-		};
-		// set resize listener
-		window.addEventListener('resize', resizeListener);
+		setLoadedRef.current = setPrismLoaded;
+	}, [setPrismLoaded]);
 
-		// clean up function
-		return () => {
-			// remove resize listener
-			window.removeEventListener('resize', resizeListener);
-		};
-	}, []);
-
-	return width;
-};
-
-//custom hook for adding some prism JS
-export const useImportScript = (urlArr, integrityArr, setScriptsLoaded) => {
-	let fName;
-	//check prism scripts on the page have fully loaded or not
-	const checkPrismScriptLoad = (arrString) => {
-		return new Promise((resolve) => {
-			//console.log('promise started');
-			//console.log(arrString.length);
-			const checkFunc = () => {
-				if (arrString.length === 1 && arrString[0] in window) {
-					//console.log('first stage');
-					//console.log(arrString[0] in window);
-					clearInterval(fName);
-					resolve(true);
-				} else if (
-					arrString.length === 3 &&
-					arrString[2] in window[arrString[0]][arrString[1]]
-				) {
-					//console.log('second stage');
-					//console.log(arrString[2] in window[arrString[0]][arrString[1]]);
-					clearInterval(fName);
-					resolve(true);
-				}
-			};
-			fName = setInterval(() => {
-				checkFunc();
-			}, 100);
-		});
-	};
-	//func for add script on web page
-	const addScriptOnPage = (resourceUrl, integrity, someScript, dataManual) => {
-		someScript.src = resourceUrl;
-		someScript.integrity = integrity;
-		someScript.setAttribute('crossorigin', 'anonymous');
-		someScript.setAttribute('referrerpolicy', 'no-referrer');
-		someScript.dataset.scryptType = 'prismScript';
-		if (dataManual) {
-			someScript.dataset.manual = true;
+	useEffect(() => {
+		// Check if Prism is already globally available
+		if (window.Prism) {
+			setLoadedRef.current(true);
+			return;
 		}
-		someScript.async = true;
-		document.body.appendChild(someScript);
-	};
 
-	useEffect(() => {
-		setScriptsLoaded(false);
-		const prismCore = document.createElement('script');
-		const prismAutoloader = document.createElement('script');
-		const prismLineNumber = document.createElement('script');
+		let isMounted = true;
+		setLoadedRef.current(false);
 
-		//add prism core script on webpage
-		addScriptOnPage(urlArr[0], integrityArr[0], prismCore, true);
-		checkPrismScriptLoad(['Prism']).then(() => {
-			//add prism autoloader script on webpage
-			addScriptOnPage(urlArr[1], integrityArr[1], prismAutoloader);
-			checkPrismScriptLoad(['Prism', 'plugins', 'autoloader']).then((value) => {
-				//add prism line number script on webpage
-				addScriptOnPage(urlArr[2], integrityArr[2], prismLineNumber);
-				checkPrismScriptLoad(['Prism', 'plugins', 'lineNumbers']).then(
-					(value) => {
-						//set scriptsLoaded prop to true
-						setScriptsLoaded(value);
-					},
-				);
-			});
-		});
+		const loadPrism = async () => {
+			try {
+				// 1. Load core and standard styles in parallel
+				const [PrismModule] = await Promise.all([
+					import('prismjs'),
+					import('prismjs/themes/prism-tomorrow.css'),
+					import('prismjs/plugins/line-numbers/prism-line-numbers.css'),
+				]);
+
+				// 2. Attach Prism to the window object safely
+				window.Prism = PrismModule.default || PrismModule;
+
+				// 3. Load basic structural languages and the line numbers plugin
+				await Promise.all([
+					import('prismjs/components/prism-clike'),
+					import('prismjs/components/prism-markup'),
+					import('prismjs/components/prism-javascript'),
+					import('prismjs/plugins/line-numbers/prism-line-numbers'),
+				]);
+
+				// 4. Load dependent languages
+				await Promise.all([
+					import('prismjs/components/prism-jsx'),
+					import('prismjs/components/prism-python'),
+				]);
+
+				if (isMounted) {
+					setLoadedRef.current(true);
+				}
+			} catch (error) {
+				console.error('Failed to asynchronously load Prism:', error);
+				if (isMounted) {
+					setLoadedRef.current(false);
+				}
+			}
+		};
+
+		loadPrism();
 
 		return () => {
-			clearInterval(fName);
-			document.body.removeChild(prismCore);
-			document.body.removeChild(prismAutoloader);
-			document.body.removeChild(prismLineNumber);
+			isMounted = false;
 		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, []); // Empty dependency array prevents redundant re-runs
 };
 
-//custom hook for adding some side CSS
-export const useImportStylesheet = (
-	resourceUrl,
-	integrity,
-	crossorigin,
-	referrerpolicy,
-) => {
-	useEffect(() => {
-		const link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.href = resourceUrl;
-		link.integrity = integrity;
-		link.setAttribute('crossorigin', crossorigin);
-		link.setAttribute('referrerpolicy', referrerpolicy);
-		link.async = true;
-		document.head.appendChild(link);
-		return () => {
-			document.head.removeChild(link);
-		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [resourceUrl]);
-};
 
 //font zoomIn zoomOut, pass -1 for subtracting ot 1 for adding
 export const zoomHandler = (ref, operator) => {
@@ -198,4 +111,45 @@ export const zoomHandler = (ref, operator) => {
 	}
 
 	ref.current.style.fontSize = newFontSize + 'px';
+};
+
+export const usePostData = ({ fetchUrl, pageTitle, setPageTitle, highlightRefs }) => {
+	const [projectCode, setProjectCode] = useState('Loading source code...');
+	const [prismLoaded, setPrismLoaded] = useState(false);
+
+	// 1. Set page title when the view loads
+	useEffect(() => {
+		setPageTitle(pageTitle);
+	}, [pageTitle, setPageTitle]);
+
+	// 2. Initialize dynamic Prism code/plugin injections
+	useImportPrism(setPrismLoaded);
+
+	// 3. Securely fetch raw source code text asynchronously
+	useEffect(() => {
+		let isMounted = true;
+		fetch(fetchUrl)
+			.then((res) => res.text())
+			.then((data) => {
+				if (isMounted) setProjectCode(data);
+			})
+			.catch((err) => console.error('Error fetching project source:', err));
+
+		return () => {
+			isMounted = false;
+		};
+	}, [fetchUrl]);
+
+	// 4. Highlight code blocks manually across arbitrary element structures
+	useEffect(() => {
+		if (prismLoaded && window.Prism) {
+			highlightRefs.forEach((ref) => {
+				if (ref.current) {
+					window.Prism.highlightElement(ref.current);
+				}
+			});
+		}
+	}, [prismLoaded, projectCode, highlightRefs]);
+
+	return projectCode;
 };

@@ -1,20 +1,13 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 //import bootstrap JS
 import 'bootstrap/js/dist/modal';
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { checkImgsRender } from '../fucnForApp.js';
-//import Redux actions and selectors
-import {
-	imgsRenderedSetState,
-	spinnerIsShowingSetState,
-	childRootIsShowingSetState,
-	selectImgsRendered,
-	selectpageTitle,
-	setPageTitle,
-} from '../../features/imgStateSlice';
+import { useStateContext } from '../state';
 
 import { ShareBar } from './shareBarFC';
+
+const REDIRECT_PATH = '/personal_blog_bootstrapped_by_react/?redirect=';
 
 //create header component
 const HeaderComponent = () => {
@@ -33,9 +26,12 @@ export const MainContainer = (props) => {
 	const location = useLocation().pathname;
 	const redirectLocation = useLocation().search;
 	const pageTopRef = useRef(null);
-	//imgs rendered handler
-	const imgsRendered = useSelector(selectImgsRendered);
-	const dispatch = useDispatch();
+	const {
+		imgsRendered,
+		imgsRenderedSetState,
+		spinnerIsShowingSetState,
+		pageTitle,
+	} = useStateContext();
 
 	//scroll top scroll to the top of the page
 	useEffect(() => {
@@ -44,22 +40,21 @@ export const MainContainer = (props) => {
 
 	//img check handler
 	useLayoutEffect(() => {
+		if (imgsRendered) return;
 		console.log('img checked');
 		//disable scrolling while content is loading
 		document.body.style.overflow = 'hidden';
 		//get img collection from current page
 		const imgArr = document.getElementsByTagName('img');
 		console.log(imgArr.length);
-		//if imgRender have already checked, and location changed
-		//then toggle img and loader states
-		if (imgsRendered) {
-			dispatch(imgsRenderedSetState());
-			dispatch(spinnerIsShowingSetState());
-			dispatch(childRootIsShowingSetState());
-		}
+
 		//execute promise for each img on the page, check if imgs rendered
 		checkImgsRender(imgArr).then((value) => {
-			value && dispatch(imgsRenderedSetState());
+			if (value) {
+				imgsRenderedSetState();
+				spinnerIsShowingSetState();
+				document.body.style.overflow = 'auto';
+			}
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [location]);
@@ -80,9 +75,7 @@ export const MainContainer = (props) => {
 			<nav id="navigationPanel" className="justify-content-between mx-1 px-3">
 				<div id="navBar" className="navBar mt-2">
 					<div id="linkLocation" className="d-flex mb-1 linkLocation">
-						<h3 className={'mb-0 linkLocation'}>
-							{useSelector(selectpageTitle)}
-						</h3>
+						<h3 className={'mb-0 linkLocation'}>{pageTitle}</h3>
 					</div>
 					<div
 						id="groupPostsNavigation"
@@ -98,7 +91,7 @@ export const MainContainer = (props) => {
 							)
 						}
 						{redirectLocation !== '?redirect=AllPosts' && (
-							<Link to="/personal_blog_bootstrapped_by_react/?redirect=AllPosts">
+							<Link to={`${REDIRECT_PATH}AllPosts`}>
 								<h6 className="navLink" style={{ color: '#0d6efd' }}>
 									View all posts -{'>'}
 								</h6>
@@ -118,11 +111,11 @@ export const MainContainer = (props) => {
 };
 
 export const NotFound = () => {
-	const dispatch = useDispatch();
+	const { setPageTitle } = useStateContext();
 	const pageTitle = 'Code Adventures Reminder';
 	//dispatch page title
 	useEffect(() => {
-		dispatch(setPageTitle(pageTitle));
+		setPageTitle(pageTitle);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
@@ -140,12 +133,12 @@ export const NotFound = () => {
 //create recent posts component
 //shows only 4 last posts
 export const RecentPosts = () => {
-	const dispatch = useDispatch();
+	const { setPageTitle } = useStateContext();
 	const pageTitle = 'Recent posts';
 
 	//dispatch page title
 	useEffect(() => {
-		dispatch(setPageTitle(pageTitle));
+		setPageTitle(pageTitle);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
@@ -167,11 +160,11 @@ export const RecentPosts = () => {
 };
 //create recent posts component
 export const AllPosts = () => {
-	const dispatch = useDispatch();
+	const { setPageTitle } = useStateContext();
 	const pageTitle = 'All posts';
 	//dispatch page title
 	useEffect(() => {
-		dispatch(setPageTitle(pageTitle));
+		setPageTitle(pageTitle);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
@@ -207,7 +200,7 @@ const FirstGradeArithmeticTrainer = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=first_grade_arithmetic_trainer"
+			to={`${REDIRECT_PATH}first_grade_arithmetic_trainer`}
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -234,7 +227,7 @@ const TwentyFivePlusFiveClock = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=twenty_five_plus_five_clock"
+			to={`${REDIRECT_PATH}twenty_five_plus_five_clock`}
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -261,7 +254,7 @@ const JavaScriptCalculator = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=javaScript_calculator"
+			to={`${REDIRECT_PATH}javaScript_calculator`}
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -288,7 +281,7 @@ const DrumMachinePost = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=drum_machine"
+			to={`${REDIRECT_PATH}drum_machine`}
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -315,7 +308,7 @@ const MarkdownPreviewerPost = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=markdown_previewer"
+			to={`${REDIRECT_PATH}markdown_previewer`}
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -340,7 +333,7 @@ const RandomQuoteMachine = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=random_quote_machine"
+			to={`${REDIRECT_PATH}random_quote_machine`}
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">
@@ -366,7 +359,7 @@ const WCPost = () => {
 
 	return (
 		<Link
-			to="/personal_blog_bootstrapped_by_react/?redirect=blogPostAboutWebchat"
+			to={`${REDIRECT_PATH}blogPostAboutWebchat`}
 			className="text-dark text-decoration-none">
 			<div className="card">
 				<div className="overflow-hidden card-img-top imgContainer">

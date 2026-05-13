@@ -13,9 +13,6 @@ export const CustomModal = (props) => {
 			aria-hidden="true">
 			<div className="modal-dialog modal-fullscreen">
 				<div className="modal-content">
-					{/* <div className="modal-header codeZoomHeaderModal">
-						
-					</div> */}
 					<div className="modal-body">
 						<pre ref={refPreCodeBlockModal} className="line-numbers">
 							<code ref={refCodeBlockModal} className={'language-' + lang}>
