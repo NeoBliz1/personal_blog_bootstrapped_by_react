@@ -23,3 +23,9 @@ CustomBootstrap.css
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+ # IDE-specific files (IntelliJ IDEA)
+.idea
+*.iws
+*.iml
+*.ipr

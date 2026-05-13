@@ -1,23 +1,18 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-	spinnerIsShowingSetState,
-	selectChildRootIsShowing,
-} from '../../features/imgStateSlice';
+import { useStateContext } from '../state';
 
 //create spinner loader component
 export const SpinnerLoader = () => {
-	const dispatch = useDispatch();
+	const { imgsRendered, spinnerIsShowingSetState } = useStateContext();
 	const spinnerLoaderStyle = {
 		width: '6vh',
 		height: '6vh',
 	};
-	const childRootIsShowing = useSelector(selectChildRootIsShowing);
 	const spinnerClass =
 		'd-flex align-items-center justify-content-center vw-100 vh-100 position-absolute top-0 start-0 bg-light';
 	//spinner animation func
 	const toggleSpinnerClass = () => {
-		if (childRootIsShowing) {
+		if (imgsRendered) {
 			document.body.style.overflow = 'auto';
 			return spinnerClass + ' animate__animated animate__fadeOut fast';
 		} else {
@@ -29,7 +24,7 @@ export const SpinnerLoader = () => {
 			className={toggleSpinnerClass()}
 			id="spinnerLoader"
 			onAnimationEnd={() => {
-				dispatch(spinnerIsShowingSetState());
+				spinnerIsShowingSetState();
 			}}>
 			<div
 				className="spinner-grow text-primary"

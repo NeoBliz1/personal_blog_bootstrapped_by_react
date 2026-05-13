@@ -2,15 +2,14 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app/App';
-import store from './app/store';
-import { Provider } from 'react-redux';
+import { StateProvider } from './app/state';
 
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
-	<Provider store={store}>
+	<StateProvider>
 		<BrowserRouter>
 			<App />
 		</BrowserRouter>
-	</Provider>,
+	</StateProvider>,
 );
