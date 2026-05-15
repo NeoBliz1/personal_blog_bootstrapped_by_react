@@ -8,6 +8,8 @@ export const StateProvider = ({ children }: { children: ReactNode }) => {
 	const [spinnerIsShowing, setSpinnerIsShowing] = useState(true);
 	const [childRootIsShowing, setChildRootIsShowing] = useState(false);
 	const [pageTitle, setPageTitle] = useState('Code Adventures Reminder');
+	const [imgSrc, setImgSrc] = useState('');
+	const [imgAlt, setImgAlt] = useState('');
 
 	const imgsRenderedSetState = () => {
 		setImgsRendered(true);
@@ -32,6 +34,10 @@ export const StateProvider = ({ children }: { children: ReactNode }) => {
 				childRootIsShowingSetState,
 				pageTitle,
 				setPageTitle,
+				imgSrc,
+				setImgSrc,
+				imgAlt,
+				setImgAlt,
 			}}>
 			{children}
 		</StateContext.Provider>

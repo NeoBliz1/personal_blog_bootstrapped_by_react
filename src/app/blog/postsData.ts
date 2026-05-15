@@ -7,6 +7,7 @@ import DrumMachineFullArticle from 'app/blog/pages/dmPost';
 import MarkdownPreviewerFullArticle from 'app/blog/pages/mpPost';
 import RandomQuoteMachineFullArticle from 'app/blog/pages/rqmPost';
 import WCPostFullArticle from 'app/blog/pages/wcPost';
+import KRSAPostFullArticle from 'app/blog/pages/krsaPost';
 
 export const POSTS_DATA: PostConfigWithComponent[] = [
 	{
@@ -70,7 +71,16 @@ export const POSTS_DATA: PostConfigWithComponent[] = [
 		description: 'Messages via telegram.',
 		imgSrc: require('app/styles/imgs/simple.jpg'),
 		altText: 'Website chat',
-		layoutClasses: 'col-11 col-sm-11 col-lg-6 col-xxl-5',
 		component: WCPostFullArticle,
+	},
+	{
+		id: 'krsa',
+		path: 'krsaPost',
+		title: 'Kafka raft scram auth',
+		description: 'Durable, persistent, reliable message broker.',
+		imgSrc: require('app/styles/imgs/kafka_raft.png'),
+		altText: 'Kafka raft scram auth',
+		layoutClasses: 'col-11 col-sm-11 col-lg-6 col-xxl-5',
+		component: KRSAPostFullArticle,
 	},
 ];

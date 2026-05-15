@@ -1,21 +1,21 @@
-import React, { ReactNode, useState } from 'react';
+import React from 'react';
 import { PostLayout } from '../../shared/layouts/PostLayout';
+import { useStateContext } from '../../context/AppStateContext';
 
 const MarkdownPreviewerFullArticle: React.FC = () => {
-	const pageTitle = 'Markdown Previewer Project';
-	const [imgAsset] = useState<ReactNode>(
-		<img
-			src={require('../../styles/imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg')}
-			className="RQMpostImg position-absolute start-50 translate-middle"
-			alt="Markdown Previewer"
-		/>,
-	);
+	const { pageTitle, imgSrc, imgAlt } = useStateContext();
 
 	return (
 		<PostLayout
 			pageTitle={pageTitle}
 			fetchUrl="https://raw.githubusercontent.com/NeoBliz1/Markdown_Previewer/main/src/App.js"
-			imgModule={imgAsset}
+			imgModule={
+				<img
+					src={imgSrc}
+					className="RQMpostImg position-absolute start-50 translate-middle"
+					alt={imgAlt}
+				/>
+			}
 			lang="jsx"
 		>
 			<article className="d-flex justify-content-center">

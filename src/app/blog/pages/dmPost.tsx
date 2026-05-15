@@ -1,21 +1,21 @@
-import React, { ReactNode, useState } from 'react';
+import React from 'react';
 import { PostLayout } from '../../shared/layouts/PostLayout';
+import { useStateContext } from '../../context/AppStateContext';
 
 const DrumMachineFullArticle: React.FC = () => {
-	const pageTitle = 'Drum Machine Project';
-	const [imgAsset] = useState<ReactNode>(
-		<img
-			src={require('../../styles/imgs/yianni-mathioudakis-drum_pad-unsplash_tiny.jpg')}
-			className="RQMpostImg position-absolute start-50 translate-middle"
-			alt="Drum Machine"
-		/>,
-	);
+	const { pageTitle, imgSrc, imgAlt } = useStateContext();
 
 	return (
 		<PostLayout
 			pageTitle={pageTitle}
 			fetchUrl="https://raw.githubusercontent.com/NeoBliz1/drum_machine/main/src/App.js"
-			imgModule={imgAsset}
+			imgModule={
+				<img
+					src={imgSrc}
+					className="RQMpostImg position-absolute start-50 translate-middle"
+					alt={imgAlt}
+				/>
+			}
 			lang="jsx"
 		>
 			<article className="d-flex justify-content-center">

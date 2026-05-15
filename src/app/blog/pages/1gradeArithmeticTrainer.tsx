@@ -1,21 +1,21 @@
-import React, { ReactNode, useState } from 'react';
+import React from 'react';
 import { PostLayout } from '../../shared/layouts/PostLayout';
+import { useStateContext } from '../../context/AppStateContext';
 
 const FirstGradeArithmeticTrainer: React.FC = () => {
-	const pageTitle = 'First Grade Arithmetic Trainer';
-	const [imgAsset] = useState<ReactNode>(
-		<img
-			src={require('../../styles/imgs/DALL·E_2023_01_13_06_30_13_Arithmetic_simulator_for_first_grade_tiny.png')}
-			className="RQMpostImg position-absolute start-50 translate-middle"
-			alt="First Grade Arithmetic Trainer"
-		/>,
-	);
+	const { pageTitle, imgSrc, imgAlt } = useStateContext();
 
 	return (
 		<PostLayout
 			pageTitle={pageTitle}
 			fetchUrl="https://raw.githubusercontent.com/NeoBliz1/arithmetic_first_grade_trainer/main/src/App.tsx"
-			imgModule={imgAsset}
+			imgModule={
+				<img
+					src={imgSrc}
+					className="RQMpostImg position-absolute top-50 start-50 translate-middle w-100"
+					alt={imgAlt}
+				/>
+			}
 			lang="tsx"
 		>
 			<article className="d-flex justify-content-center">
