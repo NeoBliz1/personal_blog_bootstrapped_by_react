@@ -1,8 +1,8 @@
 import '../styles/App.scss';
 
 import Router from './routes';
-import { SpinnerLoader } from './layouts/spinnerLoader';
-import { useStateContext } from './state';
+import { SpinnerLoader } from '../shared/components/SpinnerLoader';
+import { useStateContext } from '../context/AppStateContext';
 
 //app wrap
 const BlogApp = () => {

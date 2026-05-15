@@ -1,24 +1,24 @@
 import React, { useRef } from 'react';
-import { CustomModal } from './modal';
-import { usePostData, zoomHandler } from '../fucnForApp.js';
-import { useStateContext } from '../state';
+import { CustomModal } from '../components/Modal';
+import { useStateContext } from '../../context/AppStateContext';
+import { PostLayoutProps } from '../../types/typesIndex';
 import { BsFullscreen } from 'react-icons/bs';
 import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
+import { zoomHandler } from '../../utils/zoom';
+import { usePostData } from '../../hooks/usePostData';
 
-export const PostLayout = ({ pageTitle, fetchUrl, imgModule, lang, children }) => {
-	const codeBlock = useRef(null);
-	const example1CodeBlock = useRef(null);
-	const codeBlockModal = useRef(null);
+export const PostLayout: React.FC<PostLayoutProps> = ({ pageTitle, fetchUrl, imgModule, lang, children }) => {
+	const codeBlock = useRef<HTMLElement>(null);
+	const codeBlockModal = useRef<HTMLElement>(null);
 	const preCodeBlock = useRef(null);
 
 	const { setPageTitle } = useStateContext();
 
-	// Load asynchronous code data configurations using our unified hook
-	const projectCode = usePostData({
+	const fetchedCode = usePostData({
 		fetchUrl,
 		pageTitle,
 		setPageTitle,
-		highlightRefs: [codeBlock, example1CodeBlock, codeBlockModal],
+		highlightRefs: [codeBlock, codeBlockModal],
 	});
 
 	return (
@@ -61,13 +61,13 @@ export const PostLayout = ({ pageTitle, fetchUrl, imgModule, lang, children }) =
 					</div>
 					<pre className="line-numbers" ref={preCodeBlock} style={{ maxHeight: '800px' }}>
 						<code ref={codeBlock} className={'language-' + lang}>
-							{projectCode}
+							{fetchedCode}
 						</code>
 					</pre>
 				</div>
 
 				<CustomModal
-					codeBlock={projectCode}
+					codeBlock={fetchedCode}
 					refCodeBlockModal={codeBlockModal}
 					lang={lang}
 				/>

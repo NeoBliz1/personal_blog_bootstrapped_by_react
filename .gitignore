@@ -13,7 +13,6 @@
 
 # misc
 .css.map
-CustomBootstrap.css
 .DS_Store
 .env.local
 .env.development.local

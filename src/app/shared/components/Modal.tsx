@@ -1,14 +1,17 @@
+import React from 'react';
+import { zoomHandler } from '../../utils/zoom';
+import { CustomModalProps } from '../../types/typesIndex';
 import { HiZoomIn, HiZoomOut } from 'react-icons/hi';
-import { zoomHandler } from '../fucnForApp.js';
 
-export const CustomModal = (props) => {
-	const { codeBlock, refCodeBlockModal, refPreCodeBlockModal, lang } = props;
+export const CustomModal: React.FC<CustomModalProps> = ({ codeBlock, refCodeBlockModal, lang }) => {
+	const refPreCodeBlockModal = React.useRef<HTMLPreElement>(null);
+
 	return (
 		<div
 			className="modal fade"
 			data-bs-backdrop="false"
 			id="codeModal"
-			tabIndex="-1"
+			tabIndex={-1}
 			aria-labelledby="exampleModalLabel"
 			aria-hidden="true">
 			<div className="modal-dialog modal-fullscreen">
