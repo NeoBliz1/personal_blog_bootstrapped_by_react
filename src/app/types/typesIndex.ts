@@ -10,6 +10,10 @@ export interface StateContextType {
 	childRootIsShowingSetState: () => void;
 	pageTitle: string;
 	setPageTitle: Dispatch<SetStateAction<string>>;
+	imgSrc: string;
+	setImgSrc: Dispatch<SetStateAction<string>>;
+	imgAlt: string;
+	setImgAlt: Dispatch<SetStateAction<string>>;
 }
 
 export interface PostLayoutProps {

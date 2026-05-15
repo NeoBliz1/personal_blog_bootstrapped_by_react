@@ -1,21 +1,21 @@
-import React, { ReactNode, useState } from 'react';
+import React from 'react';
 import { PostLayout } from '../../shared/layouts/PostLayout';
+import { useStateContext } from '../../context/AppStateContext';
 
 const WCPostFullArticle: React.FC = () => {
-	const pageTitle = 'Website Chat with Telegram Messaging';
-	const [imgAsset] = useState<ReactNode>(
-		<img
-			src={require('../../styles/imgs/5940816324_14dc1e5197_b.png')}
-			className="postImg position-absolute top-50 start-50 translate-middle"
-			alt="The easy way is hard enough"
-		/>,
-	);
+	const { pageTitle, imgSrc, imgAlt } = useStateContext();
 
 	return (
 		<PostLayout
 			pageTitle={pageTitle}
 			fetchUrl="https://raw.githubusercontent.com/NeoBliz1/t-msg-bot/master/app.py"
-			imgModule={imgAsset}
+			imgModule={
+				<img
+					src={imgSrc}
+					className="postImg position-absolute top-50 start-50 translate-middle  w-100"
+					alt={imgAlt}
+				/>
+			}
 			lang="python"
 		>
 			<article className="d-flex justify-content-center">

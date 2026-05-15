@@ -44,6 +44,7 @@ export const useImportPrism = (setPrismLoaded: Dispatch<SetStateAction<boolean>>
 					import('prismjs/components/prism-python'),
 					import('prismjs/components/prism-typescript'),
 					import('prismjs/components/prism-tsx'),
+					import('prismjs/components/prism-bash'),
 				]);
 
 				if (isMounted) {

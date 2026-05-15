@@ -5,19 +5,18 @@ import { useStateContext } from 'app/context/AppStateContext';
 
 export const PostContainer: React.FC = () => {
 	const { postId } = useParams<{ postId: string }>();
-	const { setPageTitle } = useStateContext();
+	const { setPageTitle, setImgSrc, setImgAlt } = useStateContext();
 
-	// 1. Extract both metadata and the component reference in a single loop step
 	const currentPost = POSTS_DATA.find((post) => post.path === postId);
 
-	// 2. Keep layout framework titles in sync with global application layout contexts
 	useEffect(() => {
 		if (currentPost) {
 			setPageTitle(currentPost.title);
+			setImgSrc(currentPost.imgSrc);
+			setImgAlt(currentPost.altText);
 		}
-	}, [currentPost, setPageTitle]);
+	}, [currentPost, setPageTitle, setImgSrc, setImgAlt]);
 
-	// 3. Fallback check: handles non-existent pages safely
 	if (!postId || !currentPost) {
 		return (
 			<div className="alert alert-danger m-4">
@@ -26,12 +25,10 @@ export const PostContainer: React.FC = () => {
 		);
 	}
 
-	// 4. Assign the extracted component reference to a capitalized variable name to render as JSX
 	const ActivePostComponent = currentPost.component;
 
 	return (
 		<div className="postContainer-wrapper position-relative">
-			{/* Application Interactive Interface Workspace */}
 			<div className="post-content-body pt-5">
 				<ActivePostComponent />
 			</div>

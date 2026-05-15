@@ -1,21 +1,21 @@
-import React, { ReactNode, useState } from 'react';
+import React from 'react';
 import { PostLayout } from '../../shared/layouts/PostLayout';
+import { useStateContext } from '../../context/AppStateContext';
 
 const JavaScriptCalculator: React.FC = () => {
-	const pageTitle = 'JavaScript Calculator Project';
-	const [imgAsset] = useState<ReactNode>(
-		<img
-			src={require('../../styles/imgs/recha-oktaviani-calculator-unsplash_tiny.jpg')}
-			className="RQMpostImg position-absolute start-50 translate-middle"
-			alt="JavaScript Calculator"
-		/>,
-	);
+	const { pageTitle, imgSrc, imgAlt } = useStateContext();
 
 	return (
 		<PostLayout
 			pageTitle={pageTitle}
 			fetchUrl="https://raw.githubusercontent.com/NeoBliz1/javaScript_calculator/main/src/App.js"
-			imgModule={imgAsset}
+			imgModule={
+				<img
+					src={imgSrc}
+					className="RQMpostImg position-absolute start-50 translate-middle"
+					alt={imgAlt}
+				/>
+			}
 			lang="jsx"
 		>
 			<article className="d-flex justify-content-center">

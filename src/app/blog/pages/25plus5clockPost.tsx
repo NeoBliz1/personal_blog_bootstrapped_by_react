@@ -1,21 +1,21 @@
-import React, { ReactNode, useState } from 'react';
+import React from 'react';
 import { PostLayout } from '../../shared/layouts/PostLayout';
+import { useStateContext } from '../../context/AppStateContext';
 
 const TwentyFivePlusFiveClock: React.FC = () => {
-	const pageTitle = '25 + 5 Clock Project';
-	const [imgAsset] = useState<ReactNode>(
-		<img
-			src={require('../../styles/imgs/jessica-delp-_25+5clock-unsplash_tiny.jpg')}
-			className="RQMpostImg position-absolute start-50 translate-middle"
-			alt="25+5 Clock"
-		/>,
-	);
+	const { pageTitle, imgSrc, imgAlt } = useStateContext();
 
 	return (
 		<PostLayout
 			pageTitle={pageTitle}
 			fetchUrl="https://raw.githubusercontent.com/NeoBliz1/twenty_five_plus_five_clock/main/src/App.tsx"
-			imgModule={imgAsset}
+			imgModule={
+				<img
+					src={imgSrc}
+					className="RQMpostImg position-absolute top-25 start-50 translate-middle w-100"
+					alt={imgAlt}
+				/>
+			}
 			lang="tsx"
 		>
 			<article className="d-flex justify-content-center">
