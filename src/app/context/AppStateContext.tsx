@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useState } from 'react';
+import type { StateContextType } from '../types/typesIndex';
 
-const StateContext = createContext();
+const StateContext = createContext<StateContextType | undefined>(undefined);
 
-export const StateProvider = ({ children }) => {
+export const StateProvider = ({ children }: { children: ReactNode }) => {
 	const [imgsRendered, setImgsRendered] = useState(false);
 	const [spinnerIsShowing, setSpinnerIsShowing] = useState(true);
 	const [childRootIsShowing, setChildRootIsShowing] = useState(false);
@@ -37,4 +38,10 @@ export const StateProvider = ({ children }) => {
 	);
 };
 
-export const useStateContext = () => useContext(StateContext);
+export const useStateContext = () => {
+	const context = useContext(StateContext);
+	if (context === undefined) {
+		throw new Error('useStateContext must be used within a StateProvider');
+	}
+	return context;
+};

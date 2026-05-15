@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { PostLayout } from '../layouts/postLayout';
+import React, { ReactNode, useState } from 'react';
+import { PostLayout } from '../../shared/layouts/PostLayout';
 
-const WCPostFullArticle = () => {
-	const pageTitle = 'Website chat with messages via telegram.';
-	const [imgAsset] = useState(
+const WCPostFullArticle: React.FC = () => {
+	const pageTitle = 'Website Chat with Telegram Messaging';
+	const [imgAsset] = useState<ReactNode>(
 		<img
-			src={require('../../imgs/5940816324_14dc1e5197_b.png')}
+			src={require('../../styles/imgs/5940816324_14dc1e5197_b.png')}
 			className="postImg position-absolute top-50 start-50 translate-middle"
 			alt="The easy way is hard enough"
 		/>,
@@ -38,63 +38,54 @@ const WCPostFullArticle = () => {
 					</div>
 					<div>
 						<p>
-							First of all I've researched some telegram chat apps which already
-							existed. Those either demanded payment either was not suitable
-							format for my website. So I've thought: "It will be easy to create
-							app like this, also it will be useful experience".
-							<a
-								className="mx-1"
-								target="_blank"
-								rel="noreferrer"
-								href="https://neobliz1.github.io/">
-								Front-end
-							</a>
-							part written on
+							I started by researching existing Telegram chat applications, but
+							they were either paid or unsuitable for my website. I decided to
+							build my own, seeing it as a valuable learning experience. The
+							front-end was built with the
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://jqueryui.com/dialog/">
-								Jquery UI
+								JQuery UI
 							</a>
-							framework and
+							framework and the
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://jquery.com/">
-								Jquery
+								JQuery
 							</a>
-							Library. It has simple logic, while chat is open every 5 second it
-							sends request for getting messages from the server.
+							library. The logic is simple: while the chat window is open, it
+							polls the server for new messages every five seconds.
 						</p>
 						<p>
-							Instruction about server side based on the
+							For the server-side implementation, I followed a helpful
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://aliabdelaal.medium.com/telegram-bot-tutoria-using-python-and-flask-1fc634da9522">
-								Ali's article.
-							</a>{' '}
-							According to the article I implemented that logic to my
+								article by Ali
+							</a>
+							. Based on the article, I built the
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://github.com/NeoBliz1/t-msg-bot/blob/master/app.py">
-								program.
+								application
 							</a>
-							Code written in python with Flask framework. Firstly I've started to
-							analyze how flask is working. I've read about
+							using Python and the Flask framework. I began by learning about
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://flask.palletsprojects.com/en/2.0.x/quickstart/#routing">
-								flask
+								Flask routes
 							</a>
-							routes and
+							and the
 							<a
 								className="mx-1"
 								target="_blank"
@@ -102,35 +93,34 @@ const WCPostFullArticle = () => {
 								href="https://docs.python-requests.org/en/latest/user/quickstart/#make-a-request">
 								requests
 							</a>
-							library, it seemed to be enough.
+							library, which was sufficient to get started.
 						</p>
 						<p>
-							Insofar as I was creating an app on the local machine, it was
-							rejecting every request that I was trying to send from local server
-							to another port. So because of that I made a decision deploy app on
+							While developing on my local machine, I encountered issues with
+							requests being rejected when sent from the local server to a
+							different port. This led me to deploy the application on the
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://www.heroku.com/">
-								Heroky Cloud service.
+								Heroku cloud service
 							</a>
-							Considering Ali's article it seemed to be a good idea. Heroku is
-							quite convenient and simple for newbies, in additional it's free for
-							pet projects. So I've read the
+							, which seemed like a good solution based on Ali's article. Heroku
+							is user-friendly, especially for beginners, and offers a free tier
+							for small projects. I followed the
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://devcenter.heroku.com/articles/getting-started-with-python">
-								manual
+								deployment manual
 							</a>
-							how deployed the app, then I installed a Heroku local app on my PC
-							via Ubuntu terminal.
+							and installed the Heroku CLI on my PC using the Ubuntu terminal.
 						</p>
 						<p>
-							After deploying, it still was an error like 'Cross-Origin Request
-							Blocked'. I read around some articles about CORS errors and I found
+							After deploying, I ran into a 'Cross-Origin Request Blocked' error.
+							After researching CORS, I found a
 							<a
 								className="mx-1"
 								target="_blank"
@@ -138,14 +128,14 @@ const WCPostFullArticle = () => {
 								href="https://flask-cors.readthedocs.io/en/latest/">
 								Flask extension
 							</a>
-							for handling Cross Origin Resource Sharing (CORS). Flask_cors made
-							cross-origin AJAX possible. So I added Flask-CORS to my app, after
-							that requests finally reached the server. Heroku is convenient
-							service for pet projects, but it doesn't have possibility to set
-							free SSL certificate (I've tried sertificate from Cloudflare).
+							for handling Cross-Origin Resource Sharing (CORS). Integrating
+							<code>Flask-CORS</code> into my app resolved the issue, allowing
+							AJAX requests to reach the server. While Heroku is convenient for
+							small projects, it doesn't offer free SSL certificates, which I had
+							attempted to set up using Cloudflare.
 						</p>
 						<p>
-							Telegram
+							Telegram's
 							<a
 								className="mx-1"
 								href="https://core.telegram.org/bots/webhooks#the-short-version"
@@ -153,28 +143,27 @@ const WCPostFullArticle = () => {
 								rel="noreferrer">
 								webhook
 							</a>
-							it's a useful feature which allows to get a response message from
-							telegram server in the same moment as it sends to telegram bot from
-							definite user. But it demands
+							feature is incredibly useful, as it allows the server to receive
+							messages from Telegram in real-time. However, this feature requires
+							an
 							<a
 								className="mx-1"
 								href="https://core.telegram.org/bots/webhooks#ssl-needs-a-certificate"
 								target="_blank"
 								rel="noreferrer">
-								SSL
+								SSL certificate
 							</a>
-							. Spent some time reading about SSL certificates, I've found
-							possibility to get a free SSL certificate from Cloudflare. So I made
-							the decision to rent a cheap Ubuntu server and set up my new
-							application there. For server tuning I used
+							. After some research, I discovered that I could get a free SSL
+							certificate from Cloudflare. This prompted me to rent an affordable
+							Ubuntu server and configure my application there. I used a
 							<a
 								className="mx-1"
 								href="https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-20-04"
 								target="_blank"
 								rel="noreferrer">
-								Digitalocean guide
+								guide from DigitalOcean
 							</a>
-							.
+							to help with the server setup.
 						</p>
 					</div>
 				</div>

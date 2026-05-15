@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { PostLayout } from '../layouts/postLayout';
+import React, { ReactNode, useState } from 'react';
+import { PostLayout } from '../../shared/layouts/PostLayout';
 
-const JavaScriptCalculator = () => {
-	const pageTitle = 'JavsScript Calculator project.';
-	const [imgAsset] = useState(
+const JavaScriptCalculator: React.FC = () => {
+	const pageTitle = 'JavaScript Calculator Project';
+	const [imgAsset] = useState<ReactNode>(
 		<img
-			src={require('../../imgs/recha-oktaviani-calculator-unsplash_tiny.jpg')}
+			src={require('../../styles/imgs/recha-oktaviani-calculator-unsplash_tiny.jpg')}
 			className="RQMpostImg position-absolute start-50 translate-middle"
-			alt="Today was a good day"
+			alt="JavaScript Calculator"
 		/>,
 	);
 
@@ -38,7 +38,7 @@ const JavaScriptCalculator = () => {
 					</div>
 					<div>
 						<p>
-							That's the fourth app in the "Front End Development Libraries"
+							This is the fourth app in the "Front End Development Libraries"
 							<a
 								className="mx-1"
 								target="_blank"
@@ -46,45 +46,49 @@ const JavaScriptCalculator = () => {
 								href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
 								training course
 							</a>
-							from freeCodeCamp. The app created with React, I used the Bootstrap
-							framework to make it easy styling. Regular styles.css and inline
-							styles managed by React as plugin technologies. Development
-							environment - cloud service the
+							from freeCodeCamp. It was created with React and styled with
+							Bootstrap for easy styling. The project uses <code>styles.css</code>{' '}
+							and inline styles managed by React, and was developed in the
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://codesandbox.io/u/NeoBliz1">
-								Codesandbox.
+								CodeSandbox
 							</a>
+							cloud IDE.
 						</p>
 						<p>
-							To make it easy, in this project I used my experience from previous
-							projects. There are no new framework features here. It was just
-							interesting to create calculation algorithms, sometimes the
-							algorithms were a bit confusing. I realized that I needed to rename
-							all functions and variables more explicitly and leave more comments
-							to the code. The important things I need to pay attention to are:
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item" style={{ textIndent: '0' }}>
-									access to the current state is only possible before rendering,
-									after rendering it is possible by assigning states <br />
-									<span class="text-primary ps-5">setState</span>
-									((prevState)=>(prevState+1))
+							Leveraging my experience from previous projects, I focused on
+							building the calculation logic, which proved to be complex at
+							times. This project highlighted the importance of using explicit
+							function and variable names and writing clear comments. The key
+							takeaways were:
+							<ul className="list-group list-group-flush">
+								<li className="list-group-item" style={{ textIndent: '0' }}>
+									To access the previous state when setting a new state, use the
+									functional update form of <code>setState</code> to ensure you
+									are working with the most current state value.
+									<br />
+									<span className="text-primary ps-5">
+										setState(prevState ={'>'} prevState + 1)
+									</span>
 								</li>
 
-								<li class="list-group-item" style={{ textIndent: '0' }}>
-									The application is re-rendered every time the state is set.
+								<li className="list-group-item" style={{ textIndent: '0' }}>
+									The component re-renders every time its state is updated via{' '}
+									<code>setState</code>.
 								</li>
 							</ul>
-							The project deployed with npm gh-pages from the codesandbox.
+							The project was deployed from CodeSandbox using npm{' '}
+							<code>gh-pages</code>.
 						</p>
 						<a
 							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://neobliz1.github.io/javaScript_calculator/">
-							Link to the project on the Github pages
+							View Project on GitHub Pages
 						</a>
 						<iframe
 							src="https://neobliz1.github.io/javaScript_calculator/"
@@ -99,7 +103,7 @@ const JavaScriptCalculator = () => {
 							target="_blank"
 							rel="noreferrer"
 							href="https://github.com/NeoBliz1/javaScript_calculator/">
-							Link to the project repository on the Github
+							View Repository on GitHub
 						</a>
 					</div>
 				</div>

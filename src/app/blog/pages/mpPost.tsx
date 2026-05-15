@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { PostLayout } from '../layouts/postLayout';
+import React, { ReactNode, useState } from 'react';
+import { PostLayout } from '../../shared/layouts/PostLayout';
 
-const MarkdownPreviewerFullArticle = () => {
-	const pageTitle = 'Markdown Previewer project.';
-	const [imgAsset] = useState(
+const MarkdownPreviewerFullArticle: React.FC = () => {
+	const pageTitle = 'Markdown Previewer Project';
+	const [imgAsset] = useState<ReactNode>(
 		<img
-			src={require('../../imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg')}
+			src={require('../../styles/imgs/lyman-hansel-gerona-C3POunsplash_tiny.jpg')}
 			className="RQMpostImg position-absolute start-50 translate-middle"
-			alt="Today was a good day"
+			alt="Markdown Previewer"
 		/>,
 	);
 
@@ -46,29 +46,27 @@ const MarkdownPreviewerFullArticle = () => {
 								href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
 								training course
 							</a>
-							from freeCodeCamp. The app created with React, I used the Bootstrap
-							framework to make it easy to work with CSS. Regular styles.css and
-							inline styles managed by React as plugin technologies. As a
-							development environment was chosen cloud service the
+							from freeCodeCamp. It was created with React and styled with
+							Bootstrap for easy CSS management, including <code>styles.css</code>
+							and inline styles. The project was developed in the
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://codesandbox.io/u/NeoBliz1">
-								Codesandbox.
+								CodeSandbox
 							</a>
-							This mini-application is based on two components. The difference
-							between this project and the previous one is the transfer of states
-							via component props in both directions, parent-child and
-							child-parent. The project deployed with npm gh-pages from the
-							codesandbox.
+							cloud IDE. This mini-application features two components and
+							demonstrates state transfer between parent and child components. The
+							project was deployed from CodeSandbox using npm{' '}
+							<code>gh-pages</code>.
 						</p>
 						<a
 							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://neobliz1.github.io/Markdown_Previewer/">
-							Link to the project on the Github pages
+							View Project on GitHub Pages
 						</a>
 						<iframe
 							src="https://neobliz1.github.io/Markdown_Previewer/"
@@ -83,7 +81,7 @@ const MarkdownPreviewerFullArticle = () => {
 							target="_blank"
 							rel="noreferrer"
 							href="https://github.com/NeoBliz1/Markdown_Previewer">
-							Link to the project repository on the Github
+							View Repository on GitHub
 						</a>
 					</div>
 				</div>

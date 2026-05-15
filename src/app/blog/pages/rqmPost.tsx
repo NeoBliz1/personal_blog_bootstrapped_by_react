@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { PostLayout } from '../layouts/postLayout';
+import React, { ReactNode, useState } from 'react';
+import { PostLayout } from '../../shared/layouts/PostLayout';
 
-const RandomQuoteMachineFullArticle = () => {
-	const pageTitle = 'Random citation machine project.';
-	const [imgAsset] = useState(
+const RandomQuoteMachineFullArticle: React.FC = () => {
+	const pageTitle = 'Random Quote Machine Project';
+	const [imgAsset] = useState<ReactNode>(
 		<img
-			src={require('../../imgs/today_was_a_good_day.jpg')}
+			src={require('../../styles/imgs/today_was_a_good_day.jpg')}
 			className="RQMpostImg position-absolute start-50 translate-middle variant-alpha"
 			alt={pageTitle}
 		/>,
@@ -38,43 +38,41 @@ const RandomQuoteMachineFullArticle = () => {
 					</div>
 					<div>
 						<p>
-							This is the first simple app in the "Front End Development
-							Libraries"
+							This is the first app from the freeCodeCamp "Front End
+							Development Libraries"
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react-and-redux:~:text=Front%20End%20Development%20Libraries%20Projects">
-								training course
+								training course.
 							</a>
-							from freeCodeCamp. The app created using React. I used the Bootstrap
-							framework to make it easy to work with CSS. Regular styles.css and
-							inline styles managed by React as plugin technologies. As
-							development environment chosen the cloud-based
+							It was created with React and styled with Bootstrap for easy
+							CSS management, including <code>styles.css</code> and inline
+							styles. The project was developed in the cloud-based
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://codesandbox.io/u/NeoBliz1">
-								codesandbox IDE
+								CodeSandbox IDE.
 							</a>
-							was chosen as the development environment. The full source code can
-							be viewed on
+							The full source code is available on
 							<a
 								className="mx-1"
 								target="_blank"
 								rel="noreferrer"
 								href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
-								my Github.
+								my GitHub,
 							</a>
-							The project was deployed using npm gh-pages from a local machine.
+							and the project was deployed using npm <code>gh-pages</code>.
 						</p>
 						<a
 							className="mx-1"
 							target="_blank"
 							rel="noreferrer"
 							href="https://neobliz1.github.io/rand0m_qu0te_machine/">
-							Link to the project on the Github pages
+							View Project on GitHub Pages
 						</a>
 						<iframe
 							src="https://neobliz1.github.io/rand0m_qu0te_machine/"
@@ -89,7 +87,7 @@ const RandomQuoteMachineFullArticle = () => {
 							target="_blank"
 							rel="noreferrer"
 							href="https://github.com/NeoBliz1/rand0m_qu0te_machine">
-							Link to the project repository on the Github
+							View Repository on GitHub
 						</a>
 					</div>
 				</div>
