@@ -8,6 +8,7 @@ import MarkdownPreviewerFullArticle from 'app/blog/pages/mpPost';
 import RandomQuoteMachineFullArticle from 'app/blog/pages/rqmPost';
 import WCPostFullArticle from 'app/blog/pages/wcPost';
 import KRSAPostFullArticle from 'app/blog/pages/krsaPost';
+import TwentyFivePlusFiveCClock from 'app/blog/pages/25c5cPost';
 
 export const POSTS_DATA: PostConfigWithComponent[] = [
 	{
@@ -80,7 +81,16 @@ export const POSTS_DATA: PostConfigWithComponent[] = [
 		description: 'Durable, persistent, reliable message broker.',
 		imgSrc: require('app/styles/imgs/kafka_raft.png'),
 		altText: 'Kafka raft scram auth',
-		layoutClasses: 'col-11 col-sm-11 col-lg-6 col-xxl-5',
 		component: KRSAPostFullArticle,
+	},
+	{
+		id: '25C5C',
+		path: '25c5cPost',
+		title: '25 clock 5 app for linux as .deb package',
+		description: 'A Pomodoro timer application for Linux, available as a .deb package.',
+		imgSrc: require('app/styles/imgs/lucid-25plus5.jpg'),
+		altText: '25 clock 5 app for linux as .deb package',
+		layoutClasses: 'col-11 col-sm-11 col-lg-6 col-xxl-5',
+		component: TwentyFivePlusFiveCClock,
 	},
 ];
