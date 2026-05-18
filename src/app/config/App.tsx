@@ -1,8 +1,9 @@
-import '../styles/App.scss';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'app/styles/App.scss';
 
 import Router from './routes';
-import { SpinnerLoader } from '../shared/components/SpinnerLoader';
-import { useStateContext } from '../context/AppStateContext';
+import { SpinnerLoader } from 'app/shared/components/SpinnerLoader';
+import { useStateContext } from 'app/context/AppStateContext';
 
 //app wrap
 const BlogApp = () => {
