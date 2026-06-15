@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/personal_blog_bootstrapped_by_react/static/css/main.4abe8de4.css",
-    "main.js": "/personal_blog_bootstrapped_by_react/static/js/main.b84a9100.js",
+    "main.css": "/personal_blog_bootstrapped_by_react/static/css/main.5f8284ab.css",
+    "main.js": "/personal_blog_bootstrapped_by_react/static/js/main.9c133182.js",
     "static/css/198.76fff1e7.chunk.css": "/personal_blog_bootstrapped_by_react/static/css/198.76fff1e7.chunk.css",
     "static/js/198.bf2dd465.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/198.bf2dd465.chunk.js",
     "static/css/14.9762bd3d.chunk.css": "/personal_blog_bootstrapped_by_react/static/css/14.9762bd3d.chunk.css",
@@ -16,6 +16,7 @@
     "static/js/932.15d5e387.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/932.15d5e387.chunk.js",
     "static/js/456.5fd177aa.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/456.5fd177aa.chunk.js",
     "static/js/149.64941abc.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/149.64941abc.chunk.js",
+    "static/js/117.9bfffd18.chunk.js": "/personal_blog_bootstrapped_by_react/static/js/117.9bfffd18.chunk.js",
     "static/media/yianni-mathioudakis-drum_pad-unsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/yianni-mathioudakis-drum_pad-unsplash_tiny.05050ff635342e7f0582.jpg",
     "static/media/kafka_raft.png": "/personal_blog_bootstrapped_by_react/static/media/kafka_raft.28ea32b396da520695eb.png",
     "static/media/header_img.png": "/personal_blog_bootstrapped_by_react/static/media/header_img.d46692170a5babe62c53.png",
@@ -23,12 +24,13 @@
     "static/media/DALL·E_2023_01_13_06_30_13_Arithmetic_simulator_for_first_grade_tiny.png": "/personal_blog_bootstrapped_by_react/static/media/DALL·E_2023_01_13_06_30_13_Arithmetic_simulator_for_first_grade_tiny.4ea16f01e20a3a0af127.png",
     "static/media/today_was_a_good_day.jpg": "/personal_blog_bootstrapped_by_react/static/media/today_was_a_good_day.702c250cf2141506713c.jpg",
     "static/media/simple.jpg": "/personal_blog_bootstrapped_by_react/static/media/simple.65208bf64794bfe54f99.jpg",
+    "static/media/futuristic_portfolio_website_chat_interface_sci--0.jpg": "/personal_blog_bootstrapped_by_react/static/media/futuristic_portfolio_website_chat_interface_sci--0.e6139669885ee200f5d2.jpg",
     "static/media/jessica-delp-_25+5clock-unsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/jessica-delp-_25+5clock-unsplash_tiny.72ef504b6f25d102cdde.jpg",
     "static/media/lucid-25plus5.jpg": "/personal_blog_bootstrapped_by_react/static/media/lucid-25plus5.239e2f713408ebf6aa3e.jpg",
     "static/media/recha-oktaviani-calculator-unsplash_tiny.jpg": "/personal_blog_bootstrapped_by_react/static/media/recha-oktaviani-calculator-unsplash_tiny.00437933af7d17d0a343.jpg",
     "index.html": "/personal_blog_bootstrapped_by_react/index.html",
-    "main.4abe8de4.css.map": "/personal_blog_bootstrapped_by_react/static/css/main.4abe8de4.css.map",
-    "main.b84a9100.js.map": "/personal_blog_bootstrapped_by_react/static/js/main.b84a9100.js.map",
+    "main.5f8284ab.css.map": "/personal_blog_bootstrapped_by_react/static/css/main.5f8284ab.css.map",
+    "main.9c133182.js.map": "/personal_blog_bootstrapped_by_react/static/js/main.9c133182.js.map",
     "198.76fff1e7.chunk.css.map": "/personal_blog_bootstrapped_by_react/static/css/198.76fff1e7.chunk.css.map",
     "198.bf2dd465.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/198.bf2dd465.chunk.js.map",
     "14.9762bd3d.chunk.css.map": "/personal_blog_bootstrapped_by_react/static/css/14.9762bd3d.chunk.css.map",
@@ -42,10 +44,11 @@
     "817.ef90ef1d.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/817.ef90ef1d.chunk.js.map",
     "932.15d5e387.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/932.15d5e387.chunk.js.map",
     "456.5fd177aa.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/456.5fd177aa.chunk.js.map",
-    "149.64941abc.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/149.64941abc.chunk.js.map"
+    "149.64941abc.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/149.64941abc.chunk.js.map",
+    "117.9bfffd18.chunk.js.map": "/personal_blog_bootstrapped_by_react/static/js/117.9bfffd18.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4abe8de4.css",
-    "static/js/main.b84a9100.js"
+    "static/css/main.5f8284ab.css",
+    "static/js/main.9c133182.js"
   ]
 }
